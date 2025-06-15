@@ -7,31 +7,31 @@ import { Badge } from '@/components/ui/badge'
 import { personalInfo } from '../data/personal'
 
 const Home: React.FC = () => {
-  // 統計數據
+  // Statistics
   const stats = [
-    { label: '期刊論文', value: '22+', icon: BookOpen },
-    { label: '研究項目', value: '8+', icon: Search },
-    { label: '指導學生', value: '15+', icon: Users },
-    { label: '獲獎次數', value: '10+', icon: Award }
+    { label: 'Journal Papers', value: '22+', icon: BookOpen },
+    { label: 'Research Projects', value: '8+', icon: Search },
+    { label: 'Students Supervised', value: '15+', icon: Users },
+    { label: 'Awards Received', value: '10+', icon: Award }
   ]
 
-  // 研究亮點
+  // Research Highlights
   const highlights = [
     {
       title: 'Light Bladder Net',
-      description: '基於深度學習的非侵入性膀胱癌預測系統',
+      description: 'Deep learning-based non-invasive bladder cancer prediction system',
       year: '2025',
       journal: 'Anticancer Research'
     },
     {
       title: 'NIgPred',
-      description: '基於機器學習的抗體表位預測系統',
+      description: 'Machine learning-based antibody epitope prediction system',
       year: '2021',
       journal: 'Viruses'
     },
     {
       title: 'QUATgo',
-      description: '蛋白質四級結構屬性預測系統',
+      description: 'Protein quaternary structure attribute prediction system',
       year: '2020',
       journal: 'PLoS ONE'
     }
@@ -46,36 +46,36 @@ const Home: React.FC = () => {
             <div className="space-y-6">
               <div className="space-y-2">
                 <h1 className="text-4xl lg:text-5xl font-bold text-gray-900">
-                  {personalInfo.name}
+                  {personalInfo.nameEn}
                 </h1>
-                <p className="text-xl text-gray-600">{personalInfo.nameEn}</p>
+                <p className="text-xl text-gray-600">{personalInfo.name}</p>
                 <p className="text-lg text-blue-600 font-medium">
-                  {personalInfo.title}
+                  {personalInfo.titleEn}
                 </p>
               </div>
               
-              <p className="text-lg text-gray-700 leading-relaxed">
-                專精於生物資訊學、機器學習在醫學的應用、蛋白質結構預測等領域。
-                致力於開發創新的計算方法和預測系統，為蛋白質功能研究提供強大的計算工具。
+              <p className="text-lg text-gray-700 leading-relaxed text-wrap">
+                Specializing in bioinformatics, machine learning applications in medicine, and protein structure prediction. 
+                Committed to developing innovative computational methods and prediction systems to provide powerful computational tools for protein function research.
               </p>
 
               <div className="flex flex-wrap gap-3">
-                <Badge variant="secondary" className="text-sm">生物資訊學</Badge>
-                <Badge variant="secondary" className="text-sm">機器學習</Badge>
-                <Badge variant="secondary" className="text-sm">深度學習</Badge>
-                <Badge variant="secondary" className="text-sm">蛋白質結構</Badge>
-                <Badge variant="secondary" className="text-sm">醫學資訊</Badge>
+                <Badge variant="secondary" className="text-sm">Bioinformatics</Badge>
+                <Badge variant="secondary" className="text-sm">Machine Learning</Badge>
+                <Badge variant="secondary" className="text-sm">Deep Learning</Badge>
+                <Badge variant="secondary" className="text-sm">Protein Structure</Badge>
+                <Badge variant="secondary" className="text-sm">Medical Informatics</Badge>
               </div>
 
               <div className="flex flex-wrap gap-4">
                 <Button asChild>
                   <Link to="/about">
-                    了解更多 <ArrowRight className="w-4 h-4 ml-2" />
+                    Learn More <ArrowRight className="w-4 h-4 ml-2" />
                   </Link>
                 </Button>
                 <Button variant="outline">
                   <Download className="w-4 h-4 mr-2" />
-                  下載履歷
+                  Download CV
                 </Button>
               </div>
             </div>
@@ -84,10 +84,10 @@ const Home: React.FC = () => {
               <div className="relative">
                 <div className="w-80 h-80 bg-gradient-to-br from-blue-400 to-indigo-600 rounded-full flex items-center justify-center">
                   <div className="w-72 h-72 bg-white rounded-full flex items-center justify-center">
-                    <div className="text-6xl font-bold text-blue-600">董</div>
+                    <div className="text-6xl font-bold text-blue-600">T</div>
                   </div>
                 </div>
-                {/* 裝飾性元素 */}
+                {/* Decorative elements */}
                 <div className="absolute -top-4 -right-4 w-8 h-8 bg-yellow-400 rounded-full"></div>
                 <div className="absolute -bottom-4 -left-4 w-6 h-6 bg-green-400 rounded-full"></div>
                 <div className="absolute top-1/2 -left-8 w-4 h-4 bg-red-400 rounded-full"></div>
@@ -121,9 +121,9 @@ const Home: React.FC = () => {
       <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">研究亮點</h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              近年來在生物資訊學和機器學習領域的重要研究成果
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">Research Highlights</h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto text-wrap">
+              Recent significant research achievements in bioinformatics and machine learning
             </p>
           </div>
 
@@ -140,7 +140,7 @@ const Home: React.FC = () => {
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-gray-700">{highlight.description}</p>
+                  <p className="text-gray-700 text-wrap">{highlight.description}</p>
                 </CardContent>
               </Card>
             ))}
@@ -149,7 +149,7 @@ const Home: React.FC = () => {
           <div className="text-center mt-12">
             <Button asChild variant="outline" size="lg">
               <Link to="/research">
-                查看所有研究 <ArrowRight className="w-4 h-4 ml-2" />
+                View All Research <ArrowRight className="w-4 h-4 ml-2" />
               </Link>
             </Button>
           </div>
@@ -160,34 +160,34 @@ const Home: React.FC = () => {
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">最新消息</h2>
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">Latest News</h2>
             <p className="text-lg text-gray-600">
-              實驗室的最新動態和學術活動
+              Latest updates and academic activities from the lab
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <Card>
               <CardHeader>
-                <CardTitle>新論文發表</CardTitle>
-                <CardDescription>2025年5月</CardDescription>
+                <CardTitle>New Publication</CardTitle>
+                <CardDescription>May 2025</CardDescription>
               </CardHeader>
               <CardContent>
-                <p className="text-gray-700">
+                <p className="text-gray-700 text-wrap">
                   "Light Bladder Net: Non-invasive Bladder Cancer Prediction" 
-                  論文已在 Anticancer Research 期刊發表，提出了創新的膀胱癌預測方法。
+                  has been published in Anticancer Research, proposing an innovative bladder cancer prediction method.
                 </p>
               </CardContent>
             </Card>
 
             <Card>
               <CardHeader>
-                <CardTitle>學術會議參與</CardTitle>
-                <CardDescription>2024年12月</CardDescription>
+                <CardTitle>Conference Participation</CardTitle>
+                <CardDescription>December 2024</CardDescription>
               </CardHeader>
               <CardContent>
-                <p className="text-gray-700">
-                  參與國際生物資訊學會議，發表關於深度學習在醫學診斷應用的最新研究成果。
+                <p className="text-gray-700 text-wrap">
+                  Participated in the International Bioinformatics Conference, presenting the latest research findings on deep learning applications in medical diagnosis.
                 </p>
               </CardContent>
             </Card>
@@ -196,7 +196,7 @@ const Home: React.FC = () => {
           <div className="text-center mt-12">
             <Button asChild variant="outline" size="lg">
               <Link to="/activities">
-                查看所有活動 <ArrowRight className="w-4 h-4 ml-2" />
+                View All Activities <ArrowRight className="w-4 h-4 ml-2" />
               </Link>
             </Button>
           </div>

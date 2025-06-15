@@ -30,9 +30,9 @@ const Header: React.FC = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
             <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-sm">智</span>
+              <span className="text-white font-bold text-sm">I</span>
             </div>
-            <span className="text-xl font-bold text-gray-900">智慧生物資訊實驗室</span>
+            <span className="text-lg lg:text-xl font-bold text-gray-900 text-wrap">Intelligent Bioinformatics Lab</span>
           </Link>
 
           {/* Desktop Navigation */}

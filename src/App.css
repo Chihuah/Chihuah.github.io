@@ -116,5 +116,36 @@
   }
   body {
     @apply bg-background text-foreground;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+      sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  /* Optimize English text rendering */
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-medium;
+    letter-spacing: -0.025em;
+  }
+  
+  p {
+    line-height: 1.6;
+  }
+  
+  /* Ensure proper text wrapping for long English words */
+  .text-wrap {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+  }
+  
+  /* Responsive text sizing for better English readability */
+  @media (max-width: 640px) {
+    .responsive-text {
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
   }
 }
+

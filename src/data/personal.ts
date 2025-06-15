@@ -14,13 +14,13 @@ export const personalInfo: PersonalInfo = {
 }
 
 export const navItems: NavItem[] = [
-  { name: '首頁', path: '/', icon: 'Home' },
-  { name: '關於我', path: '/about', icon: 'User' },
-  { name: '研究成果', path: '/research', icon: 'Search' },
-  { name: '出版品', path: '/publications', icon: 'BookOpen' },
-  { name: '教學課程', path: '/teaching', icon: 'GraduationCap' },
-  { name: '實驗室成員', path: '/members', icon: 'Users' },
-  { name: '學術活動', path: '/activities', icon: 'Calendar' },
-  { name: '聯絡方式', path: '/contact', icon: 'Mail' }
+  { name: 'Home', path: '/', icon: 'Home' },
+  { name: 'About', path: '/about', icon: 'User' },
+  { name: 'Research', path: '/research', icon: 'Search' },
+  { name: 'Publications', path: '/publications', icon: 'BookOpen' },
+  { name: 'Teaching', path: '/teaching', icon: 'GraduationCap' },
+  { name: 'Lab Members', path: '/members', icon: 'Users' },
+  { name: 'Activities', path: '/activities', icon: 'Calendar' },
+  { name: 'Contact', path: '/contact', icon: 'Mail' }
 ]
 

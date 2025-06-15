@@ -7,9 +7,9 @@ const Footer: React.FC = () => {
     <footer className="bg-gray-900 text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {/* 聯絡資訊 */}
+          {/* Contact Information */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">聯絡資訊</h3>
+            <h3 className="text-lg font-semibold mb-4">Contact Information</h3>
             <div className="space-y-3">
               <div className="flex items-center space-x-2">
                 <Mail className="w-4 h-4 text-blue-400" />
@@ -31,27 +31,27 @@ const Footer: React.FC = () => {
             </div>
           </div>
 
-          {/* 機構資訊 */}
+          {/* Institution Information */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">機構資訊</h3>
+            <h3 className="text-lg font-semibold mb-4">Institution</h3>
             <div className="space-y-2">
-              <p className="text-sm">{personalInfo.institution}</p>
-              <p className="text-sm text-gray-400">{personalInfo.institutionEn}</p>
+              <p className="text-sm">{personalInfo.institutionEn}</p>
+              <p className="text-sm text-gray-400">{personalInfo.institution}</p>
               <a 
                 href="https://www.fju.edu.tw"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center space-x-1 text-blue-400 hover:text-blue-300 transition-colors text-sm"
               >
-                <span>輔仁大學官網</span>
+                <span>Fu Jen Catholic University</span>
                 <ExternalLink className="w-3 h-3" />
               </a>
             </div>
           </div>
 
-          {/* 快速連結 */}
+          {/* Academic Resources */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">學術資源</h3>
+            <h3 className="text-lg font-semibold mb-4">Academic Resources</h3>
             <div className="space-y-2">
               <a 
                 href="https://scholar.google.com"
@@ -86,7 +86,7 @@ const Footer: React.FC = () => {
 
         <div className="border-t border-gray-800 mt-8 pt-8 text-center">
           <p className="text-sm text-gray-400">
-            © {new Date().getFullYear()} {personalInfo.name} - 智慧生物資訊實驗室. All rights reserved.
+            © {new Date().getFullYear()} {personalInfo.nameEn} - Intelligent Bioinformatics Lab. All rights reserved.
           </p>
         </div>
       </div>
