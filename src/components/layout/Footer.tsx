@@ -54,25 +54,25 @@ const Footer: React.FC = () => {
             <h3 className="text-lg font-semibold mb-4">Academic Resources</h3>
             <div className="space-y-2">
               <a 
-                href="https://scholar.google.com"
+                href="https://scholar.google.com.tw/citations?user=cNT1e3wAAAAJ"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center space-x-1 text-blue-400 hover:text-blue-300 transition-colors text-sm"
               >
                 <span>Google Scholar</span>
                 <ExternalLink className="w-3 h-3" />
-              </a>
+              </a><br/>
               <a 
-                href="https://orcid.org"
+                href="https://orcid.org/0000-0002-7232-312X"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center space-x-1 text-blue-400 hover:text-blue-300 transition-colors text-sm"
               >
                 <span>ORCID</span>
                 <ExternalLink className="w-3 h-3" />
-              </a>
+              </a><br/>
               <a 
-                href="https://www.researchgate.net"
+                href="https://www.researchgate.net/profile/Chi-Hua-Tung"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center space-x-1 text-blue-400 hover:text-blue-300 transition-colors text-sm"

@@ -5,33 +5,6 @@ import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 
 const Research: React.FC = () => {
-  const researchHighlights = [
-    {
-      icon: <Dna className="w-6 h-6" />,
-      title: "Protein Structure Prediction",
-      description: "QuaBingo and QUATgo systems for enhanced protein quaternary structure prediction accuracy",
-      color: "bg-blue-100 text-blue-600"
-    },
-    {
-      icon: <Target className="w-6 h-6" />,
-      title: "Post-Translational Modifications",
-      description: "SUMOgo system advancing PTM prediction by incorporating interplay of various modifications",
-      color: "bg-green-100 text-green-600"
-    },
-    {
-      icon: <Brain className="w-6 h-6" />,
-      title: "Antibody Research",
-      description: "NIgPred system integrating heterogeneous features with machine learning for epitope prediction",
-      color: "bg-purple-100 text-purple-600"
-    },
-    {
-      icon: <FlaskConical className="w-6 h-6" />,
-      title: "Medical Informatics",
-      description: "LBN system providing rapid, cost-effective, non-invasive diagnostic solutions for bladder cancer",
-      color: "bg-red-100 text-red-600"
-    }
-  ]
-
   const futureDirections = [
     {
       title: "AI-driven \"Structural Alphabet 2.0\" system",
@@ -90,25 +63,15 @@ const Research: React.FC = () => {
     student: "蔡芷妤"
   }
 
-  const keyPublications = [
-    {
-      title: "QuaBingo: A Prediction System for Protein Quaternary Structure Attributes Using Block Composition",
-      authors: "Chi-Hua Tung, Chi-Wei Chen, Ren-Chao Guo, Hui-Fuang Ng, and Yen-Wei Chu",
-      journal: "BioMed Research International, Volume 2016 (2016)",
-      type: "SCI, 82/161, BIOTECHNOLOGY & APPLIED MICROBIOLOGY"
-    },
-    {
-      title: "QUATgo: Protein quaternary structural attributes predicted by two-stage machine learning approaches with heterogeneous feature encoding",
-      authors: "Chi-Hua Tung, Ching-Hsuan Chien, Chi-Wei Chen, Lan-Ying Huang, Yu-Nan Liu, Yen-Wei Chu",
-      journal: "PLoS ONE, 15(4): e0232087 (2020)",
-      type: "SCI, 24/69, MULTIDISCIPLINARY SCIENCES"
-    },
-    {
-      title: "Light Bladder Net: Non-invasive Bladder Cancer Prediction by Weighted Deep Learning Approaches and Graphical Data Transformation",
-      authors: "Chi-Hua Tung, Shih-Huan Lin, Kai-Po Chang, Ya-Wen Xu, Min-Ling Chuang, Yen-Wei Chu",
-      journal: "Anticancer Research, 45(5):1953-1964 (2025)",
-      type: "SCI"
-    }
+  const references = [
+    "Chi-Hua Tung, Chi-Wei Chen, Ren-Chao Guo, Hui-Fuang Ng, and Yen-Wei Chu, \"QuaBingo: A Prediction System for Protein Quaternary Structure Attributes Using Block Composition,\" 2016, BioMed Research International, Volume 2016 (2016). (SCI, 82/161, BIOTECHNOLOGY & APPLIED MICROBIOLOGY)",
+    "Chi-Hua Tung, Ching-Hsuan Chien, Chi-Wei Chen, Lan-Ying Huang, Yu-Nan Liu, Yen-Wei Chu, \"QUATgo: Protein quaternary structural attributes predicted by two-stage machine learning approaches with heterogeneous feature encoding,\" 2020, PLoS ONE, 15(4): e0232087. (SCI, 24/69, MULTIDISCIPLINARY SCIENCES)",
+    "Chi-Hua Tung, Chi-Wei Chen, Han-Hao Sun, and Yen-Wei Chu, \"Predicting human protein subcellular localization by heterogeneous and comprehensive approaches,\" 2017, PLoS ONE, 12(6): e0178832. (SCI, 11/63, MULTIDISCIPLINARY SCIENCES)",
+    "Chi-Chang Chang, Chi-Hua Tung, Chi-Wei Chen, Chin-Hau Tu, Yen-Wei Chu, \"SUMOgo: Prediction of sumoylation sites on lysines by motif screening models and the effects of various post-translational modifications,\" 2018, SCIENTIFIC REPORTS, 8(2018), 15512. (SCI, 12/64, MULTIDISCIPLINARY SCIENCES)",
+    "Chi-Hua Tung, Yi-Sheng Chang, Kai-Po Chang, Yen-Wei Chu, \"NIgPred: Class-Specific Antibody Prediction for Linear B-Cell Epitopes Based on Heterogeneous Features and Machine-Learning Approaches,\" 2021 Aug, Viruses, 13(8):1531. (SCI)",
+    "Chi-Hua Tung, Yen‐Ta Lu, Wei‐Ting Kao, Jen‐Wei Liu, Yi‐Hsuan Lai, Shinn‐Jong Jiang, Hao‐Ping Chen, Tzenge‐Lien Shih, \"Discovery of a more potent anticancer agent than C4‐benzazole 1,8‐naphthalimide derivatives against murine melanoma,\" 2020, JOURNAL OF THE CHINESE CHEMICAL SOCIETY, 67(7): 1254–1262. (SCI, 128/172, CHEMISTRY, MULTIDISCIPLINARY)",
+    "Jia-Ru Wu, Pei-Chieh Lu, Aye Aye Khine, Sailent Rizki Sari Simaremare, Chien-Chi Hung, Lin-Ming Yiin, Tsung-Jung Ho, Chi-Hua Tung & Hao-Ping Chen, \"Borneol dehydrogenase from Pseudomonas sp. TCU-HL1 possesses novel quinuclidinone reductase activities,\" 2021 Aug, Biocatalysis and Biotransformation, (SCI)",
+    "Chi-Hua Tung, Shih-Huan Lin, Kai-Po Chang, Ya-Wen Xu, Min-Ling Chuang, Yen-Wei Chu, \"Light Bladder Net: Non-invasive Bladder Cancer Prediction by Weighted Deep Learning Approaches and Graphical Data Transformation,\" 2025 May, Anticancer Research, 45(5):1953-1964, (SCI)"
   ]
 
   return (
@@ -149,7 +112,7 @@ const Research: React.FC = () => {
             cost-effective, and non-invasive diagnostic solution for bladder cancer [8].
           </p>
           
-          <p className="text-gray-700 text-wrap leading-relaxed">
+          <p className="text-gray-700 mb-8 text-wrap leading-relaxed">
             In addition to research, we actively engage in industry-academia collaboration, currently developing a convolutional neural 
             network-based application for image identification to assess the population of ants within their nests. Moving forward, we aim 
             to extend these preliminary outcomes into broader industrial applications in bioinformatics, medical informatics, and AI-driven 
@@ -160,37 +123,18 @@ const Research: React.FC = () => {
             for skin melanoma, as well as ecological applications including identification of fall armyworms, lepidopteran larvae, and 
             common ant species in Taiwan.
           </p>
-        </div>
 
-        {/* Research Highlights */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-          {researchHighlights.map((highlight, index) => (
-            <Card key={index} className="hover:shadow-lg transition-shadow">
-              <CardHeader className="pb-3">
-                <div className={`w-12 h-12 rounded-full ${highlight.color} flex items-center justify-center mb-3`}>
-                  {highlight.icon}
-                </div>
-                <CardTitle className="text-lg text-wrap">{highlight.title}</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-sm text-gray-600 text-wrap">{highlight.description}</p>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-
-        {/* Key Publications */}
-        <div className="space-y-4">
-          {keyPublications.map((pub, index) => (
-            <Card key={index} className="border-l-4 border-blue-500">
-              <CardContent className="p-6">
-                <h4 className="font-semibold text-gray-900 mb-2 text-wrap">{pub.title}</h4>
-                <p className="text-sm text-gray-600 mb-2 text-wrap">{pub.authors}</p>
-                <p className="text-sm text-gray-700 mb-1">{pub.journal}</p>
-                <Badge variant="outline" className="text-xs">{pub.type}</Badge>
-              </CardContent>
-            </Card>
-          ))}
+          {/* References */}
+          <div className="border-t pt-6">
+            <h4 className="text-lg font-semibold text-gray-900 mb-4">References</h4>
+            <div className="space-y-2">
+              {references.map((ref, index) => (
+                <p key={index} className="text-xs text-gray-600 text-wrap leading-relaxed">
+                  [{index + 1}] {ref}
+                </p>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
