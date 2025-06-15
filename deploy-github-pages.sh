@@ -89,3 +89,4 @@ else
     echo "3. 網路連線是否正常"
 fi
 
+pause
