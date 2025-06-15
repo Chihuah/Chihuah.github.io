@@ -1,3 +1,5 @@
+<<<<<<< HEAD
+
 # 個人學術網站
 
 董其樺副教授的個人學術網站，展示研究成果、出版品、教學經歷等學術資訊。
@@ -42,10 +44,12 @@ pnpm run preview
 ### 自動部署 (推薦)
 
 1. **Fork 或創建儲存庫**
-   - 儲存庫名稱: `academic-website`
+
+   - 儲存庫名稱: `academic-website` 或 `YOUR_USERNAME.github.io`
    - 設為 Public
 
 2. **推送代碼到 GitHub**
+
    ```bash
    git add .
    git commit -m "Initial commit"
@@ -53,18 +57,20 @@ pnpm run preview
    ```
 
 3. **啟用 GitHub Pages**
+
    - 前往儲存庫 Settings > Pages
    - Source 選擇 "GitHub Actions"
    - 推送代碼後會自動部署
 
 4. **訪問網站**
-   - 網址: `https://YOUR_USERNAME.github.io/academic-website`
+   - 網址: `https://YOUR_USERNAME.github.io/academic-website` 或 `https://YOUR_USERNAME.github.io/`
 
 ### 自訂域名 (可選)
 
 1. **購買域名** (例如: `your-name.com`)
 
 2. **設定 DNS**
+
    ```
    CNAME: www.your-domain.com -> YOUR_USERNAME.github.io
    A: your-domain.com -> 185.199.108.153
@@ -148,7 +154,7 @@ academic-website/
 
 ```css
 :root {
-  --primary: 220 90% 56%;      /* 主色調 */
+  --primary: 220 90% 56%; /* 主色調 */
   --secondary: 220 14.3% 95.9%; /* 次要色調 */
   /* 其他顏色變數... */
 }
@@ -204,5 +210,10 @@ npx shadcn-ui@latest add card
 
 ---
 
-*最後更新: 2025年6月*
+_最後更新: 2025 年 6 月_
 
+=======
+
+# Chihuah.github.io
+
+> > > > > > > e4778be9fb60bfd9420a00c47b87cef5f52cc62b
