@@ -463,7 +463,7 @@ const Publications: React.FC = () => {
             </p>
             <Button asChild>
               <a
-                href="https://scholar.google.com"
+                href="https://scholar.google.com.tw/citations?user=cNT1e3wAAAAJ"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2"
