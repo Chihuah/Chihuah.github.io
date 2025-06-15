@@ -25,6 +25,29 @@ const Publications: React.FC = () => {
   const [filterType, setFilterType] = useState('all')
   const [filterYear, setFilterYear] = useState('all')
 
+  // Function to highlight Chi-Hua Tung's name in author list
+  const highlightAuthorName = (authors: string[]) => {
+    return authors.map((author, index) => {
+      const isLastAuthor = index === authors.length - 1
+      const separator = isLastAuthor ? '' : ', '
+      
+      if (author === 'Chi-Hua Tung') {
+        return (
+          <span key={index}>
+            <span className="underline font-medium">{author}</span>
+            {separator}
+          </span>
+        )
+      }
+      
+      return (
+        <span key={index}>
+          {author}{separator}
+        </span>
+      )
+    })
+  }
+
   const publications: Publication[] = [
     {
       id: 1,
@@ -359,7 +382,7 @@ const Publications: React.FC = () => {
                     {pub.title}
                   </CardTitle>
                   <CardDescription className="text-sm text-gray-600 text-wrap">
-                    {pub.authors.join(', ')}
+                    {highlightAuthorName(pub.authors)}
                   </CardDescription>
                 </div>
                 <div className="flex flex-col items-end gap-2">
@@ -440,7 +463,7 @@ const Publications: React.FC = () => {
             </p>
             <Button asChild>
               <a
-                href="https://scholar.google.com"
+                href="https://scholar.google.com.tw/citations?user=cNT1e3wAAAAJ"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2"
