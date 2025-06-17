@@ -2,6 +2,7 @@
 export interface PersonalInfo {
   name: string
   nameEn: string
+  edudegree: string
   title: string
   titleEn: string
   institution: string

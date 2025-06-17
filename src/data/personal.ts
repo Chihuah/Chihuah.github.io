@@ -3,6 +3,7 @@ import { PersonalInfo, NavItem } from '../types'
 export const personalInfo: PersonalInfo = {
   name: '董其樺',
   nameEn: 'Chi-Hua Tung',
+  edudegree: 'Ph.D.',
   title: '副教授',
   titleEn: 'Associate Professor',
   institution: '輔仁大學醫學資訊與創新應用學士學位學程',
@@ -20,7 +21,6 @@ export const navItems: NavItem[] = [
   { name: 'Publications', path: '/publications', icon: 'BookOpen' },
   { name: 'Teaching', path: '/teaching', icon: 'GraduationCap' },
   { name: 'Lab Members', path: '/members', icon: 'Users' },
-  { name: 'Activities', path: '/activities', icon: 'Calendar' },
-  { name: 'Contact', path: '/contact', icon: 'Mail' }
+  { name: 'Activities', path: '/activities', icon: 'Calendar' }
 ]
 

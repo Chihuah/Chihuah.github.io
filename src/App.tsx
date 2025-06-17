@@ -10,7 +10,6 @@ import Publications from './pages/Publications'
 import Teaching from './pages/Teaching'
 import Members from './pages/Members'
 import Activities from './pages/Activities'
-import Contact from './pages/Contact'
 
 // 布�?組件
 import Layout from './components/layout/Layout'
@@ -27,7 +26,6 @@ function App() {
           <Route path="/teaching" element={<Teaching />} />
           <Route path="/members" element={<Members />} />
           <Route path="/activities" element={<Activities />} />
-          <Route path="/contact" element={<Contact />} />
         </Routes>
       </Layout>
     </Router>

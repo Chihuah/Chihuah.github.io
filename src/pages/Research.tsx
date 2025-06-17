@@ -166,7 +166,7 @@ const Research: React.FC = () => {
 
       {/* MOST Projects */}
       <section className="mb-16">
-        <h2 className="text-3xl font-bold text-slate-900 mb-8">The Ministry of Science and Technology (MOST) Projects</h2>
+        <h2 className="text-3xl font-bold text-slate-900 mb-8">The National Science and Technology Council (NSTC) Projects</h2>
         
         <div className="space-y-6">
           {mostProjects.map((project, index) => (

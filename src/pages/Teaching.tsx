@@ -60,28 +60,28 @@ const Teaching: React.FC = () => {
   ]
 
   const graduationProjects = [
-    { students: "吳依穎、黃庭萱、姚冠宇、林胤軒", title: "螞蟻巢穴深度學習圖片辨識系統之開發", year: "2022" },
-    { students: "林育均、潘昱伶、趙翊荃", title: "肺部聽診資料庫分析 肺部疾病判斷", year: "2020" },
-    { students: "吳佩宜、李定丞、溫國勛", title: "宿舍借取用品E化服務系統", year: "2020" },
-    { students: "呂妮珈、陳沛柔、簡心潔、王莉卉", title: "皮膚病變醫學影像辨識", year: "2019" },
-    { students: "李憲汝、高慈敏", title: "以語言實作外國人姓名英漢辨識", year: "2018" },
-    { students: "陳紘睿、洪培俐、吳佩恬", title: "台灣常見螞蟻之深度學習影像辨識", year: "2018" },
-    { students: "陳柏宇、王宗豪、鄭宜彥、張正霖", title: "智慧自走車淮湖系統開發", year: "2017" },
-    { students: "洪芸璇、蔡佩玲、陳珈慧", title: "機器人輔助程式設計教具及教案之開發", year: "2017" },
-    { students: "周俊良、吳昊銘、廖仁瑋、林奕宏", title: "生物主題之桌遊設計與開發", year: "2017" },
-    { students: "吳承翰、陳柏憲", title: "「呼朋引伴」餐飲業行銷APP開發", year: "2017" },
-    { students: "周佳瑩、游苑樺、沈怡玟", title: "學生學習指標雷達圖 連結線上輔助系統開發-以中華大學生資系為例", year: "2016" },
-    { students: "許舒雯、李昀潔、傅軍雅", title: "現代國語流行歌詞音韻資料庫之建置", year: "2015" },
-    { students: "蔡明勳、范元銘、陳維洛、蔡育庭", title: "手語辨識與翻譯系統之研究", year: "2015" },
-    { students: "王閎麒、陳毅", title: "以同質結構相似度網路之重啟隨機遊走研究蛋白質體化", year: "2014" },
-    { students: "馮雲境、黃冠霖、許敏娥、彭麗雅", title: "數位學習行動平台建置", year: "2014" },
-    { students: "簡欣怡、林雅琪、孫桂峻、蔡佩穎", title: "綠膿桿菌結構基因體資料庫之建置研究", year: "2014" },
-    { students: "呂姿穎、林佳穎、柯虹彤、李蕙慈", title: "利用染色質免疫沉澱定序資料研究TR4核受體結合位", year: "2013" },
-    { students: "江偉群、魏嘉宏、石錦賢", title: "利用結構字元集之多重蛋白結構比對工具", year: "2013" },
-    { students: "魏士丰、陳昊宗、葉王祥綸", title: "利用結構字元集預測蛋白質甲基化修飾位", year: "2012" },
-    { students: "紀郁祥、曾景宏、陳敬凱", title: "TR4核受體結合位資訊與致病基因之關聯", year: "2012" },
-    { students: "張君穗、吳佳臻", title: "以蛋白質局部結構相似度網路研究結構與功能之相關性", year: "2011" }
-  ]
+  { students: "吳依穎、葉庭豪、姚冠宇、林胤軒", title: "螞蟻巢穴深度學習圖片辯識系統之開發", year: "2022" },
+  { students: "林育均、潘昱伶、趙翊筌", title: "肺部聽診資料庫分析 肺部疾病判斷", year: "2020" },
+  { students: "吳佩宜、李定奕、溫國勛", title: "宿舍借取用品E化服務系統", year: "2020" },
+  { students: "呂妮珈、陳沛柔、簡心潔、王莉卉", title: "皮膚病變醫學影像辨識", year: "2019" },
+  { students: "李蕙汝、高慈敏", title: "以R語言實作外國人姓名英漢翻譯", year: "2018" },
+  { students: "陳紘睿、洪愷俐、吳佩琦", title: "台灣常見螞蟻之深度學習影像辨識", year: "2018" },
+  { students: "陳柏宇、王宗豪、鄭宜彥、張正霖", title: "智慧自走車灌溉系統開發", year: "2017" },
+  { students: "洪芸璇、蔡佩衿、陳珈慧", title: "機器人輔助程式設計教具及教案之開發", year: "2017" },
+  { students: "周俊良、吳晏嶔、廖仁瑋、林奕安", title: "生物主題之桌遊設計與開發", year: "2017" },
+  { students: "吳承翰、陳柏憲", title: "「呼朋引伴」餐飲業行銷APP開發", year: "2017" },
+  { students: "周佳瑩、游宛樺、沈怡安", title: "學生學習指標雷達圖暨選課職涯輔助系統開發-以中華大學生資系為例", year: "2016" },
+  { students: "許舒雯、李昀霈、傅軍雅", title: "現代國語流行歌詞音韻資料庫之建置", year: "2015" },
+  { students: "蔡明勳、范元駿、陳維洺、蔡育庭", title: "手語辨識與翻譯系統之研究", year: "2015" },
+  { students: "王閔麒、陳毅", title: "以局部結構相似度網路之重啟隨機遊走研究蛋白質磷酸化", year: "2014" },
+  { students: "馮雲揚、黃冠霖、許藝懷、彭麗樺", title: "數位學習行動平台建置", year: "2014" },
+  { students: "簡欣怡、林雅琪、孫桂聆、蔡佩穎", title: "綠膿桿菌結構基因體資料庫之建置研究", year: "2014" },
+  { students: "呂姿穎、林佳穎、柯鈺彤、李懿容", title: "利用染色質免疫沉澱定序資料研究TR4核受體結合位", year: "2013" },
+  { students: "江偉群、魏嘉宏、石錦賢", title: "利用結構字元集之多重蛋白結構比對工具", year: "2013" },
+  { students: "魏士丰、陳昊宗、葉王祥綜", title: "利用結構字元集預測蛋白質甲基化修飾位", year: "2012" },
+  { students: "紀郁祥、曾景宏、陳敬凱", title: "探討TR4核受體結合位資訊與致病基因之關聯", year: "2012" },
+  { students: "張君穗、吳佳榛", title: "以蛋白質局部結構相似度網路研究結構與功能之相關性", year: "2011" }
+]
 
   const speeches = [
     {
@@ -172,8 +172,8 @@ const Teaching: React.FC = () => {
         
         <Card>
           <CardContent className="p-4">
-            <div className="overflow-x-auto">
-              <table className="w-full">
+            <div className="overflow-x-auto flex justify-center">
+              <table className="w-9/10">
                 <thead>
                   <tr className="border-b">
                     <th className="text-left py-2 px-2 font-semibold text-slate-900 w-1/3">學生姓名</th>

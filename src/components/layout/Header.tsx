@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom'
 import { Menu, X, Home, User, Search, BookOpen, GraduationCap, Users, Calendar, Mail } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { navItems } from '../../data/personal'
+import IBLLogo from '../../assets/logo_3.png'
 
 const iconMap = {
   Home,
@@ -11,8 +12,7 @@ const iconMap = {
   BookOpen,
   GraduationCap,
   Users,
-  Calendar,
-  Mail
+  Calendar
 }
 
 const Header: React.FC = () => {
@@ -30,7 +30,8 @@ const Header: React.FC = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
             <div className="w-8 h-8 bg-slate-700 rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-sm">I</span>
+              {/* <span className="text-white font-bold text-sm">I</span> */}
+              <img src={IBLLogo} alt="IBL Logo" className="w-full h-full" />
             </div>
             <span className="text-lg lg:text-xl font-bold text-slate-900 text-wrap">Intelligent Bioinformatics Lab</span>
           </Link>

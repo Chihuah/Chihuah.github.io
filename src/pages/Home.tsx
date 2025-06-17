@@ -8,51 +8,26 @@ import { personalInfo } from '../data/personal'
 
 const Home: React.FC = () => {
   const [profileImage, setProfileImage] = useState<string | null>(null)
+  const [imageLoading, setImageLoading] = useState(true)
 
-  // Try to load profile image
+  // Conditional import for profile image
   useEffect(() => {
     const loadProfileImage = async () => {
       try {
-        // Use dynamic import with a variable to avoid Vite compile-time checking
-        const imagePath = '../assets/profile.jpg'
-        const image = await import(/* @vite-ignore */ imagePath)
-        setProfileImage(image.default)
+        // Try to import the image from assets
+        // Vite will handle the path transformation during build
+        const imageModule = await import('../assets/profile.jpg')
+        setProfileImage(imageModule.default)
+        console.log('Profile image loaded successfully from assets')
       } catch (error) {
-        // Profile image not found, will show fallback 'T'
-        console.log('Profile image not found, using fallback')
+        console.log('Profile image not found in assets, using fallback')
         setProfileImage(null)
+      } finally {
+        setImageLoading(false)
       }
     }
-    loadProfileImage()
-  }, [])
 
-  // Alternative approach: Check if image exists using fetch
-  useEffect(() => {
-    const checkImageExists = async () => {
-      try {
-        const response = await fetch('/src/assets/profile.jpg')
-        if (response.ok) {
-          setProfileImage('/src/assets/profile.jpg')
-        } else {
-          setProfileImage(null)
-        }
-      } catch (error) {
-        // Try alternative path
-        try {
-          const response = await fetch('./assets/profile.jpg')
-          if (response.ok) {
-            setProfileImage('./assets/profile.jpg')
-          } else {
-            setProfileImage(null)
-          }
-        } catch (error) {
-          setProfileImage(null)
-        }
-      }
-    }
-    
-    // Use the fetch approach instead of dynamic import
-    checkImageExists()
+    loadProfileImage()
   }, [])
 
   // Statistics
@@ -94,12 +69,12 @@ const Home: React.FC = () => {
             <div className="space-y-6">
               <div className="space-y-2">
                 <h1 className="text-4xl lg:text-5xl font-bold text-slate-900">
-                  {personalInfo.nameEn}
+                  {personalInfo.name} {personalInfo.nameEn}, {personalInfo.edudegree}
                 </h1>
-                <p className="text-xl text-slate-600">{personalInfo.name}</p>
                 <p className="text-lg text-fju-primary font-medium">
                   {personalInfo.titleEn}
                 </p>
+                <p className="text-xl text-slate-600">Principal Investigator</p>
               </div>
               
               <p className="text-lg text-slate-700 leading-relaxed text-wrap">
@@ -132,14 +107,22 @@ const Home: React.FC = () => {
               <div className="relative">
                 <div className="w-92 h-92 bg-gradient-to-br from-fju-secondary to-fju-primary rounded-full flex items-center justify-center">
                   <div className="w-85 h-85 bg-white rounded-full flex items-center justify-center overflow-hidden">
-                    {profileImage ? (
+                    {imageLoading ? (
+                      // Loading state
+                      <div className="text-6xl font-bold text-fju-primary animate-pulse">T</div>
+                    ) : profileImage ? (
+                      // Profile image found
                       <img 
                         src={profileImage} 
-                        alt="Profile" 
+                        alt="Chi-Hua Tung Profile" 
                         className="w-full h-full object-cover rounded-full"
-                        onError={() => setProfileImage(null)}
+                        onError={() => {
+                          console.log('Image failed to load after import, using fallback')
+                          setProfileImage(null)
+                        }}
                       />
                     ) : (
+                      // Fallback to T letter
                       <div className="text-6xl font-bold text-fju-primary">T</div>
                     )}
                   </div>
