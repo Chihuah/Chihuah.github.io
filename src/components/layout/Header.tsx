@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+﻿import React, { useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { Menu, X, Home, User, Search, BookOpen, GraduationCap, Users, Calendar, Mail } from 'lucide-react'
 import { Button } from '@/components/ui/button'
@@ -29,10 +29,10 @@ const Header: React.FC = () => {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
-            <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
+            <div className="w-8 h-8 bg-slate-700 rounded-lg flex items-center justify-center">
               <span className="text-white font-bold text-sm">I</span>
             </div>
-            <span className="text-lg lg:text-xl font-bold text-gray-900 text-wrap">Intelligent Bioinformatics Lab</span>
+            <span className="text-lg lg:text-xl font-bold text-slate-900 text-wrap">Intelligent Bioinformatics Lab</span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -47,8 +47,8 @@ const Header: React.FC = () => {
                   to={item.path}
                   className={`flex items-center space-x-1 px-3 py-2 rounded-md text-sm font-medium transition-colors ${
                     isActive
-                      ? 'bg-blue-100 text-blue-700'
-                      : 'text-gray-700 hover:bg-gray-100 hover:text-gray-900'
+                      ? 'bg-slate-100 text-blue-700'
+                      : 'text-fju-primary hover:bg-gray-100 hover:text-slate-900'
                   }`}
                 >
                   {IconComponent && <IconComponent className="w-4 h-4" />}
@@ -83,8 +83,8 @@ const Header: React.FC = () => {
                     to={item.path}
                     className={`flex items-center space-x-2 px-3 py-2 rounded-md text-base font-medium transition-colors ${
                       isActive
-                        ? 'bg-blue-100 text-blue-700'
-                        : 'text-gray-700 hover:bg-gray-100 hover:text-gray-900'
+                        ? 'bg-slate-100 text-blue-700'
+                        : 'text-fju-primary hover:bg-gray-100 hover:text-slate-900'
                     }`}
                     onClick={() => setIsMenuOpen(false)}
                   >

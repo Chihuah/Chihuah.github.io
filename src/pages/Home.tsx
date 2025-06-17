@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { ArrowRight, Download, Award, BookOpen, Users, Search } from 'lucide-react'
 import { Button } from '@/components/ui/button'
@@ -7,6 +7,54 @@ import { Badge } from '@/components/ui/badge'
 import { personalInfo } from '../data/personal'
 
 const Home: React.FC = () => {
+  const [profileImage, setProfileImage] = useState<string | null>(null)
+
+  // Try to load profile image
+  useEffect(() => {
+    const loadProfileImage = async () => {
+      try {
+        // Use dynamic import with a variable to avoid Vite compile-time checking
+        const imagePath = '../assets/profile.jpg'
+        const image = await import(/* @vite-ignore */ imagePath)
+        setProfileImage(image.default)
+      } catch (error) {
+        // Profile image not found, will show fallback 'T'
+        console.log('Profile image not found, using fallback')
+        setProfileImage(null)
+      }
+    }
+    loadProfileImage()
+  }, [])
+
+  // Alternative approach: Check if image exists using fetch
+  useEffect(() => {
+    const checkImageExists = async () => {
+      try {
+        const response = await fetch('/src/assets/profile.jpg')
+        if (response.ok) {
+          setProfileImage('/src/assets/profile.jpg')
+        } else {
+          setProfileImage(null)
+        }
+      } catch (error) {
+        // Try alternative path
+        try {
+          const response = await fetch('./assets/profile.jpg')
+          if (response.ok) {
+            setProfileImage('./assets/profile.jpg')
+          } else {
+            setProfileImage(null)
+          }
+        } catch (error) {
+          setProfileImage(null)
+        }
+      }
+    }
+    
+    // Use the fetch approach instead of dynamic import
+    checkImageExists()
+  }, [])
+
   // Statistics
   const stats = [
     { label: 'Journal Papers', value: '22+', icon: BookOpen },
@@ -40,21 +88,21 @@ const Home: React.FC = () => {
   return (
     <div className="space-y-16">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-blue-50 to-indigo-100 py-20">
+      <section className="relative py-20" style={{ background: 'linear-gradient(135deg, #f8fafc 0%, #124e79 100%)' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
               <div className="space-y-2">
-                <h1 className="text-4xl lg:text-5xl font-bold text-gray-900">
+                <h1 className="text-4xl lg:text-5xl font-bold text-slate-900">
                   {personalInfo.nameEn}
                 </h1>
-                <p className="text-xl text-gray-600">{personalInfo.name}</p>
-                <p className="text-lg text-blue-600 font-medium">
+                <p className="text-xl text-slate-600">{personalInfo.name}</p>
+                <p className="text-lg text-fju-primary font-medium">
                   {personalInfo.titleEn}
                 </p>
               </div>
               
-              <p className="text-lg text-gray-700 leading-relaxed text-wrap">
+              <p className="text-lg text-slate-700 leading-relaxed text-wrap">
                 Specializing in bioinformatics, machine learning applications in medicine, and protein structure prediction. 
                 Committed to developing innovative computational methods and prediction systems to provide powerful computational tools for protein function research.
               </p>
@@ -68,12 +116,12 @@ const Home: React.FC = () => {
               </div>
 
               <div className="flex flex-wrap gap-4">
-                <Button asChild>
+                <Button asChild className="bg-fju-primary hover:bg-fju-primary-dark">
                   <Link to="/about">
                     Learn More <ArrowRight className="w-4 h-4 ml-2" />
                   </Link>
                 </Button>
-                <Button variant="outline">
+                <Button variant="outline" className="border-fju-secondary text-fju-secondary hover:bg-fju-secondary hover:text-white">
                   <Download className="w-4 h-4 mr-2" />
                   Download CV
                 </Button>
@@ -82,15 +130,24 @@ const Home: React.FC = () => {
 
             <div className="flex justify-center">
               <div className="relative">
-                <div className="w-80 h-80 bg-gradient-to-br from-blue-400 to-indigo-600 rounded-full flex items-center justify-center">
-                  <div className="w-72 h-72 bg-white rounded-full flex items-center justify-center">
-                    <div className="text-6xl font-bold text-blue-600">T</div>
+                <div className="w-92 h-92 bg-gradient-to-br from-fju-secondary to-fju-primary rounded-full flex items-center justify-center">
+                  <div className="w-85 h-85 bg-white rounded-full flex items-center justify-center overflow-hidden">
+                    {profileImage ? (
+                      <img 
+                        src={profileImage} 
+                        alt="Profile" 
+                        className="w-full h-full object-cover rounded-full"
+                        onError={() => setProfileImage(null)}
+                      />
+                    ) : (
+                      <div className="text-6xl font-bold text-fju-primary">T</div>
+                    )}
                   </div>
                 </div>
                 {/* Decorative elements */}
-                <div className="absolute -top-4 -right-4 w-8 h-8 bg-yellow-400 rounded-full"></div>
-                <div className="absolute -bottom-4 -left-4 w-6 h-6 bg-green-400 rounded-full"></div>
-                <div className="absolute top-1/2 -left-8 w-4 h-4 bg-red-400 rounded-full"></div>
+                <div className="absolute -top-4 -right-4 w-8 h-8 bg-fju-accent rounded-full"></div>
+                <div className="absolute -bottom-4 -left-4 w-6 h-6 bg-fju-secondary rounded-full"></div>
+                <div className="absolute top-1/2 -left-8 w-4 h-4 bg-fju-accent-alt rounded-full"></div>
               </div>
             </div>
           </div>
@@ -103,13 +160,21 @@ const Home: React.FC = () => {
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
             {stats.map((stat, index) => {
               const IconComponent = stat.icon
+              const colors = [
+                { bg: 'bg-fju-primary/10', text: 'text-fju-primary' },
+                { bg: 'bg-fju-secondary/10', text: 'text-fju-secondary' },
+                { bg: 'bg-fju-accent/10', text: 'text-fju-accent' },
+                { bg: 'bg-fju-secondary/10', text: 'text-fju-secondary' }
+              ]
+              const color = colors[index % colors.length]
+              
               return (
                 <div key={index} className="text-center">
-                  <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-100 rounded-full mb-4">
-                    <IconComponent className="w-8 h-8 text-blue-600" />
+                  <div className={`inline-flex items-center justify-center w-16 h-16 ${color.bg} rounded-full mb-4`}>
+                    <IconComponent className={`w-8 h-8 ${color.text}`} />
                   </div>
-                  <div className="text-3xl font-bold text-gray-900 mb-2">{stat.value}</div>
-                  <div className="text-gray-600">{stat.label}</div>
+                  <div className="text-3xl font-bold text-slate-900 mb-2">{stat.value}</div>
+                  <div className="text-slate-600">{stat.label}</div>
                 </div>
               )
             })}
@@ -118,36 +183,45 @@ const Home: React.FC = () => {
       </section>
 
       {/* Research Highlights */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-16 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Research Highlights</h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto text-wrap">
+            <h2 className="text-3xl font-bold text-slate-900 mb-4">Research Highlights</h2>
+            <p className="text-lg text-slate-600 max-w-2xl mx-auto text-wrap">
               Recent significant research achievements in bioinformatics and machine learning
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {highlights.map((highlight, index) => (
-              <Card key={index} className="hover:shadow-lg transition-shadow">
-                <CardHeader>
-                  <div className="flex justify-between items-start mb-2">
-                    <CardTitle className="text-lg">{highlight.title}</CardTitle>
-                    <Badge variant="outline">{highlight.year}</Badge>
-                  </div>
-                  <CardDescription className="text-sm text-gray-500">
-                    {highlight.journal}
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-700 text-wrap">{highlight.description}</p>
-                </CardContent>
-              </Card>
-            ))}
+            {highlights.map((highlight, index) => {
+              const borderColors = ['border-l-fju-primary', 'border-l-fju-secondary', 'border-l-fju-secondary']
+              const badgeColors = [
+                'bg-fju-primary/10 text-fju-primary',
+                'bg-fju-secondary/10 text-fju-secondary', 
+                'bg-fju-secondary/10 text-fju-secondary'
+              ]
+              
+              return (
+                <Card key={index} className={`hover:shadow-lg transition-shadow border-l-4 ${borderColors[index % borderColors.length]}`}>
+                  <CardHeader>
+                    <div className="flex justify-between items-start mb-2">
+                      <CardTitle className="text-lg text-slate-900">{highlight.title}</CardTitle>
+                      <Badge variant="outline" className={badgeColors[index % badgeColors.length]}>{highlight.year}</Badge>
+                    </div>
+                    <CardDescription className="text-sm text-slate-500">
+                      {highlight.journal}
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-slate-700 text-wrap">{highlight.description}</p>
+                  </CardContent>
+                </Card>
+              )
+            })}
           </div>
 
           <div className="text-center mt-12">
-            <Button asChild variant="outline" size="lg">
+            <Button asChild variant="outline" size="lg" className="border-fju-primary text-fju-primary hover:bg-fju-primary hover:text-white">
               <Link to="/research">
                 View All Research <ArrowRight className="w-4 h-4 ml-2" />
               </Link>
@@ -160,33 +234,33 @@ const Home: React.FC = () => {
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Latest News</h2>
-            <p className="text-lg text-gray-600">
+            <h2 className="text-3xl font-bold text-slate-900 mb-4">Latest News</h2>
+            <p className="text-lg text-slate-600">
               Latest updates and academic activities from the lab
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <Card>
+            <Card className="border-l-4 border-l-fju-secondary">
               <CardHeader>
-                <CardTitle>New Publication</CardTitle>
-                <CardDescription>May 2025</CardDescription>
+                <CardTitle className="text-slate-900">New Publication</CardTitle>
+                <CardDescription className="text-fju-secondary font-medium">May 2025</CardDescription>
               </CardHeader>
               <CardContent>
-                <p className="text-gray-700 text-wrap">
+                <p className="text-slate-700 text-wrap">
                   "Light Bladder Net: Non-invasive Bladder Cancer Prediction" 
                   has been published in Anticancer Research, proposing an innovative bladder cancer prediction method.
                 </p>
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="border-l-4 border-l-fju-secondary">
               <CardHeader>
-                <CardTitle>Conference Participation</CardTitle>
-                <CardDescription>December 2024</CardDescription>
+                <CardTitle className="text-slate-900">Conference Participation</CardTitle>
+                <CardDescription className="text-fju-secondary font-medium">December 2024</CardDescription>
               </CardHeader>
               <CardContent>
-                <p className="text-gray-700 text-wrap">
+                <p className="text-slate-700 text-wrap">
                   Participated in the International Bioinformatics Conference, presenting the latest research findings on deep learning applications in medical diagnosis.
                 </p>
               </CardContent>
@@ -194,7 +268,7 @@ const Home: React.FC = () => {
           </div>
 
           <div className="text-center mt-12">
-            <Button asChild variant="outline" size="lg">
+            <Button asChild variant="outline" size="lg" className="border-fju-accent text-fju-accent hover:bg-fju-accent hover:text-white">
               <Link to="/activities">
                 View All Activities <ArrowRight className="w-4 h-4 ml-2" />
               </Link>

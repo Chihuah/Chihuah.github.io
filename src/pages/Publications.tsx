@@ -96,11 +96,11 @@ const Publications: React.FC = () => {
     {
       id: 5,
       title: "Discovery of a more potent anticancer agent than C4‐benzazole 1,8‐naphthalimide derivatives against murine melanoma",
-      authors: ["Chi-Hua Tung", "Yen‐Ta Lu", "Wei‐Ting Kao", "Jen‐Wei Liu", "Yi‐Hsuan Lai", "Shinn‐Jong Jiang", "Hao‐Ping Chen", "Tzenge‐Lien Shih"],
+      authors: ["Chi-Hua Tung", "Yen‐Ta Lu", "Wei-Ting Kao", "Jen-Wei Liu", "Yi-Hsuan Lai", "Shinn-Jong Jiang", "Hao-Ping Chen", "Tzenge-Lien Shih"],
       journal: "Journal of the Chinese Chemical Society",
       year: 2020,
       volume: "67(7)",
-      pages: "1254–1262",
+      pages: "1254-262",
       doi: "10.1002/jccs.202000019",
       type: "SCI",
       category: "journal",
@@ -126,7 +126,7 @@ const Publications: React.FC = () => {
       journal: "International Journal of Management, Economics and Social Sciences",
       year: 2019,
       volume: "8(3)",
-      pages: "253–265",
+      pages: "253-265",
       type: "EI",
       category: "journal"
     },
@@ -271,9 +271,9 @@ const Publications: React.FC = () => {
 
   const getTypeColor = (type: string) => {
     switch (type) {
-      case 'SCI': return 'bg-blue-100 text-blue-800'
-      case 'EI': return 'bg-green-100 text-green-800'
-      case 'Conference': return 'bg-purple-100 text-purple-800'
+      case 'SCI': return 'bg-slate-100 text-blue-800'
+      case 'EI': return 'bg-teal-100 text-green-800'
+      case 'Conference': return 'bg-fuchsia-100 text-purple-800'
       default: return 'bg-gray-100 text-gray-800'
     }
   }
@@ -282,8 +282,8 @@ const Publications: React.FC = () => {
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
       {/* Header */}
       <div className="text-center mb-12">
-        <h1 className="text-4xl font-bold text-gray-900 mb-4">Publications</h1>
-        <p className="text-lg text-gray-600 max-w-3xl mx-auto text-wrap">
+        <h1 className="text-4xl font-bold text-slate-900 mb-4">Publications</h1>
+        <p className="text-lg text-slate-600 max-w-3xl mx-auto text-wrap">
           A comprehensive collection of research publications in bioinformatics, machine learning, 
           and computational biology spanning over two decades of academic contributions.
         </p>
@@ -293,50 +293,50 @@ const Publications: React.FC = () => {
       <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8">
         <Card>
           <CardContent className="p-6 text-center">
-            <div className="flex items-center justify-center w-12 h-12 bg-blue-100 rounded-full mx-auto mb-3">
-              <BookOpen className="w-6 h-6 text-blue-600" />
+            <div className="flex items-center justify-center w-12 h-12 bg-slate-100 rounded-full mx-auto mb-3">
+              <BookOpen className="w-6 h-6 text-fju-primary" />
             </div>
-            <div className="text-2xl font-bold text-gray-900">{stats.total}</div>
-            <div className="text-sm text-gray-600">Total Publications</div>
+            <div className="text-2xl font-bold text-slate-900">{stats.total}</div>
+            <div className="text-sm text-slate-600">Total Publications</div>
           </CardContent>
         </Card>
         
         <Card>
           <CardContent className="p-6 text-center">
-            <div className="flex items-center justify-center w-12 h-12 bg-blue-100 rounded-full mx-auto mb-3">
-              <Award className="w-6 h-6 text-blue-600" />
+            <div className="flex items-center justify-center w-12 h-12 bg-slate-100 rounded-full mx-auto mb-3">
+              <Award className="w-6 h-6 text-fju-primary" />
             </div>
-            <div className="text-2xl font-bold text-gray-900">{stats.sci}</div>
-            <div className="text-sm text-gray-600">SCI Papers</div>
+            <div className="text-2xl font-bold text-slate-900">{stats.sci}</div>
+            <div className="text-sm text-slate-600">SCI Papers</div>
           </CardContent>
         </Card>
         
         <Card>
           <CardContent className="p-6 text-center">
-            <div className="flex items-center justify-center w-12 h-12 bg-green-100 rounded-full mx-auto mb-3">
-              <BookOpen className="w-6 h-6 text-green-600" />
+            <div className="flex items-center justify-center w-12 h-12 bg-teal-100 rounded-full mx-auto mb-3">
+              <BookOpen className="w-6 h-6 text-fju-secondary" />
             </div>
-            <div className="text-2xl font-bold text-gray-900">{stats.ei}</div>
-            <div className="text-sm text-gray-600">EI Papers</div>
+            <div className="text-2xl font-bold text-slate-900">{stats.ei}</div>
+            <div className="text-sm text-slate-600">EI Papers</div>
           </CardContent>
         </Card>
         
         <Card>
           <CardContent className="p-6 text-center">
-            <div className="flex items-center justify-center w-12 h-12 bg-purple-100 rounded-full mx-auto mb-3">
-              <Calendar className="w-6 h-6 text-purple-600" />
+            <div className="flex items-center justify-center w-12 h-12 bg-fuchsia-100 rounded-full mx-auto mb-3">
+              <Calendar className="w-6 h-6 text-fuchsia-700" />
             </div>
-            <div className="text-2xl font-bold text-gray-900">{stats.conference}</div>
-            <div className="text-sm text-gray-600">Conference Papers</div>
+            <div className="text-2xl font-bold text-slate-900">{stats.conference}</div>
+            <div className="text-sm text-slate-600">Conference Papers</div>
           </CardContent>
         </Card>
       </div>
 
       {/* Search and Filter */}
-      <div className="bg-gray-50 rounded-lg p-6 mb-8">
+      <div className="bg-slate-50 rounded-lg p-6 mb-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <div className="relative">
-            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
+            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-slate-400 w-4 h-4" />
             <Input
               placeholder="Search publications..."
               value={searchTerm}
@@ -381,7 +381,7 @@ const Publications: React.FC = () => {
                   <CardTitle className="text-lg leading-tight text-wrap mb-2">
                     {pub.title}
                   </CardTitle>
-                  <CardDescription className="text-sm text-gray-600 text-wrap">
+                  <CardDescription className="text-sm text-slate-600 text-wrap">
                     {highlightAuthorName(pub.authors)}
                   </CardDescription>
                 </div>
@@ -389,7 +389,7 @@ const Publications: React.FC = () => {
                   <Badge className={getTypeColor(pub.type)}>
                     {pub.type}
                   </Badge>
-                  <span className="text-sm font-medium text-gray-900">{pub.year}</span>
+                  <span className="text-sm font-medium text-slate-900">{pub.year}</span>
                 </div>
               </div>
             </CardHeader>
@@ -397,13 +397,13 @@ const Publications: React.FC = () => {
             <CardContent>
               <div className="space-y-2">
                 <div className="text-sm">
-                  <span className="font-medium text-gray-900">{pub.journal}</span>
-                  {pub.volume && <span className="text-gray-600">, {pub.volume}</span>}
-                  {pub.pages && <span className="text-gray-600">: {pub.pages}</span>}
+                  <span className="font-medium text-slate-900">{pub.journal}</span>
+                  {pub.volume && <span className="text-slate-600">, {pub.volume}</span>}
+                  {pub.pages && <span className="text-slate-600">: {pub.pages}</span>}
                 </div>
                 
                 {pub.ranking && (
-                  <div className="text-xs text-gray-500 text-wrap">
+                  <div className="text-xs text-slate-500 text-wrap">
                     Ranking: {pub.ranking}
                   </div>
                 )}
@@ -436,7 +436,7 @@ const Publications: React.FC = () => {
 
       {filteredPublications.length === 0 && (
         <div className="text-center py-12">
-          <div className="text-gray-500 text-lg">No publications found matching your criteria.</div>
+          <div className="text-slate-500 text-lg">No publications found matching your criteria.</div>
           <Button
             variant="outline"
             onClick={() => {
@@ -455,10 +455,10 @@ const Publications: React.FC = () => {
       <div className="mt-12 text-center">
         <Card className="bg-blue-50 border-blue-200">
           <CardContent className="p-6">
-            <h3 className="text-lg font-semibold text-gray-900 mb-2">
+            <h3 className="text-lg font-semibold text-slate-900 mb-2">
               Complete Citation Metrics
             </h3>
-            <p className="text-gray-600 mb-4 text-wrap">
+            <p className="text-slate-600 mb-4 text-wrap">
               For the most up-to-date citation counts and H-index, please visit the Google Scholar profile.
             </p>
             <Button asChild>

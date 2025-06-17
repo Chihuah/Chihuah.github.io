@@ -39,75 +39,93 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+  
+  /* 自定義輔大醫資配色 */
+  --color-fju-primary: #124e79;      /* 深藍色 - 主色調 */
+  --color-fju-primary-dark: #1e40af;  /* 深藍色變化 */
+  --color-fju-secondary: #0891b2;     /* 青綠色 - 輔助色 */
+  --color-fju-secondary-dark: #0e7490; /* 青綠色變化 */
+  --color-fju-accent: #be185d;        /* 紫紅色 - 強調色 */
+  --color-fju-accent-alt: #e11d48;    /* 紫紅色變化 */
+  --color-fju-background: #1e293b;    /* 深藍灰色背景 */
+  --color-fju-background-light: #334155; /* 淺一點的深藍灰色 */
 }
 
 :root {
   --radius: 0.625rem;
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
+  --card: oklch(0.98 0 0);
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
+  
+  /* 使用輔大醫資配色作為主要顏色 */
+  --primary: #1e3a8a;                 /* 深藍色 */
   --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
+  --secondary: #0891b2;               /* 青綠色 */
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.961 0.004 248.031);
   --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
+  --accent: #be185d;                  /* 紫紅色 */
+  --accent-foreground: oklch(0.985 0 0);
   --destructive: oklch(0.577 0.245 27.325);
   --border: oklch(0.922 0 0);
   --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
+  --ring: #0891b2;                    /* 青綠色 */
+  
+  /* 圖表顏色使用輔大醫資配色 */
+  --chart-1: #0891b2;                 /* 青綠色 */
+  --chart-2: #1e3a8a;                 /* 深藍色 */
+  --chart-3: #be185d;                 /* 紫紅色 */
+  --chart-4: #e11d48;                 /* 紫紅色變化 */
+  --chart-5: #0e7490;                 /* 青綠色變化 */
+  
   --sidebar: oklch(0.985 0 0);
   --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary: #1e3a8a;
   --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-accent: oklch(0.961 0.004 248.031);
+  --sidebar-accent-foreground: #1e3a8a;
   --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
+  --sidebar-ring: #0891b2;
 }
 
 .dark {
-  --background: oklch(0.145 0 0);
+  --background: #1e293b;              /* 深藍灰色背景 */
   --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
+  --card: #334155;                    /* 淺一點的深藍灰色 */
   --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
+  --popover: #334155;
   --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
+  --primary: #0891b2;                 /* 深色模式使用青綠色 */
+  --primary-foreground: #1e293b;
+  --secondary: #334155;
   --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
+  --muted: #334155;
   --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
+  --accent: #e11d48;                  /* 深色模式使用亮紫紅色 */
   --accent-foreground: oklch(0.985 0 0);
   --destructive: oklch(0.704 0.191 22.216);
   --border: oklch(1 0 0 / 10%);
   --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.205 0 0);
+  --ring: #0891b2;
+  
+  /* 深色模式圖表顏色 */
+  --chart-1: #0891b2;
+  --chart-2: #1e40af;
+  --chart-3: #e11d48;
+  --chart-4: #be185d;
+  --chart-5: #0e7490;
+  
+  --sidebar: #1e293b;
   --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-primary: #0891b2;
+  --sidebar-primary-foreground: #1e293b;
+  --sidebar-accent: #334155;
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
+  --sidebar-ring: #0891b2;
 }
 
 @layer base {
@@ -130,7 +148,7 @@
   }
   
   p {
-    line-height: 1.6;
+    line-height: 1.4;
   }
   
   /* Ensure proper text wrapping for long English words */
@@ -146,6 +164,65 @@
       font-size: 0.9rem;
       line-height: 1.5;
     }
+  }
+}
+
+/* 輔大醫資配色工具類別 */
+@layer utilities {
+  .bg-fju-primary {
+    background-color: var(--color-fju-primary);
+  }
+  
+  .bg-fju-primary-dark {
+    background-color: var(--color-fju-primary-dark);
+  }
+  
+  .bg-fju-secondary {
+    background-color: var(--color-fju-secondary);
+  }
+  
+  .bg-fju-secondary-dark {
+    background-color: var(--color-fju-secondary-dark);
+  }
+  
+  .bg-fju-accent {
+    background-color: var(--color-fju-accent);
+  }
+  
+  .bg-fju-accent-alt {
+    background-color: var(--color-fju-accent-alt);
+  }
+  
+  .bg-fju-background {
+    background-color: var(--color-fju-background);
+  }
+  
+  .bg-fju-background-light {
+    background-color: var(--color-fju-background-light);
+  }
+  
+  .text-fju-primary {
+    color: var(--color-fju-primary);
+  }
+  
+  .text-fju-secondary {
+    color: var(--color-fju-secondary);
+  }
+  
+  .text-fju-accent {
+    color: var(--color-fju-accent);
+  }
+  
+  .border-fju-primary {
+    border-color: var(--color-fju-primary);
+  }
+  
+  .border-fju-secondary {
+    border-color: var(--color-fju-secondary);
+  }
+  
+  .border-fju-accent {
+    border-color: var(--color-fju-accent);
   }
 }
 
