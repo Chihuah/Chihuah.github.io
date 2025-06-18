@@ -106,24 +106,55 @@
 
 ```
 Chihuah.github.io/
-├── public/                # 靜態資源
-│   ├── images/            # 圖片檔案
-│   └── favicon.ico        # 網站圖示
-├── src/                   # 原始碼
-│   ├── components/        # React 組件
-│   │   ├── layout/       # 布局組件
-│   │   └── common/       # 通用組件
-│   ├── pages/            # 頁面組件
-│   ├── data/             # 靜態資料
-│   ├── types/            # TypeScript 型別定義
-│   ├── App.tsx           # 主應用程式組件
-│   ├── App.css           # Tailwind CSS v4 配置 (使用 @theme 指令)
-│   └── main.tsx          # 應用程式入口點
-├── .github/              # GitHub 配置
-│   └── workflows/        # GitHub Actions 工作流程
-├── package.json          # 專案配置和依賴
-├── vite.config.js        # Vite 配置
-└── README.md             # 專案說明文件
+├── public/                    # 靜態資源
+│   ├── logo_*.png            # Logo檔案
+│   ├── vite.svg              # Vite圖示
+│   └── 404.html              # 404錯誤頁面
+├── src/                      # 原始碼
+│   ├── assets/               # 資源檔案
+│   │   ├── logo_*.png        # Logo檔案
+│   │   ├── profile.jpg       # 個人照片
+│   │   └── react.svg         # React圖示
+│   ├── components/           # React 組件
+│   │   ├── layout/          # 布局組件
+│   │   │   ├── Footer.tsx   # 頁尾組件
+│   │   │   ├── Header.tsx   # 頁首組件
+│   │   │   └── Layout.tsx   # 主布局組件
+│   │   └── ui/              # UI組件庫（shadcn/ui）
+│   │       └── *.jsx        # 50+ 個UI組件
+│   ├── data/                # 靜態資料
+│   │   └── personal.ts      # 個人資訊配置
+│   ├── hooks/               # React Hooks
+│   │   └── use-mobile.ts    # 移動端檢測Hook
+│   ├── lib/                 # 工具函數
+│   │   └── utils.ts         # 通用工具函數
+│   ├── pages/               # 頁面組件
+│   │   ├── About.tsx        # 關於頁面
+│   │   ├── Activities.tsx   # 活動頁面
+│   │   ├── Home.tsx         # 首頁
+│   │   ├── Members.tsx      # 成員頁面
+│   │   ├── Publications.tsx # 論文頁面
+│   │   ├── Research.tsx     # 研究頁面
+│   │   └── Teaching.tsx     # 教學頁面
+│   ├── types/               # TypeScript 型別定義
+│   │   └── index.ts         # 型別定義檔案
+│   ├── App.tsx              # 主應用程式組件
+│   ├── App.css              # Tailwind CSS v4 配置
+│   ├── index.css            # 全域CSS
+│   └── main.tsx             # 應用程式入口點
+├── dist/                    # 建置輸出目錄
+├── .github/                 # GitHub 配置
+│   └── workflows/           # GitHub Actions 工作流程
+├── components.json          # shadcn/ui 組件配置
+├── deploy-github-pages.sh   # 部署腳本
+├── eslint.config.js         # ESLint 配置
+├── index.html               # HTML 入口檔案
+├── jsconfig.json            # JavaScript 配置
+├── package.json             # 專案配置和依賴
+├── tsconfig.json            # TypeScript 配置
+├── tsconfig.node.json       # TypeScript Node 配置
+├── vite.config.js           # Vite 配置
+└── README.md                # 專案說明文件
 ```
 
 ---

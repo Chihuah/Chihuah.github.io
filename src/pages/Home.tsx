@@ -128,9 +128,11 @@ const Home: React.FC = () => {
                   </div>
                 </div>
                 {/* Decorative elements */}
-                <div className="absolute -top-4 -right-4 w-8 h-8 bg-fju-accent rounded-full"></div>
-                <div className="absolute -bottom-4 -left-4 w-6 h-6 bg-fju-secondary rounded-full"></div>
-                <div className="absolute top-1/2 -left-8 w-4 h-4 bg-fju-accent-alt rounded-full"></div>
+                <div className="absolute -top-4 left-10 w-8 h-8 bg-fju-secondary/80 rounded-full"></div>
+                <div className="absolute -bottom-4 -right-4 w-10 h-10 bg-fju-accent/50 rounded-full"></div>
+                <div className="absolute bottom-10 -left w-8 h-8 bg-fju-primary rounded-full"></div>
+                <div className="absolute top-1/2 -left-8 w-4 h-4 bg-fju-accent-alt/80 rounded-full"></div>
+                <div className="absolute top-1/4 -right-12 w-6 h-6 bg-white rounded-full shadow-md"></div>
               </div>
             </div>
           </div>

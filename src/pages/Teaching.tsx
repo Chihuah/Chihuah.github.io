@@ -116,7 +116,7 @@ const Teaching: React.FC = () => {
           and artificial intelligence with a focus on practical applications and student mentorship.
         </p>
       </div>
-
+    
       {/* Current Courses */}
       <section className="mb-16">
         <h2 className="text-3xl font-bold text-slate-900 mb-8">Current Courses (Since 2023)</h2>

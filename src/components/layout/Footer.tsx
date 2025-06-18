@@ -36,23 +36,32 @@ const Footer: React.FC = () => {
             <h3 className="text-base font-semibold mb-3">Institution</h3>
             <div className="space-y-1">
               <p className="text-sm">{personalInfo.institutionEn}</p>
-              <p className="text-xs text-slate-400">{personalInfo.institution}</p>
+              <p className="text-sm text-slate-400">{personalInfo.institution}</p>
+            </div>
+          </div>
+
+          {/* Related Links */}
+          <div>
+            <h3 className="text-base font-semibold mb-3">Related Links</h3>
+            <div className="space-y-1">
               <a 
                 href="https://www.fju.edu.tw"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center space-x-1 text-teal-400 hover:text-teal-300 transition-colors text-sm"
+                className="inline-flex items-center space-x-1 text-teal-400 hover:text-teal-300 transition-colors text-sm block"
               >
-                <span>Fu Jen Catholic University</span>
+                <span>天主教輔仁大學 Fu Jen Catholic University</span>
                 <ExternalLink className="w-3 h-3" />
-              </a>
-            </div>
-          </div>
-
-          {/* Academic Resources */}
-          <div>
-            <h3 className="text-base font-semibold mb-3">Academic Resources</h3>
-            <div className="space-y-1">
+              </a><br/>
+              <a 
+                href="https://miia.fju.edu.tw/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center space-x-1 text-teal-400 hover:text-teal-300 transition-colors text-sm block"
+              >
+                <span>醫資學程 Program of MIIA </span>
+                <ExternalLink className="w-3 h-3" />
+              </a><br/>
               <a 
                 href="https://scholar.google.com.tw/citations?user=cNT1e3wAAAAJ"
                 target="_blank"

@@ -6,7 +6,7 @@ export const personalInfo: PersonalInfo = {
   edudegree: 'Ph.D.',
   title: '副教授',
   titleEn: 'Associate Professor',
-  institution: '輔仁大學醫學資訊與創新應用學士學位學程',
+  institution: '天主教輔仁大學 醫學資訊與創新應用學士學位學程',
   institutionEn: 'Program of Medical Informatics and Innovative Applications, Fu Jen Catholic University',
   email: 'chihua.tung.fju@gmail.com',
   phone: '+886-2-29052928',

@@ -212,6 +212,10 @@
   .text-fju-accent {
     color: var(--color-fju-accent);
   }
+
+  .text-fju-accent-alt {
+    color: var(--color-fju-background-light);
+  }
   
   .border-fju-primary {
     border-color: var(--color-fju-primary);
