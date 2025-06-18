@@ -106,7 +106,7 @@
 
 ```
 Chihuah.github.io/
-├── public/                 # 靜態資源
+├── public/                # 靜態資源
 │   ├── images/            # 圖片檔案
 │   └── favicon.ico        # 網站圖示
 ├── src/                   # 原始碼
@@ -117,12 +117,12 @@ Chihuah.github.io/
 │   ├── data/             # 靜態資料
 │   ├── types/            # TypeScript 型別定義
 │   ├── App.tsx           # 主應用程式組件
+│   ├── App.css           # Tailwind CSS v4 配置 (使用 @theme 指令)
 │   └── main.tsx          # 應用程式入口點
 ├── .github/              # GitHub 配置
 │   └── workflows/        # GitHub Actions 工作流程
 ├── package.json          # 專案配置和依賴
 ├── vite.config.js        # Vite 配置
-├── tailwind.config.js    # Tailwind CSS 配置
 └── README.md             # 專案說明文件
 ```
 
@@ -161,7 +161,7 @@ export const publications = [
 
 ### 修改網站樣式
 
-- **顏色主題**: 編輯 `tailwind.config.js`
+- **顏色主題**: 編輯 `src/App.css` 中的 `@theme inline` 區塊和 CSS 變數
 - **布局樣式**: 修改 `src/components/layout/` 下的組件
 - **頁面內容**: 編輯 `src/pages/` 下的對應頁面
 
