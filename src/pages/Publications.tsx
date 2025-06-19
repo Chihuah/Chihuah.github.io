@@ -282,6 +282,18 @@ const Publications: React.FC = () => {
     {
       id: 13,
       title:
+        'A Study of New Algorithm for Detecting Optimal Composition of Protein Discontinuous Fragments Alignment',
+      authors: ['Chi-Hua Tung', 'Tzu-Wei Yen'],
+      journal: '2017 6th IIAI International Congress on Advanced Applied Informatics (IIAI-AAI)',
+      year: 2017,
+      pages: '864-867',
+      doi: ' 10.1109/IIAI-AAI.2017.104',
+      type: 'Conference',
+      category: 'conference',
+    },
+    {
+      id: 14,
+      title:
         'QuaBingo: A Prediction System for Protein Quaternary Structure Attributes Using Block Composition',
       authors: [
         'Chi-Hua Tung',
@@ -299,7 +311,7 @@ const Publications: React.FC = () => {
       ranking: '82/161, BIOTECHNOLOGY & APPLIED MICROBIOLOGY'
     },
     {
-      id: 14,
+      id: 15,
       title:
         'A Study on Improving Prediction of the Human Disease Proteins using Local Structural Similarity Network with Neighborhood Level Enhancement',
       authors: ['Guan-Fu Chen', 'Chi-Hua Tung'],
@@ -307,11 +319,10 @@ const Publications: React.FC = () => {
       year: 2016,
       volume: '10(1)',
       pages: '9-18',
-      type: 'EI',
       category: 'journal'
     },
     {
-      id: 15,
+      id: 16,
       title:
         'A Study of Residue Contact Number Among the Amino Acid and Structural Alphabet',
       authors: ['Li-Wei Chuang', 'Chi-Hua Tung'],
@@ -319,11 +330,10 @@ const Publications: React.FC = () => {
       year: 2015,
       volume: '9(2)',
       pages: '37-46',
-      type: 'EI',
       category: 'journal'
     },
     {
-      id: 16,
+      id: 17,
       title:
         'The Study of Protein Backbone Reconstruction by Applying Structural Alphabet',
       authors: ['Jung Yeh', 'Chi-Hua Tung'],
@@ -331,11 +341,10 @@ const Publications: React.FC = () => {
       year: 2015,
       volume: '9(1)',
       pages: '1-7',
-      type: 'EI',
       category: 'journal'
     },
     {
-      id: 17,
+      id: 18,
       title:
         'Determining the similarity of discrete fragments in protein structural motif',
       authors: ['Kai-Chieh Yang', 'Chi-Hua Tung'],
@@ -343,11 +352,10 @@ const Publications: React.FC = () => {
       year: 2014,
       volume: '8(3)',
       pages: '56-62',
-      type: 'EI',
       category: 'journal'
     },
     {
-      id: 18,
+      id: 19,
       title:
         'A Complex Network Approach for the Analysis of Protein Units Similarity Using Structural Alphabet',
       authors: ['Chi-Hua Tung', 'Jose C. Nacher'],
@@ -355,11 +363,10 @@ const Publications: React.FC = () => {
       year: 2013,
       volume: '3(5)',
       pages: '433-437',
-      type: 'EI',
       category: 'journal'
     },
     {
-      id: 19,
+      id: 20,
       title:
         'A New Scheme to Predict Kinase-Specific Phosphorylation Sites on Protein Three Dimensional Structures',
       authors: ['Min-Gang Su', 'Kai-Yao Huang', 'Chi-Hua Tung', 'Tzong-Yi Lee'],
@@ -367,11 +374,10 @@ const Publications: React.FC = () => {
       year: 2013,
       volume: '3(5)',
       pages: '473-478',
-      type: 'EI',
       category: 'journal'
     },
     {
-      id: 20,
+      id: 21,
       title:
         'fastSCOP: a fast web server for recognizing protein structural domains and SCOP superfamilies',
       authors: ['Chi-Hua Tung', 'Jinn-Moon Yang'],
@@ -384,7 +390,7 @@ const Publications: React.FC = () => {
       ranking: '5-Year IF: 7.314, Ranking: 30/286'
     },
     {
-      id: 21,
+      id: 22,
       title:
         'Kappa-alpha plot derived structural alphabet and BLOSUM-like substitution matrix for fast protein structure database search',
       authors: ['Chi-Hua Tung', 'Jhang-Wei Huang', 'Jinn-Moon Yang'],
@@ -397,7 +403,7 @@ const Publications: React.FC = () => {
       ranking: '5-Year IF: 7.354, Ranking: 11/160, 17/156'
     },
     {
-      id: 22,
+      id: 23,
       title: 'Protein structure database search and evolutionary classification',
       authors: ['Jinn-Moon Yang', 'Chi-Hua Tung'],
       journal: 'Nucleic Acids Research',
