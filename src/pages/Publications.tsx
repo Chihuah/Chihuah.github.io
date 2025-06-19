@@ -416,7 +416,8 @@ const Publications: React.FC = () => {
     }
   ]
 
-  const filteredPublications = publications.filter(pub => {
+  const filteredPublications = publications
+    .filter(pub => {
     const matchesSearch = pub.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
                          pub.authors.some(author => author.toLowerCase().includes(searchTerm.toLowerCase())) ||
                          pub.journal.toLowerCase().includes(searchTerm.toLowerCase())
@@ -426,6 +427,7 @@ const Publications: React.FC = () => {
     
     return matchesSearch && matchesType && matchesYear
   })
+  .map((pub, idx) => ({ ...pub, id: idx + 1 }));
 
   const years = [...new Set(publications.map(pub => pub.year))].sort((a, b) => b - a)
   const stats = {
