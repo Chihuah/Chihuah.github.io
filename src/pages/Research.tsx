@@ -3,8 +3,18 @@ import { ExternalLink, Microscope, Brain, Database, Dna, FlaskConical, Users, Ta
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
+import { useSEO } from '../hooks/useSEO'
 
 const Research: React.FC = () => {
+  // SEO optimization
+  useSEO({
+    title: 'Research Projects - Bioinformatics & Machine Learning Applications',
+    description: 'Explore cutting-edge research projects in bioinformatics, machine learning applications in medicine, protein structure prediction, and computational biology led by Chi-Hua Tung.',
+    keywords: 'bioinformatics research, machine learning medicine, protein structure prediction, computational biology, NSTC projects, medical AI',
+    ogTitle: 'Research Projects - Innovative Bioinformatics Solutions',
+    ogDescription: 'Discover groundbreaking research in computational biology and medical informatics with real-world applications.'
+  })
+  
   const futureDirections = [
     {
       title: "AI-driven \"Structural Alphabet 2.0\" system",

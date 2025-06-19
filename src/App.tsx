@@ -1,8 +1,8 @@
-﻿import React from 'react'
+import React from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import './App.css'
 
-// ?�面組件
+// 畫面組件
 import Home from './pages/Home'
 import About from './pages/About'
 import Research from './pages/Research'
@@ -11,7 +11,7 @@ import Teaching from './pages/Teaching'
 import Members from './pages/Members'
 import Activities from './pages/Activities'
 
-// 布�?組件
+// 布局組件
 import Layout from './components/layout/Layout'
 
 function App() {

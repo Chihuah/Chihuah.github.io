@@ -3,8 +3,18 @@ import { Download, Award, GraduationCap, Briefcase, Calendar } from 'lucide-reac
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
+import { useSEO } from '../hooks/useSEO'
 
 const About: React.FC = () => {
+  // SEO optimization
+  useSEO({
+    title: 'About Chi-Hua Tung - Academic Background & Research Experience',
+    description: 'Learn about Associate Professor Chi-Hua Tung\'s academic background, research experience in bioinformatics, and professional achievements at Fu Jen Catholic University.',
+    keywords: 'Chi-Hua Tung biography, academic background, bioinformatics research, Fu Jen Catholic University, medical informatics education',
+    ogTitle: 'About Chi-Hua Tung - Academic Profile',
+    ogDescription: 'Explore the academic journey and research expertise of Associate Professor Chi-Hua Tung in bioinformatics and computational biology.'
+  })
+
   // Experience data
   const experiences = [
     {

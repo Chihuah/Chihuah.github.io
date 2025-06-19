@@ -5,6 +5,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Badge } from '@/components/ui/badge'
 import { Input } from '@/components/ui/input'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
+import { useSEO } from '../hooks/useSEO'
 
 interface Publication {
   id: number
@@ -21,6 +22,15 @@ interface Publication {
 }
 
 const Publications: React.FC = () => {
+  // SEO optimization
+  useSEO({
+    title: 'Publications - Research Papers & Academic Contributions',
+    description: 'Browse Chi-Hua Tung\'s academic publications including 17 research papers in bioinformatics, machine learning, and medical informatics published in top-tier journals.',
+    keywords: 'Chi-Hua Tung publications, bioinformatics papers, machine learning research, medical informatics journals, SCI papers, academic research',
+    ogTitle: 'Publications - Academic Research Papers',
+    ogDescription: 'Explore comprehensive collection of research publications in computational biology and medical informatics.'
+  })
+
   const [searchTerm, setSearchTerm] = useState('')
   const [filterType, setFilterType] = useState('all')
   const [filterYear, setFilterYear] = useState('all')

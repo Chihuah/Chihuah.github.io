@@ -2,6 +2,7 @@ import React from 'react'
 import { GraduationCap, Calendar, Building, User } from 'lucide-react'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
+import { useSEO } from '../hooks/useSEO'
 
 interface Member {
   id: number
@@ -14,6 +15,15 @@ interface Member {
 }
 
 const Members: React.FC = () => {
+  // SEO optimization
+  useSEO({
+    title: 'Lab Members - Alumni & Research Team',
+    description: 'Meet the talented alumni and research team members of Chi-Hua Tung\'s Intelligent Bioinformatics Lab, featuring 9 master\'s graduates with 100% employment rate.',
+    keywords: 'lab members, bioinformatics alumni, research team, master graduates, Fu Jen Catholic University, intelligent bioinformatics lab',
+    ogTitle: 'Lab Members - Research Team & Alumni',
+    ogDescription: 'Discover the accomplished alumni and current members of our bioinformatics research laboratory.'
+  })
+
   const members: Member[] = [
     {
       id: 1,

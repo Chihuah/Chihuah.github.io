@@ -5,8 +5,18 @@ import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { personalInfo } from '../data/personal'
+import { useSEO } from '../hooks/useSEO'
 
 const Home: React.FC = () => {
+  // SEO optimization
+  useSEO({
+    title: 'Chi-Hua Tung - Bioinformatics & Machine Learning Research',
+    description: 'Associate Professor Chi-Hua Tung specializes in bioinformatics, machine learning applications in medicine, and protein structure prediction. Leading innovative computational research at Fu Jen Catholic University.',
+    keywords: 'Chi-Hua Tung, bioinformatics, machine learning, medical informatics, protein structure prediction, computational biology, Fu Jen Catholic University',
+    ogTitle: 'Chi-Hua Tung - Leading Bioinformatics Research',
+    ogDescription: 'Discover cutting-edge research in bioinformatics and machine learning applications in medicine by Associate Professor Chi-Hua Tung.'
+  })
+
   const [profileImage, setProfileImage] = useState<string | null>(null)
   const [imageLoading, setImageLoading] = useState(true)
 
@@ -96,9 +106,21 @@ const Home: React.FC = () => {
                     Learn More <ArrowRight className="w-4 h-4 ml-2" />
                   </Link>
                 </Button>
-                <Button variant="outline" className="border-fju-secondary text-fju-secondary hover:bg-fju-secondary hover:text-white">
+                <Button 
+                  variant="outline" 
+                  className="border-fju-secondary text-fju-secondary hover:bg-fju-secondary hover:text-white"
+                  onClick={() => {
+                    const link = document.createElement('a')
+                    link.href = '/cv/Chi-Hua_Tung_CV_chinese.pdf'
+                    link.download = 'Chi-Hua_Tung_CV_chinese.pdf'
+                    link.target = '_blank'
+                    document.body.appendChild(link)
+                    link.click()
+                    document.body.removeChild(link)
+                  }}
+                >
                   <Download className="w-4 h-4 mr-2" />
-                  Download CV
+                  Download CV (Chinese)
                 </Button>
               </div>
             </div>

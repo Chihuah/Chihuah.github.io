@@ -3,6 +3,7 @@ import { Calendar, Filter, BookOpen, Award, Users, Microscope, GraduationCap, Bu
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
+import { useSEO } from '../hooks/useSEO'
 
 interface Activity {
   date: string
@@ -16,6 +17,15 @@ interface Activity {
 }
 
 const Activities: React.FC = () => {
+  // SEO optimization
+  useSEO({
+    title: 'Lab Activities - Research Timeline & Achievements',
+    description: 'Explore the comprehensive timeline of research activities, academic achievements, and milestones of Chi-Hua Tung\'s Intelligent Bioinformatics Lab from 2013-2025.',
+    keywords: 'lab activities, research timeline, academic achievements, bioinformatics milestones, research projects, academic collaboration',
+    ogTitle: 'Lab Activities - Research Timeline',
+    ogDescription: 'Comprehensive overview of research activities, publications, and academic milestones spanning over a decade of innovation.'
+  })
+
   const [selectedCategory, setSelectedCategory] = useState<string>('all')
 
   const activitiesData: Activity[] = [

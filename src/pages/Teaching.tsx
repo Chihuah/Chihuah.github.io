@@ -2,8 +2,18 @@ import React from 'react'
 import { BookOpen, GraduationCap, Presentation, Calendar, Users, Award } from 'lucide-react'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
+import { useSEO } from '../hooks/useSEO'
 
 const Teaching: React.FC = () => {
+  // SEO optimization
+  useSEO({
+    title: 'Teaching - Courses & Academic Instruction',
+    description: 'Explore Chi-Hua Tung\'s teaching portfolio including Java programming, data structures, medical decision analysis, and AI courses at Fu Jen Catholic University.',
+    keywords: 'Chi-Hua Tung teaching, Java programming courses, data structures, medical decision analysis, AI education, bioinformatics instruction',
+    ogTitle: 'Teaching Portfolio - Academic Courses',
+    ogDescription: 'Comprehensive teaching experience in computer science, bioinformatics, and medical informatics education.'
+  })
+
   const currentCourses = [
     "Java Programming I&II (Since Fall 2023 & Spring 2024)",
     "Data Structures (Since Fall 2023)",
