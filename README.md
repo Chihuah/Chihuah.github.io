@@ -5,7 +5,7 @@
 
 > 輔仁大學醫學資訊與創新應用學士學位學程副教授的個人學術網站
 
-🌐 **網站連結**: [https://chihuah.github.io](https://chihuah.github.io) <預計的新版網頁，目前仍在建置中>
+🌐 **網站連結**: [https://chihuah.github.io](https://chihuah.github.io) <新版個人學術網頁>
 
 🌐 **網站連結**: [https://sites.google.com/view/chihuah-fju/home](https://sites.google.com/view/chihuah-fju/home) <舊版個人學術網頁>
 
@@ -125,7 +125,8 @@ Chihuah.github.io/
 │   ├── data/                # 靜態資料
 │   │   └── personal.ts      # 個人資訊配置
 │   ├── hooks/               # React Hooks
-│   │   └── use-mobile.ts    # 移動端檢測Hook
+│   │   ├── use-mobile.ts    # 移動端檢測Hook
+│   │   └── useSEO.ts        # 動態管理網頁的 SEO 元素
 │   ├── lib/                 # 工具函數
 │   │   └── utils.ts         # 通用工具函數
 │   ├── pages/               # 頁面組件
