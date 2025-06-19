@@ -60,7 +60,6 @@ const Publications: React.FC = () => {
 
   const publications: Publication[] = [
     {
-      id: 1,
       title:
         'Light Bladder Net: Non-invasive Bladder Cancer Prediction by Weighted Deep Learning Approaches and Graphical Data Transformation',
       authors: [
@@ -80,7 +79,6 @@ const Publications: React.FC = () => {
       category: 'journal'
     },
     {
-      id: 2,
       title:
         'Deleterious genetic changes in AGTPBP1 result in teratozoospermia with sperm head and flagella defects',
       authors: [
@@ -105,7 +103,6 @@ const Publications: React.FC = () => {
       category: 'journal'
     },
     {
-      id: 3,
       title:
         'Borneol dehydrogenase from Pseudomonas sp. TCU-HL1 possesses novel quinuclidinone reductase activities',
       authors: [
@@ -126,7 +123,6 @@ const Publications: React.FC = () => {
       category: 'journal'
     },
     {
-      id: 4,
       title:
         'NIgPred: Class-Specific Antibody Prediction for Linear B-Cell Epitopes Based on Heterogeneous Features and Machine-Learning Approaches',
       authors: ['Chi-Hua Tung', 'Yi-Sheng Chang', 'Kai-Po Chang', 'Yen-Wei Chu'],
@@ -139,7 +135,6 @@ const Publications: React.FC = () => {
       category: 'journal'
     },
     {
-      id: 5,
       title:
         'Discovery of a more potent anticancer agent than C4‐benzazole 1,8‐naphthalimide derivatives against murine melanoma',
       authors: [
@@ -162,7 +157,6 @@ const Publications: React.FC = () => {
       ranking: '128/172, CHEMISTRY, MULTIDISCIPLINARY'
     },
     {
-      id: 6,
       title:
         'QUATgo: Protein quaternary structural attributes predicted by two-stage machine learning approaches with heterogeneous feature encoding',
       authors: [
@@ -183,7 +177,6 @@ const Publications: React.FC = () => {
       ranking: '24/69, MULTIDISCIPLINARY SCIENCES'
     },
     {
-      id: 7,
       title:
         'Efficacy and Safety of Exenatide versus Insulin in Type 2 Diabetes Mellitus: Systematic Review and Meta-Analysis',
       authors: ['Bao-Ju Chen', 'Ju Chuko', 'Chi-Hua Tung', 'Kuang-Yu Hu'],
@@ -195,7 +188,6 @@ const Publications: React.FC = () => {
       category: 'journal'
     },
     {
-      id: 8,
       title:
         'SUMOgo: Prediction of sumoylation sites on lysines by motif screening models and the effects of various post-translational modifications',
       authors: [
@@ -214,7 +206,6 @@ const Publications: React.FC = () => {
       ranking: '12/64, MULTIDISCIPLINARY SCIENCES'
     },
     {
-      id: 9,
       title:
         'Unveiling disease protein associations by navigating a structural alphabet-encoded protein network',
       authors: ['Chi-Hua Tung', 'Jih-Hsu Chang', 'Jose C. Nacher'],
@@ -226,7 +217,6 @@ const Publications: React.FC = () => {
       category: 'journal'
     },
     {
-      id: 10,
       title: 'Identifying Post-Translational Modification Crosstalks for Breast Cancer',
       authors: [
         'Chi-Hua Tung',
@@ -244,7 +234,6 @@ const Publications: React.FC = () => {
       category: 'journal'
     },
     {
-      id: 11,
       title:
         'Functional characterization of Acinetobacter baumannii lacking the RNA chaperone Hfq',
       authors: [
@@ -266,7 +255,6 @@ const Publications: React.FC = () => {
       category: 'journal'
     },
     {
-      id: 12,
       title:
         'Predicting human protein subcellular localization by heterogeneous and comprehensive approaches',
       authors: ['Chi-Hua Tung', 'Chi-Wei Chen', 'Han-Hao Sun', 'Yen-Wei Chu'],
@@ -280,7 +268,6 @@ const Publications: React.FC = () => {
       ranking: '11/63, MULTIDISCIPLINARY SCIENCES'
     },
     {
-      id: 13,
       title:
         'A Study of New Algorithm for Detecting Optimal Composition of Protein Discontinuous Fragments Alignment',
       authors: ['Chi-Hua Tung', 'Tzu-Wei Yen'],
@@ -292,7 +279,6 @@ const Publications: React.FC = () => {
       category: 'conference',
     },
     {
-      id: 14,
       title:
         'QuaBingo: A Prediction System for Protein Quaternary Structure Attributes Using Block Composition',
       authors: [
@@ -311,7 +297,6 @@ const Publications: React.FC = () => {
       ranking: '82/161, BIOTECHNOLOGY & APPLIED MICROBIOLOGY'
     },
     {
-      id: 15,
       title:
         'A Study on Improving Prediction of the Human Disease Proteins using Local Structural Similarity Network with Neighborhood Level Enhancement',
       authors: ['Guan-Fu Chen', 'Chi-Hua Tung'],
@@ -322,7 +307,6 @@ const Publications: React.FC = () => {
       category: 'journal'
     },
     {
-      id: 16,
       title:
         'A Study of Residue Contact Number Among the Amino Acid and Structural Alphabet',
       authors: ['Li-Wei Chuang', 'Chi-Hua Tung'],
@@ -333,7 +317,6 @@ const Publications: React.FC = () => {
       category: 'journal'
     },
     {
-      id: 17,
       title:
         'The Study of Protein Backbone Reconstruction by Applying Structural Alphabet',
       authors: ['Jung Yeh', 'Chi-Hua Tung'],
@@ -344,7 +327,6 @@ const Publications: React.FC = () => {
       category: 'journal'
     },
     {
-      id: 18,
       title:
         'Determining the similarity of discrete fragments in protein structural motif',
       authors: ['Kai-Chieh Yang', 'Chi-Hua Tung'],
@@ -355,7 +337,6 @@ const Publications: React.FC = () => {
       category: 'journal'
     },
     {
-      id: 19,
       title:
         'A Complex Network Approach for the Analysis of Protein Units Similarity Using Structural Alphabet',
       authors: ['Chi-Hua Tung', 'Jose C. Nacher'],
@@ -366,7 +347,6 @@ const Publications: React.FC = () => {
       category: 'journal'
     },
     {
-      id: 20,
       title:
         'A New Scheme to Predict Kinase-Specific Phosphorylation Sites on Protein Three Dimensional Structures',
       authors: ['Min-Gang Su', 'Kai-Yao Huang', 'Chi-Hua Tung', 'Tzong-Yi Lee'],
@@ -377,7 +357,6 @@ const Publications: React.FC = () => {
       category: 'journal'
     },
     {
-      id: 21,
       title:
         'fastSCOP: a fast web server for recognizing protein structural domains and SCOP superfamilies',
       authors: ['Chi-Hua Tung', 'Jinn-Moon Yang'],
@@ -390,7 +369,6 @@ const Publications: React.FC = () => {
       ranking: '5-Year IF: 7.314, Ranking: 30/286'
     },
     {
-      id: 22,
       title:
         'Kappa-alpha plot derived structural alphabet and BLOSUM-like substitution matrix for fast protein structure database search',
       authors: ['Chi-Hua Tung', 'Jhang-Wei Huang', 'Jinn-Moon Yang'],
@@ -403,7 +381,6 @@ const Publications: React.FC = () => {
       ranking: '5-Year IF: 7.354, Ranking: 11/160, 17/156'
     },
     {
-      id: 23,
       title: 'Protein structure database search and evolutionary classification',
       authors: ['Jinn-Moon Yang', 'Chi-Hua Tung'],
       journal: 'Nucleic Acids Research',
