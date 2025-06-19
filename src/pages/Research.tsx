@@ -60,7 +60,7 @@ const Research: React.FC = () => {
   const nstcProject = {
     title: "利用大型語言模型提升病歷分類準確性與效率的研究 -- 訓練醫療大型語言模型應用至醫療檢閱平台",
     period: "2024/07/01 - 2025/02/28",
-    student: "蔡芷妤"
+    student: "黎芷妤"
   }
 
   const references = [
@@ -139,7 +139,7 @@ const Research: React.FC = () => {
       </section>
 
       {/* Future Research Directions */}
-      <section className="mb-16">
+      <section className="mb-16 bg-white p-8 rounded-lg shadow-md">
         <h2 className="text-3xl font-bold text-slate-900 mb-8">Future Research Directions</h2>
         <p className="text-lg text-slate-600 mb-8 text-wrap">
           Building upon our existing research achievements, we plan to deepen our investigations in the following areas:
@@ -165,7 +165,7 @@ const Research: React.FC = () => {
       </section>
 
       {/* MOST Projects */}
-      <section className="mb-16">
+      <section className="mb-16 p-8 rounded-lg shadow-md">
         <h2 className="text-3xl font-bold text-slate-900 mb-8">The National Science and Technology Council (NSTC) Projects</h2>
         
         <div className="space-y-6">
@@ -190,7 +190,7 @@ const Research: React.FC = () => {
       </section>
 
       {/* Industry-Academia Cooperation */}
-      <section className="mb-16">
+      <section className="mb-16 p-8 rounded-lg shadow-md">
         <h2 className="text-3xl font-bold text-slate-900 mb-8">Industry-academia Cooperation Project</h2>
         
         <Card className="border-l-4 border-fju-accent">
@@ -215,7 +215,7 @@ const Research: React.FC = () => {
       </section>
 
       {/* NSTC Project */}
-      <section className="mb-16">
+      <section className="mb-16 p-8 rounded-lg shadow-md">
         <h2 className="text-3xl font-bold text-slate-900 mb-8">指導國科會大專生研究計畫</h2>
         
         <Card className="border-l-4 border-amber-500">
@@ -236,7 +236,7 @@ const Research: React.FC = () => {
       </section>
 
       {/* Protein Structural Units Networks */}
-      <section className="mb-16">
+      <section className="mb-16 bg-white p-8 rounded-lg shadow-md">
         <h2 className="text-3xl font-bold text-slate-900 mb-8">Protein Structural Units Networks</h2>
         
         <div className="bg-slate-50 rounded-lg p-8">
@@ -257,7 +257,7 @@ const Research: React.FC = () => {
       </section>
 
       {/* 3D-BLAST */}
-      <section className="mb-16">
+      <section className="mb-16 bg-white p-8 rounded-lg shadow-md">
         <h2 className="text-3xl font-bold text-slate-900 mb-8">3D-BLAST Protein Structure Search</h2>
         
         <div className="bg-slate-50 rounded-lg p-8">

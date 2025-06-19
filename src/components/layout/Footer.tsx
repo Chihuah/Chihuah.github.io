@@ -63,15 +63,6 @@ const Footer: React.FC = () => {
                 <ExternalLink className="w-3 h-3" />
               </a><br/>
               <a 
-                href="https://scholar.google.com.tw/citations?user=cNT1e3wAAAAJ"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center space-x-1 text-teal-400 hover:text-teal-300 transition-colors text-sm block"
-              >
-                <span>Google Scholar</span>
-                <ExternalLink className="w-3 h-3" />
-              </a><br/>
-              <a 
                 href="https://orcid.org/0000-0002-7232-312X"
                 target="_blank"
                 rel="noopener noreferrer"

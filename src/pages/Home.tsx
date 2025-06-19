@@ -140,7 +140,7 @@ const Home: React.FC = () => {
       </section>
 
       {/* Stats Section */}
-      <section className="py-16">
+      <section className="py-4 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
             {stats.map((stat, index) => {
@@ -168,7 +168,7 @@ const Home: React.FC = () => {
       </section>
 
       {/* Research Highlights */}
-      <section className="py-16 bg-slate-50">
+      <section className="py-4 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-slate-900 mb-4">Research Highlights</h2>
@@ -216,7 +216,7 @@ const Home: React.FC = () => {
       </section>
 
       {/* Latest News */}
-      <section className="py-16">
+      <section className="py-4 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-slate-900 mb-4">Latest News</h2>
@@ -235,18 +235,6 @@ const Home: React.FC = () => {
                 <p className="text-slate-700 text-wrap">
                   "Light Bladder Net: Non-invasive Bladder Cancer Prediction" 
                   has been published in Anticancer Research, proposing an innovative bladder cancer prediction method.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="border-l-4 border-l-fju-secondary">
-              <CardHeader>
-                <CardTitle className="text-slate-900">Conference Participation</CardTitle>
-                <CardDescription className="text-fju-secondary font-medium">December 2024</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <p className="text-slate-700 text-wrap">
-                  Participated in the International Bioinformatics Conference, presenting the latest research findings on deep learning applications in medical diagnosis.
                 </p>
               </CardContent>
             </Card>
