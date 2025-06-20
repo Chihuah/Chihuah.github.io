@@ -7,7 +7,7 @@
 
 🌐 **網站連結**: [https://chihuah.github.io](https://chihuah.github.io) <新版個人學術網頁>
 
-🌐 **網站連結**: [https://sites.google.com/view/chihuah-fju/home](https://sites.google.com/view/chihuah-fju/home) <舊版個人學術網頁>
+🌐 **網站連結**: [https://sites.google.com/view/chihuah-fju/home](https://sites.google.com/view/chihuah-fju/home) <舊版個人學術網頁，於2025/06之後停止更新>
 
 ---
 
@@ -18,12 +18,12 @@
 ### 🎯 網站特色
 
 - **🏠 個人簡介** - 完整的學術背景和研究領域介紹
-- **📚 研究成果** - 22 篇期刊論文展示，包含 15 篇 SCI 期刊
-- **🎓 教學經歷** - 課程資訊和教學成果
-- **👥 實驗室成員** - 指導學生和研究團隊介紹
-- **🏆 獲獎記錄** - 國際發明展金牌等重要獎項
+- **📚 研究成果** - 23 篇論文展示，包含 13 篇 SCI 期刊
+- **🎓 教學經歷** - 課程資訊和指導專題
+- **👥 實驗室成員** - 指導學生和研究團隊（包含畢業生）介紹
+- **🏆 獲獎與證照** - 得獎與證照等獎項
 - **📱 響應式設計** - 完美支援桌面、平板、手機等各種設備
-- **🌐 中英文支援** - 提供繁體中文介面
+- **🌐 語言國際化** - 主要提供英文介面
 
 ---
 
@@ -177,19 +177,20 @@ export const personalInfo = {
 
 ### 更新研究成果
 
-在 `src/data/publications.ts` 中添加或修改論文資訊：
+在 `src/pages/Publications.tsx` 中添加或修改論文資料：
 
 ```typescript
-export const publications = [
+const publications: Publication[] = [
   {
     title: "論文標題",
-    authors: "作者列表",
+    authors: [作者列表],
     journal: "期刊名稱",
     year: 2024,
     // ... 其他資訊
   },
 ];
 ```
+然而，由於資料與輸出未分離， `publications` 現直接寫在組件中，應把資料（例如論文、活動）拆成獨立檔案，更新會更容易。未來會將研究成果資料改至 `src/data/personal.ts` 來紀錄與管理。
 
 ### 修改網站樣式
 
@@ -244,9 +245,8 @@ pnpm run build
 - **🏠 首頁** - 個人簡介和研究亮點
 - **👤 關於我** - 詳細的學術背景
 - **📚 研究成果** - 論文發表和研究項目
-- **🎓 教學經歷** - 課程和教學成果
-- **👥 實驗室成員** - 指導學生介紹
-- **🏆 獲獎記錄** - 重要獎項和榮譽
+- **🎓 教學經歷** - 課程教學與指導專題
+- **👥 實驗室成員** - 曾指導碩士畢業生
 - **📞 聯絡資訊** - 聯絡方式和辦公室資訊
 
 ### 技術特色
