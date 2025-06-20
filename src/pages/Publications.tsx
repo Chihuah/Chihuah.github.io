@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { ExternalLink, Search, Filter, Calendar, BookOpen, Award } from 'lucide-react'
+import { ExternalLink, Search, Filter, Calendar, BookOpen, Award, Download } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
@@ -414,6 +414,37 @@ const Publications: React.FC = () => {
     conference: publications.filter(p => p.type === 'Conference').length
   }
 
+  const formatPublication = (pub: Publication, index: number) => {
+    const authors = pub.authors.length > 1
+      ? `${pub.authors.slice(0, -1).join(', ')} & ${pub.authors[pub.authors.length - 1]}`
+      : pub.authors[0]
+
+    const volPages = pub.volume
+      ? pub.pages
+        ? `${pub.volume}:${pub.pages}`
+        : pub.volume
+      : pub.pages || ''
+
+    const typePart = `(${pub.type}${pub.ranking ? ', ' + pub.ranking : ''})`
+    const doiPart = pub.doi ? ` https://doi.org/${pub.doi}` : ''
+    const journalPart = `${pub.journal}${volPages ? `, ${volPages}` : ''}`
+
+    return `${index + 1}. ${authors}, "${pub.title}", ${pub.year}, ${journalPart}, ${typePart}${doiPart}`
+  }
+
+  const downloadPublications = () => {
+    const lines = filteredPublications.map((pub, idx) => formatPublication(pub, idx))
+    const blob = new Blob([lines.join('\n')], { type: 'text/plain' })
+    const url = URL.createObjectURL(blob)
+    const link = document.createElement('a')
+    link.href = url
+    link.download = 'publications.txt'
+    document.body.appendChild(link)
+    link.click()
+    document.body.removeChild(link)
+    URL.revokeObjectURL(url)
+  }
+
   const getTypeColor = (type: string) => {
     switch (type) {
       case 'SCI': return 'bg-slate-100 text-blue-800'
@@ -479,7 +510,11 @@ const Publications: React.FC = () => {
 
       {/* Search and Filter */}
       <div className="bg-slate-50 rounded-lg p-6 mb-8">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+          <Button onClick={downloadPublications} variant="outline" className="w-full flex items-center justify-center">
+            <Download className="w-4 h-4 mr-2" />
+            Download List
+          </Button>
           <div className="relative">
             <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-slate-400 w-4 h-4" />
             <Input
