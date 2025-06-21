@@ -237,7 +237,7 @@ const About: React.FC = () => {
             <p className="text-slate-600">Recognition for innovation and research excellence</p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-2">
             {awards.map((award, index) => (
               <Card key={index} className="border-l-4 border-l-fju-primary">
                 <CardHeader className="pb-2">
