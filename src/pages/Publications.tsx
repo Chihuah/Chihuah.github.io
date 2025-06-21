@@ -98,6 +98,7 @@ const Publications: React.FC = () => {
       ],
       journal: 'Journal of Cellular and Molecular Medicine',
       year: 2023,
+      volume: '28:e18031',
       doi: '10.1111/jcmm.18031',
       type: 'SCI',
       category: 'journal'
