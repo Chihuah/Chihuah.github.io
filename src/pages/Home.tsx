@@ -103,7 +103,7 @@ const Home: React.FC = () => {
               <div className="flex flex-wrap gap-4">
                 <Button asChild className="bg-fju-primary hover:bg-fju-primary-dark">
                   <Link to="/about">
-                    Learn More <ArrowRight className="w-4 h-4 ml-2" />
+                    Read More <ArrowRight className="w-4 h-4 ml-2" />
                   </Link>
                 </Button>
                 <Button 
