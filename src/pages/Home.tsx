@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { personalInfo } from '../data/personal'
+import { activitiesData } from '../data/activities'
 import { useSEO } from '../hooks/useSEO'
 
 const Home: React.FC = () => {
@@ -42,9 +43,9 @@ const Home: React.FC = () => {
 
   // Statistics
   const stats = [
-    { label: 'Journal Papers', value: '22+', icon: BookOpen },
-    { label: 'Research Projects', value: '8+', icon: Search },
-    { label: 'Students Supervised', value: '15+', icon: Users },
+    { label: 'Journal Papers', value: '20+', icon: BookOpen },
+    { label: 'Research Projects', value: '5+', icon: Search },
+    { label: 'Students Supervised', value: '9+', icon: Users },
     { label: 'Awards Received', value: '10+', icon: Award }
   ]
 
@@ -86,9 +87,9 @@ const Home: React.FC = () => {
                 </p>
                 <p className="text-xl text-slate-600">Principal Investigator</p>
               </div>
-              
+
               <p className="text-lg text-slate-700 leading-relaxed text-wrap">
-                Specializing in bioinformatics, machine learning applications in medicine, and protein structure prediction. 
+                Specializing in bioinformatics, machine learning applications in medicine, and protein structure prediction.
                 Committed to developing innovative computational methods and prediction systems to provide powerful computational tools for protein function research.
               </p>
 
@@ -106,8 +107,8 @@ const Home: React.FC = () => {
                     Read More <ArrowRight className="w-4 h-4 ml-2" />
                   </Link>
                 </Button>
-                <Button 
-                  variant="outline" 
+                <Button
+                  variant="outline"
                   className="border-fju-secondary text-fju-secondary hover:bg-fju-secondary hover:text-white"
                   onClick={() => {
                     const link = document.createElement('a')
@@ -134,9 +135,9 @@ const Home: React.FC = () => {
                       <div className="text-6xl font-bold text-fju-primary animate-pulse">T</div>
                     ) : profileImage ? (
                       // Profile image found
-                      <img 
-                        src={profileImage} 
-                        alt="Chi-Hua Tung Profile" 
+                      <img
+                        src={profileImage}
+                        alt="Chi-Hua Tung Profile"
                         className="w-full h-full object-cover rounded-full"
                         onError={() => {
                           console.log('Image failed to load after import, using fallback')
@@ -174,7 +175,7 @@ const Home: React.FC = () => {
                 { bg: 'bg-fju-secondary/10', text: 'text-fju-secondary' }
               ]
               const color = colors[index % colors.length]
-              
+
               return (
                 <div key={index} className="text-center">
                   <div className={`inline-flex items-center justify-center w-16 h-16 ${color.bg} rounded-full mb-4`}>
@@ -204,10 +205,10 @@ const Home: React.FC = () => {
               const borderColors = ['border-l-fju-primary', 'border-l-fju-secondary', 'border-l-fju-secondary']
               const badgeColors = [
                 'bg-fju-primary/10 text-fju-primary',
-                'bg-fju-secondary/10 text-fju-secondary', 
+                'bg-fju-secondary/10 text-fju-secondary',
                 'bg-fju-secondary/10 text-fju-secondary'
               ]
-              
+
               return (
                 <Card key={index} className={`hover:shadow-lg transition-shadow border-l-4 ${borderColors[index % borderColors.length]}`}>
                   <CardHeader>
@@ -247,19 +248,25 @@ const Home: React.FC = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <Card className="border-l-4 border-l-fju-secondary">
-              <CardHeader>
-                <CardTitle className="text-slate-900">New Publication</CardTitle>
-                <CardDescription className="text-fju-secondary font-medium">May 2025</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <p className="text-slate-700 text-wrap">
-                  "Light Bladder Net: Non-invasive Bladder Cancer Prediction" 
-                  has been published in Anticancer Research, proposing an innovative bladder cancer prediction method.
-                </p>
-              </CardContent>
-            </Card>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {activitiesData.slice(0, 3).map((activity, index) => {
+              const borderColors = ['border-l-fju-secondary', 'border-l-fju-primary', 'border-l-fju-accent']
+              return (
+                <Card key={`${activity.date}-${index}`} className={`border-l-4 ${borderColors[index % borderColors.length]}`}>
+                  <CardHeader>
+                    <CardTitle className="text-slate-900">{activity.titleEn}</CardTitle>
+                    <CardDescription className="text-fju-secondary font-medium">
+                      {new Date(activity.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long' })}
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-slate-700 text-wrap">
+                      {activity.descriptionEn}
+                    </p>
+                  </CardContent>
+                </Card>
+              )
+            })}
           </div>
 
           <div className="text-center mt-12">

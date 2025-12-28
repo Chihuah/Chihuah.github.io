@@ -14,7 +14,7 @@ const Research: React.FC = () => {
     ogTitle: 'Research Projects - Innovative Bioinformatics Solutions',
     ogDescription: 'Discover groundbreaking research in computational biology and medical informatics with real-world applications.'
   })
-  
+
   const futureDirections = [
     {
       title: "AI-driven \"Structural Alphabet 2.0\" system",
@@ -86,51 +86,55 @@ const Research: React.FC = () => {
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      {/* Header */}
-      <div className="text-center mb-12">
-        <h1 className="text-4xl font-bold text-slate-900 mb-4">Research</h1>
-        <p className="text-lg text-slate-600 max-w-4xl mx-auto text-wrap">
-          Advancing bioinformatics through innovative computational methodologies and predictive systems, 
-          providing robust tools for protein function research and novel perspectives for disease investigation.
-        </p>
-      </div>
+      {/* Hero Section */}
+      <section className="relative py-16 bg-gradient-to-r from-fju-primary to-fju-secondary mb-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center text-white">
+            <h1 className="text-4xl lg:text-5xl font-bold mb-4">Research</h1>
+            <p className="text-xl opacity-90 max-w-3xl mx-auto">
+              Advancing bioinformatics through innovative computational methodologies and predictive systems,
+              providing robust tools for protein function research and novel perspectives for disease investigation.
+            </p>
+          </div>
+        </div>
+      </section>
 
       {/* Academic Research Overview */}
       <section className="mb-16">
         <h2 className="text-3xl font-bold text-slate-900 mb-8">Academic Research and Teaching Results in Recent Years</h2>
-        
+
         <div className="bg-slate-50 rounded-lg p-8 mb-8">
           <p className="text-fju-primary mb-6 text-wrap leading-relaxed">
-            In recent years, our academic research has achieved significant advancements across multiple domains, including protein structure 
-            prediction, post-translational modification prediction, antibody epitope prediction, enzymology research, and medical informatics 
-            applications. Through the development of innovative computational methodologies and predictive systems, we have provided robust 
+            In recent years, our academic research has achieved significant advancements across multiple domains, including protein structure
+            prediction, post-translational modification prediction, antibody epitope prediction, enzymology research, and medical informatics
+            applications. Through the development of innovative computational methodologies and predictive systems, we have provided robust
             computational tools for protein function research while offering novel perspectives for the investigation of related diseases.
           </p>
-          
+
           <p className="text-fju-primary mb-6 text-wrap leading-relaxed">
-            Our research has not only propelled the advancement of bioinformatics but also provided substantial support for biomedical research. 
-            In the realm of protein structure prediction, we have developed QuaBingo [1] and QUATgo [2], both systems significantly enhancing 
-            the accuracy of protein quaternary structure prediction. Extending these computational innovations to protein subcellular localization, 
-            our REALoc system simultaneously addresses singleplex and multiplex protein localization, presenting a comprehensive predictive 
-            approach [3]. Building upon similar methodological strategies, our SUMOgo system advances protein post-translational modification 
-            prediction by incorporating the interplay of various PTMs, thereby improving the prediction of SUMOylation sites [4]. In antibody 
-            research, we further refined our computational techniques through NIgPred, a system integrating diverse heterogeneous features with 
-            advanced machine learning methods to outperform existing epitope prediction tools [5]. Beyond protein-centric predictions, our 
-            enzymology studies utilized genetic algorithm-based protein-ligand docking software to discover potential anticancer agents against 
-            melanoma [6], and identified novel enzymatic activities in BDH, significantly broadening its biotechnological applications [7]. 
-            Finally, translating our computational expertise into clinical practice, we developed the LBN system, providing a rapid, 
+            Our research has not only propelled the advancement of bioinformatics but also provided substantial support for biomedical research.
+            In the realm of protein structure prediction, we have developed QuaBingo [1] and QUATgo [2], both systems significantly enhancing
+            the accuracy of protein quaternary structure prediction. Extending these computational innovations to protein subcellular localization,
+            our REALoc system simultaneously addresses singleplex and multiplex protein localization, presenting a comprehensive predictive
+            approach [3]. Building upon similar methodological strategies, our SUMOgo system advances protein post-translational modification
+            prediction by incorporating the interplay of various PTMs, thereby improving the prediction of SUMOylation sites [4]. In antibody
+            research, we further refined our computational techniques through NIgPred, a system integrating diverse heterogeneous features with
+            advanced machine learning methods to outperform existing epitope prediction tools [5]. Beyond protein-centric predictions, our
+            enzymology studies utilized genetic algorithm-based protein-ligand docking software to discover potential anticancer agents against
+            melanoma [6], and identified novel enzymatic activities in BDH, significantly broadening its biotechnological applications [7].
+            Finally, translating our computational expertise into clinical practice, we developed the LBN system, providing a rapid,
             cost-effective, and non-invasive diagnostic solution for bladder cancer [8].
           </p>
-          
+
           <p className="text-fju-primary mb-8 text-wrap leading-relaxed">
-            In addition to research, we actively engage in industry-academia collaboration, currently developing a convolutional neural 
-            network-based application for image identification to assess the population of ants within their nests. Moving forward, we aim 
-            to extend these preliminary outcomes into broader industrial applications in bioinformatics, medical informatics, and AI-driven 
-            deep learning technologies. Additionally, we mentor undergraduate students in conducting artificial intelligence and deep learning 
-            projects. Following a year of dedicated training and hands-on experience, our students successfully develop deep learning models 
-            with strong predictive performance, applying them effectively in diverse AI application scenarios. Examples of student-driven 
-            projects include medical applications such as respiratory sound analysis for distinguishing lung diseases and image recognition 
-            for skin melanoma, as well as ecological applications including identification of fall armyworms, lepidopteran larvae, and 
+            In addition to research, we actively engage in industry-academia collaboration, currently developing a convolutional neural
+            network-based application for image identification to assess the population of ants within their nests. Moving forward, we aim
+            to extend these preliminary outcomes into broader industrial applications in bioinformatics, medical informatics, and AI-driven
+            deep learning technologies. Additionally, we mentor undergraduate students in conducting artificial intelligence and deep learning
+            projects. Following a year of dedicated training and hands-on experience, our students successfully develop deep learning models
+            with strong predictive performance, applying them effectively in diverse AI application scenarios. Examples of student-driven
+            projects include medical applications such as respiratory sound analysis for distinguishing lung diseases and image recognition
+            for skin melanoma, as well as ecological applications including identification of fall armyworms, lepidopteran larvae, and
             common ant species in Taiwan.
           </p>
 
@@ -154,7 +158,7 @@ const Research: React.FC = () => {
         <p className="text-lg text-slate-600 mb-8 text-wrap">
           Building upon our existing research achievements, we plan to deepen our investigations in the following areas:
         </p>
-        
+
         <div className="space-y-6">
           {futureDirections.map((direction, index) => (
             <Card key={index} className="hover:shadow-lg transition-shadow">
@@ -177,7 +181,7 @@ const Research: React.FC = () => {
       {/* MOST Projects */}
       <section className="mb-16 p-8 rounded-lg shadow-md">
         <h2 className="text-3xl font-bold text-slate-900 mb-8">The National Science and Technology Council (NSTC) Projects</h2>
-        
+
         <div className="space-y-6">
           {mostProjects.map((project, index) => (
             <Card key={index} className="border-l-4 border-fju-secondary">
@@ -202,7 +206,7 @@ const Research: React.FC = () => {
       {/* Industry-Academia Cooperation */}
       <section className="mb-16 p-8 rounded-lg shadow-md">
         <h2 className="text-3xl font-bold text-slate-900 mb-8">Industry-academia Cooperation Project</h2>
-        
+
         <Card className="border-l-4 border-fju-accent">
           <CardContent className="p-6">
             <h4 className="font-semibold text-slate-900 mb-3 text-wrap">{industryProject.title}</h4>
@@ -227,7 +231,7 @@ const Research: React.FC = () => {
       {/* NSTC Project */}
       <section className="mb-16 p-8 rounded-lg shadow-md">
         <h2 className="text-3xl font-bold text-slate-900 mb-8">指導國科會大專生研究計畫</h2>
-        
+
         <Card className="border-l-4 border-amber-500">
           <CardContent className="p-6">
             <h4 className="font-semibold text-slate-900 mb-3 text-wrap">{nstcProject.title}</h4>
@@ -248,19 +252,19 @@ const Research: React.FC = () => {
       {/* Protein Structural Units Networks */}
       <section className="mb-16 bg-white p-8 rounded-lg shadow-md">
         <h2 className="text-3xl font-bold text-slate-900 mb-8">Protein Structural Units Networks</h2>
-        
+
         <div className="bg-slate-50 rounded-lg p-8">
           <p className="text-fju-primary mb-6 text-wrap leading-relaxed">
-            Using SA, we define new local structural fragments called units of structural alphabet (USAs) that represent unique features of protein 
-            structures. Each USA is composed of two secondary protein structures and one loop located between these two secondary structures. USAs can 
-            maintain not only the flexibility of variable loops but also the stability of secondary structures. We conduct a similarity search and investigate the 
+            Using SA, we define new local structural fragments called units of structural alphabet (USAs) that represent unique features of protein
+            structures. Each USA is composed of two secondary protein structures and one loop located between these two secondary structures. USAs can
+            maintain not only the flexibility of variable loops but also the stability of secondary structures. We conduct a similarity search and investigate the
             network formed by all-against-all USA sequence comparisons, where USAs represent nodes and links represent homology relationships.
           </p>
-          
+
           <p className="text-fju-primary text-wrap leading-relaxed">
-            Our findings show a highly uneven degree distribution characterized by a few and highly connected USAs (hubs) coexisting with many nodes 
-            having only a few links. Networks with such a power-law degree distribution are scale free. These findings not only suggest the existence of 
-            organizing principles for local protein structures but also allow us to identify key fragments that are potentially useful for new drug development 
+            Our findings show a highly uneven degree distribution characterized by a few and highly connected USAs (hubs) coexisting with many nodes
+            having only a few links. Networks with such a power-law degree distribution are scale free. These findings not only suggest the existence of
+            organizing principles for local protein structures but also allow us to identify key fragments that are potentially useful for new drug development
             and design. Of particular interest is the identification of USAs in the set of known drug protein targets.
           </p>
         </div>
@@ -269,14 +273,14 @@ const Research: React.FC = () => {
       {/* 3D-BLAST */}
       <section className="mb-16 bg-white p-8 rounded-lg shadow-md">
         <h2 className="text-3xl font-bold text-slate-900 mb-8">3D-BLAST Protein Structure Search</h2>
-        
+
         <div className="bg-slate-50 rounded-lg p-8">
           <p className="text-fju-primary text-wrap leading-relaxed">
-            We developed the kappa-alpha (κ, α) plot derived structural alphabet and a novel BLOSUM-like substitution matrix, called structural alphabet 
-            substitution matrix, which searches through the structural alphabet database. This structural alphabet (SA) was used in developing the fast 
-            structure database search method called 3D-BLAST, which is as fast as BLAST and provides the statistical significance (E-value) of an alignment, 
-            indicating the reliability of a hit protein structure. Moreover, we developed an automated server called fastSCOP for integrating a fast structure 
-            database search tool (3D-BLAST) and a detailed structural comparison tool, as well as for recognizing the SCOP domains and SCOP superfamilies 
+            We developed the kappa-alpha (κ, α) plot derived structural alphabet and a novel BLOSUM-like substitution matrix, called structural alphabet
+            substitution matrix, which searches through the structural alphabet database. This structural alphabet (SA) was used in developing the fast
+            structure database search method called 3D-BLAST, which is as fast as BLAST and provides the statistical significance (E-value) of an alignment,
+            indicating the reliability of a hit protein structure. Moreover, we developed an automated server called fastSCOP for integrating a fast structure
+            database search tool (3D-BLAST) and a detailed structural comparison tool, as well as for recognizing the SCOP domains and SCOP superfamilies
             of query structures.
           </p>
         </div>

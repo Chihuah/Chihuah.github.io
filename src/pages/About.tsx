@@ -1,7 +1,7 @@
 import React from 'react'
-import { Download, Award, GraduationCap, Briefcase, Calendar } from 'lucide-react'
-import { Button } from '@/components/ui/button'
+// @ts-ignore - UI components are JSX files
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
+// @ts-ignore - UI components are JSX files
 import { Badge } from '@/components/ui/badge'
 import { useSEO } from '../hooks/useSEO'
 
@@ -124,12 +124,14 @@ const About: React.FC = () => {
   return (
     <div className="space-y-6">
       {/* Page Header */}
-      <section className="py-6 bg-slate-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl font-bold text-slate-900 mb-4">About Principal Investigator</h1>
-          <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-            Academic background, professional experience, and achievements in bioinformatics and computational biology research.
-          </p>
+      <section className="relative py-16 bg-gradient-to-r from-fju-primary to-fju-secondary">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center text-white">
+            <h1 className="text-4xl lg:text-5xl font-bold mb-4">About Principal Investigator</h1>
+            <p className="text-xl opacity-90 max-w-3xl mx-auto">
+              Academic background, professional experience, and achievements in bioinformatics and computational biology research.
+            </p>
+          </div>
         </div>
       </section>
 
@@ -144,29 +146,27 @@ const About: React.FC = () => {
           <div className="relative">
             {/* Timeline line */}
             <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-fju-secondary"></div>
-            
+
             <div className="space-y-6">
               {experiences.map((exp, index) => (
                 <div key={index} className="relative flex items-start">
                   {/* Timeline dot */}
-                  <div className={`absolute left-6 w-4 h-4 rounded-full border-2 ${
-                    exp.type === 'current' 
-                      ? 'bg-fju-primary border-fju-primary' 
-                      : 'bg-white border-fju-secondary'
-                  }`}></div>
-                  
+                  <div className={`absolute left-6 w-4 h-4 rounded-full border-2 ${exp.type === 'current'
+                    ? 'bg-fju-primary border-fju-primary'
+                    : 'bg-white border-fju-secondary'
+                    }`}></div>
+
                   {/* Content */}
                   <div className="ml-16 flex-1">
-                    <div className={`p-3 rounded-lg border-l-4 ${
-                      exp.type === 'current' 
-                        ? 'border-l-fju-primary bg-fju-primary/5' 
-                        : 'border-l-fju-secondary bg-white'
-                    } shadow-sm`}>
+                    <div className={`p-3 rounded-lg border-l-4 ${exp.type === 'current'
+                      ? 'border-l-fju-primary bg-fju-primary/5'
+                      : 'border-l-fju-secondary bg-white'
+                      } shadow-sm`}>
                       <div className="flex justify-between items-start mb-2">
                         <h3 className="text-lg font-semibold text-slate-900">{exp.title}</h3>
                         <Badge variant="outline" className={
-                          exp.type === 'current' 
-                            ? 'bg-fju-primary/10 text-fju-primary text-xs' 
+                          exp.type === 'current'
+                            ? 'bg-fju-primary/10 text-fju-primary text-xs'
                             : 'bg-fju-secondary/10 text-fju-secondary text-xs'
                         }>
                           {exp.period}
@@ -193,13 +193,13 @@ const About: React.FC = () => {
           <div className="relative">
             {/* Horizontal timeline line */}
             <div className="hidden md:block absolute top-20 left-0 right-0 h-0.5 bg-fju-accent"></div>
-            
+
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {education.map((edu, index) => (
                 <div key={index} className="relative">
                   {/* Timeline dot */}
                   <div className="hidden md:block absolute top-16 left-1/2 transform -translate-x-1/2 w-6 h-6 rounded-full bg-fju-accent border-4 border-white shadow-lg z-10"></div>
-                  
+
                   {/* Content card */}
                   <div className="p-4 rounded-lg border-l-4 border-l-fju-accent bg-white shadow-sm mt-8 md:mt-24">
                     <div className="text-center md:text-left">
