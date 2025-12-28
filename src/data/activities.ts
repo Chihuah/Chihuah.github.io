@@ -23,6 +23,38 @@ export interface Activity {
 export const activitiesData: Activity[] = [
     // 2025
     {
+        date: '2025-08',
+        type: 'research',
+        title: '從學習評分到角色養成：生成式AI支持下的遊戲化教學實踐',
+        titleEn: 'From Learning Assessment to Character Development: Gamified Teaching Practices Powered by Generative AI',
+        description: '獲得教育部教學實踐研究計畫，結合遊戲化設計與生成式AI技術，探索創新學習評分機制在人工智慧概論課程中的應用，透過虛擬角色成長系統增強學生學習動機與參與度',
+        descriptionEn: 'Awarded Ministry of Education Teaching Practice Research Project, combining gamified design and generative AI to explore innovative learning assessment mechanisms in AI coursework, enhancing student motivation and engagement through virtual character development system',
+        details: '計畫期間：2025/08/01 - 2026/07/31',
+        detailsEn: 'Project Period: 2025/08/01 - 2026/07/31',
+        funding: 'NTD 250,000'
+    },
+    {
+        date: '2025-07',
+        type: 'teaching',
+        title: '國科會大專生研究計畫啟動',
+        titleEn: 'NSTC Undergraduate Research Project',
+        description: '輔導學生進行基於生成式 AI 與檢索增強技術之醫療資訊檢索效能研究(以用藥安全為例)的研究專案',
+        descriptionEn: 'Supervising student research on medical information retrieval performance using generative AI and retrieval-augmented generation (RAG) technology, with medication safety as a case study',
+        details: '計畫期間：2025/07/01 - 2026/02/28，指導學生：翁甄薇',
+        detailsEn: 'Project Period: 2025/07/01 - 2026/02/28'
+    },
+    {
+        date: '2025-06',
+        type: 'collaboration',
+        title: '串接AIoT與健康存摺數據的糖尿病照護AI微服務研發計畫',
+        titleEn: 'AI Microservices for Diabetes Care Integrating AIoT and Health Records',
+        description: '與安捷康生醫股份有限公司合作開發智慧控糖照護系統，結合智慧手環即時蒐集患者生理數據，透過AI模型提供個人化運動建議、飲食辨識與血糖趨勢預測功能',
+        descriptionEn: 'Industry-academia collaboration with AJK Biomedical Inc. to develop an intelligent diabetes care system that integrates smart wearables for real-time physiological data collection, AI-powered personalized exercise recommendations, dietary image recognition, and blood glucose prediction',
+        details: '專案期間：2025/06/01 - 2026/05/31',
+        detailsEn: 'Project Period: 2025/06/01 - 2026/05/31',
+        funding: 'NTD 580,000'
+    },
+    {
         date: '2025-05',
         type: 'publication',
         title: 'Light Bladder Net論文發表',
