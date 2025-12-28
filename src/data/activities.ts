@@ -23,6 +23,17 @@ export interface Activity {
 export const activitiesData: Activity[] = [
     // 2025
     {
+        date: '2025-10',
+        type: 'speech',
+        title: '2025年第三屆國際醫療決策科學研討會口頭報告',
+        titleEn: 'Oral Presentation at 3rd International Symposium on Medical Decision Science (ISMDS 2025)',
+        description: '於銘傳大學舉辦的第三屆國際醫療決策科學研討會發表口頭報告，講題為「利用序列二元分類和集成機器學習方法改進胃癌結果的風險分層」，研究開發基於機器學習的預測模型以評估胃癌治療後患者的二次原發癌和復發風險',
+        descriptionEn: 'Presented oral presentation titled "Improved Risk Stratification of Gastric Cancer Outcomes via Sequential Binary Classification and Ensemble Machine Learning Methods" at ISMDS 2025, developing a machine learning-based predictive model to assess risks of secondary primary cancer and recurrence in gastric cancer patients after treatment',
+        details: 'Developed predictive model using split strategy approach with ADASYN technique to overcome class imbalances, evaluated seven machine learning algorithms (Random Forest, SVM, kNN, Decision Tree, Gauss Naive Bayes, Gradient Boosting, and XGBoost) with SHAP analysis for model interpretation, identifying key predictors including tumor stage, Helicobacter pylori-related factors, lymph nodes involvement, age and lifestyle factors',
+        detailsEn: 'Developed predictive model using split strategy approach with ADASYN technique to overcome class imbalances, evaluated seven machine learning algorithms (Random Forest, SVM, kNN, Decision Tree, Gauss Naive Bayes, Gradient Boosting, and XGBoost) with SHAP analysis for model interpretation, identifying key predictors including tumor stage, Helicobacter pylori-related factors, lymph nodes involvement, age and lifestyle factors',
+        location: '銘傳大學 (Ming Chuan University)'
+    },
+    {
         date: '2025-08',
         type: 'research',
         title: '從學習評分到角色養成：生成式AI支持下的遊戲化教學實踐',

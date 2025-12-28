@@ -217,7 +217,15 @@ const About: React.FC = () => {
                       )}
                       {edu.supervisor && (
                         <p className="text-xs text-slate-500">
-                          <strong>Supervisor:</strong> {edu.supervisor}
+                          <strong>Supervisor:</strong>{' '}
+                          <a
+                            href="https://bioxgem.life.nctu.edu.tw/bioxgem/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-fju-primary hover:text-fju-secondary underline transition-colors"
+                          >
+                            {edu.supervisor}
+                          </a>
                         </p>
                       )}
                     </div>

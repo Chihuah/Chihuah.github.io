@@ -60,17 +60,38 @@ const Research: React.FC = () => {
     }
   ]
 
-  const industryProject = {
-    title: "整合影像辨識分析螞蟻成長過程-螞蟻生態日記服務平台 (Integrated Image Recognition and Analysis of Ant Growth: An Ant Ecological Diary Service Platform)",
-    period: "2019/10/01 - 2020/07/31",
-    funding: "NTD 500,000",
-    partner: "Empire of ants 螞蟻帝國"
-  }
+  const industryProjects = [
+    {
+      title: "串接AIoT與健康存摺數據的糖尿病照護AI微服務研發計畫 (AI Microservices for Diabetes Care Integrating AIoT and Health Records)",
+      period: "2025/06/01 - 2026/05/31",
+      funding: "NTD 580,000",
+      partner: "安捷康生醫股份有限公司 (AJK Biomedical Inc.)"
+    },
+    {
+      title: "整合影像辨識分析螞蟻成長過程-螞蟻生態日記服務平台 (Integrated Image Recognition and Analysis of Ant Growth: An Ant Ecological Diary Service Platform)",
+      period: "2019/10/01 - 2020/07/31",
+      funding: "NTD 500,000",
+      partner: "Empire of ants 螞蟻帝國"
+    }
+  ]
 
-  const nstcProject = {
-    title: "利用大型語言模型提升病歷分類準確性與效率的研究 -- 訓練醫療大型語言模型應用至醫療檢閱平台",
-    period: "2024/07/01 - 2025/02/28",
-    student: "黎芷妤"
+  const nstcProjects = [
+    {
+      title: "基於生成式 AI 與檢索增強技術之醫療資訊檢索效能研究(以用藥安全為例) (Medical Information Retrieval Performance Using Generative AI and Retrieval-Augmented Generation Technology: A Case Study on Medication Safety)",
+      period: "2025/07/01 - 2026/02/28",
+      student: "翁甄薇"
+    },
+    {
+      title: "利用大型語言模型提升病歷分類準確性與效率的研究 -- 訓練醫療大型語言模型應用至醫療檢閱平台 (Research on Improving Medical Record Classification Accuracy Using Large Language Models)",
+      period: "2024/07/01 - 2025/02/28",
+      student: "黎芷妤"
+    }
+  ]
+
+  const moeTeachingProject = {
+    title: "從學習評分到角色養成：生成式AI支持下的遊戲化教學實踐 (From Learning Assessment to Character Development: Gamified Teaching Practices Powered by Generative AI)",
+    period: "2025/08/01 - 2026/07/31",
+    funding: "NTD 250,000"
   }
 
   const references = [
@@ -127,16 +148,32 @@ const Research: React.FC = () => {
           </p>
 
           <p className="text-fju-primary mb-8 text-wrap leading-relaxed">
-            In addition to research, we actively engage in industry-academia collaboration, currently developing a convolutional neural
-            network-based application for image identification to assess the population of ants within their nests. Moving forward, we aim
-            to extend these preliminary outcomes into broader industrial applications in bioinformatics, medical informatics, and AI-driven
-            deep learning technologies. Additionally, we mentor undergraduate students in conducting artificial intelligence and deep learning
-            projects. Following a year of dedicated training and hands-on experience, our students successfully develop deep learning models
-            with strong predictive performance, applying them effectively in diverse AI application scenarios. Examples of student-driven
-            projects include medical applications such as respiratory sound analysis for distinguishing lung diseases and image recognition
-            for skin melanoma, as well as ecological applications including identification of fall armyworms, lepidopteran larvae, and
+            In addition to academic research, our laboratory actively integrates cutting-edge artificial intelligence technologies into
+            diverse research and teaching activities. We have successfully undertaken two industry-academia collaboration projects focused
+            on AI applications: developing an intelligent diabetes care system that combines AIoT devices with generative AI for
+            personalized health management, and creating a convolutional neural network-based ant population monitoring platform for
+            ecological research. Furthermore, we have supervised two consecutive National Science and Technology Council (NSTC)
+            undergraduate research projects, guiding students to explore medical informatics applications using large language models and
+            retrieval-augmented generation (RAG) technologies. Most recently, we secured a Ministry of Education Teaching Practice Research
+            Project that innovatively combines gamified learning design with generative AI to transform pedagogical approaches in AI
+            coursework. These academic activities demonstrate our laboratory's commitment to advancing state-of-the-art artificial
+            intelligence research, from deep learning and computer vision to large language models and generative AI, while effectively
+            translating theoretical innovations into practical applications across medical informatics, ecological monitoring, and
+            educational technology domains. Additionally, we mentor undergraduate students in conducting AI and deep learning capstone
+            projects. Following dedicated training and hands-on experience, our students successfully develop robust deep learning models
+            for diverse application scenarios, including medical applications such as respiratory sound analysis for lung disease diagnosis
+            and melanoma image recognition, as well as ecological applications for identifying fall armyworms, lepidopteran larvae, and
             common ant species in Taiwan.
           </p>
+
+          {/* Academic Activities Illustration */}
+          <div className="flex justify-center mb-8">
+            <img
+              src="/Activities.png"
+              alt="Overview of academic activities including industry-academia collaboration projects, NSTC undergraduate research projects, and MOE teaching practice research project"
+              className="rounded-lg shadow-lg max-w-full h-auto"
+            />
+          </div>
 
           {/* References */}
           <div className="border-t pt-6">
@@ -178,7 +215,7 @@ const Research: React.FC = () => {
         </div>
       </section>
 
-      {/* MOST Projects */}
+      {/* NSTC Projects */}
       <section className="mb-16 p-8 rounded-lg shadow-md">
         <h2 className="text-3xl font-bold text-slate-900 mb-8">The National Science and Technology Council (NSTC) Projects</h2>
 
@@ -203,50 +240,79 @@ const Research: React.FC = () => {
         </div>
       </section>
 
-      {/* Industry-Academia Cooperation */}
+      {/* MOE Teaching Practice Research Program */}
       <section className="mb-16 p-8 rounded-lg shadow-md">
-        <h2 className="text-3xl font-bold text-slate-900 mb-8">Industry-academia Cooperation Project</h2>
+        <h2 className="text-3xl font-bold text-slate-900 mb-8">The Teaching Practice Research Program of The Ministry of Education</h2>
 
-        <Card className="border-l-4 border-fju-accent">
+        <Card className="border-l-4 border-fju-primary">
           <CardContent className="p-6">
-            <h4 className="font-semibold text-slate-900 mb-3 text-wrap">{industryProject.title}</h4>
-            <div className="flex flex-wrap gap-4 text-sm text-slate-600 mb-3">
+            <h4 className="font-semibold text-slate-900 mb-3 text-wrap">{moeTeachingProject.title}</h4>
+            <div className="flex flex-wrap gap-4 text-sm text-slate-600">
               <div className="flex items-center gap-2">
                 <Calendar className="w-4 h-4" />
-                <span>{industryProject.period}</span>
+                <span>{moeTeachingProject.period}</span>
               </div>
               <div className="flex items-center gap-2">
                 <DollarSign className="w-4 h-4" />
-                <span>Funding: {industryProject.funding}</span>
+                <span>Funding: {moeTeachingProject.funding}</span>
               </div>
-            </div>
-            <div className="flex items-center gap-2 text-sm text-slate-600">
-              <Users className="w-4 h-4" />
-              <span>Cooperate with {industryProject.partner}</span>
             </div>
           </CardContent>
         </Card>
       </section>
 
-      {/* NSTC Project */}
+      {/* Industry-Academia Cooperation */}
+      <section className="mb-16 p-8 rounded-lg shadow-md">
+        <h2 className="text-3xl font-bold text-slate-900 mb-8">Industry-academia Cooperation Projects</h2>
+
+        <div className="space-y-6">
+          {industryProjects.map((project, index) => (
+            <Card key={index} className="border-l-4 border-fju-accent">
+              <CardContent className="p-6">
+                <h4 className="font-semibold text-slate-900 mb-3 text-wrap">{project.title}</h4>
+                <div className="flex flex-wrap gap-4 text-sm text-slate-600 mb-3">
+                  <div className="flex items-center gap-2">
+                    <Calendar className="w-4 h-4" />
+                    <span>{project.period}</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <DollarSign className="w-4 h-4" />
+                    <span>Funding: {project.funding}</span>
+                  </div>
+                </div>
+                <div className="flex items-center gap-2 text-sm text-slate-600">
+                  <Users className="w-4 h-4" />
+                  <span>Cooperate with {project.partner}</span>
+                </div>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </section>
+
+      {/* NSTC Projects */}
       <section className="mb-16 p-8 rounded-lg shadow-md">
         <h2 className="text-3xl font-bold text-slate-900 mb-8">指導國科會大專生研究計畫</h2>
 
-        <Card className="border-l-4 border-amber-500">
-          <CardContent className="p-6">
-            <h4 className="font-semibold text-slate-900 mb-3 text-wrap">{nstcProject.title}</h4>
-            <div className="flex flex-wrap gap-4 text-sm text-slate-600">
-              <div className="flex items-center gap-2">
-                <Calendar className="w-4 h-4" />
-                <span>{nstcProject.period}</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Users className="w-4 h-4" />
-                <span>學生：{nstcProject.student}</span>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
+        <div className="space-y-6">
+          {nstcProjects.map((project, index) => (
+            <Card key={index} className="border-l-4 border-amber-500">
+              <CardContent className="p-6">
+                <h4 className="font-semibold text-slate-900 mb-3 text-wrap">{project.title}</h4>
+                <div className="flex flex-wrap gap-4 text-sm text-slate-600">
+                  <div className="flex items-center gap-2">
+                    <Calendar className="w-4 h-4" />
+                    <span>{project.period}</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Users className="w-4 h-4" />
+                    <span>學生：{project.student}</span>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
       </section>
 
       {/* Protein Structural Units Networks */}
