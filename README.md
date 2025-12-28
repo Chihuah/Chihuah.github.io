@@ -123,6 +123,7 @@ Chihuah.github.io/
 │   │   └── ui/              # UI組件庫（shadcn/ui）
 │   │       └── *.jsx        # 50+ 個UI組件
 │   ├── data/                # 靜態資料
+│   │   ├── activities.ts    # 活動資料（雙語支援）
 │   │   └── personal.ts      # 個人資訊配置
 │   ├── hooks/               # React Hooks
 │   │   ├── use-mobile.ts    # 移動端檢測Hook
@@ -191,6 +192,77 @@ const publications: Publication[] = [
 ];
 ```
 然而，由於資料與輸出未分離， `publications` 現直接寫在組件中，應把資料（例如論文、活動）拆成獨立檔案，更新會更容易。未來會將研究成果資料改至 `src/data/personal.ts` 來紀錄與管理。
+
+### 更新活動資料（Activities）
+
+**✅ 已實現資料與輸出分離！**
+
+活動資料已集中管理在 `src/data/activities.ts` 檔案，支援**中英文雙語**內容。
+
+#### 資料結構
+
+```typescript
+export interface Activity {
+  date: string              // 格式：'YYYY-MM'
+  type: ActivityType        // 'research' | 'teaching' | 'publication' 等
+  title: string             // 中文標題
+  titleEn: string           // 英文標題
+  description: string       // 中文描述
+  descriptionEn: string     // 英文描述
+  details?: string          // 中文詳細說明（選填）
+  detailsEn?: string        // 英文詳細說明（選填）
+  location?: string         // 地點（選填）
+  participants?: string[]   // 參與者（選填）
+  funding?: string          // 經費（選填）
+}
+```
+
+#### 新增活動範例
+
+在 `src/data/activities.ts` 的 `activitiesData` 陣列開頭新增：
+
+```typescript
+export const activitiesData: Activity[] = [
+  // 新增的活動（放在最前面）
+  {
+    date: '2025-12',
+    type: 'collaboration',
+    title: '新產學合作計畫啟動',
+    titleEn: 'New Industry Collaboration Project',
+    description: '與XX公司合作進行AI醫療應用研究',
+    descriptionEn: 'AI healthcare application research with XX Company',
+    funding: 'NTD 1,000,000'
+  },
+  
+  // ... 現有活動
+]
+```
+
+#### 自動更新的頁面
+
+更新 `activities.ts` 後，以下頁面會**自動同步**：
+
+- **Home.tsx** - Latest News 區塊顯示最新 3 則活動（英文）
+- **Activities.tsx** - 完整活動列表（中英文並列）
+
+#### 活動類型說明
+
+| 類型 | 說明 | 顯示顏色 |
+|------|------|---------|
+| `publication` | 論文發表 | 淡青色 |
+| `research` | 研究計畫 | 淡藍色 |
+| `teaching` | 教學活動 | 淡靛藍色 |
+| `collaboration` | 產學合作 | 淡橘色 |
+| `graduation` | 學生畢業 | 淡綠色 |
+| `speech` | 學術演講 | 淡紫色 |
+| `award` | 獲獎 | - |
+
+#### 最佳實踐
+
+1. **按時間倒序排列** - 最新的活動放在陣列最前面
+2. **完整雙語** - 務必提供 `title`/`titleEn` 和 `description`/`descriptionEn`
+3. **統一日期格式** - 使用 `YYYY-MM` 格式（例如：`'2025-12'`）
+4. **選擇正確類型** - 依據活動性質選擇適當的 `type`
 
 ### 修改網站樣式
 
