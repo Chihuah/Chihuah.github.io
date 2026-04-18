@@ -17,8 +17,8 @@ const Research: React.FC = () => {
 
   const futureDirections = [
     {
-      title: "AI-driven \"Structural Alphabet 2.0\" system",
-      description: "Our future research will focus on developing an AI-driven \"Structural Alphabet 2.0\" system, enabling ultra-fast structural indexing and functional annotation for entire proteomes. Although the original Structural Alphabet (SA) effectively compressed protein 3D structures and supported rapid structural comparisons (e.g., 3D-BLAST), the recent surge of near-atomic-level predictions from AlphaFold2 and ESMFold demands more scalable solutions. To address this, we aim to leverage self-supervised deep learning approaches, including contrastive learning and variational autoencoders, to adaptively refine the SA framework, generating a new embedding (\"SA-Embedding\") that maps proteins into low-dimensional vector spaces. Coupled with advanced ANN/LSH indexing, this method will achieve sub-second nearest-neighbor searching across hundreds of millions of protein models. Furthermore, we plan to develop \"u3D-BLAST,\" integrating enhanced SASM algorithms and deep-learning-based scoring functions for statistically robust evaluation and automatic functional annotation (Gene Ontology, EC numbers). Ultimately, this innovative platform will deliver large-scale structural annotations akin to UniProt's functional annotations, significantly benefiting structural genomics, protein engineering, and remote homology detection across databases such as CATH and Pfam-Clan."
+      title: "SA-XL: Explainable Learning Structural Alphabet",
+      description: "Our future research will focus on developing SA-XL, a next-generation explainable and learnable protein structural alphabet built on a Geometry-Aware VQ-VAE framework. By integrating our original kappa-alpha geometric parameters as an inductive bias into an SE(3)-equivariant graph neural network, we aim to bridge the gap between physically interpretable structural representations and modern deep learning-based tokenization. Beyond model development, we plan to modernize the 3D-BLAST framework, including a Rust-based reconstruction of the search engine and support for extensible structural alphabets with different state granularities. Together with NVIDIA-supported large-scale GPU training, this research direction is intended to provide efficient, interpretable, and scalable structural representations for protein structure search, remote homology detection, and future protein language modeling."
     },
     {
       title: "Application of advanced deep learning methods",
@@ -105,6 +105,13 @@ const Research: React.FC = () => {
     "Chi-Hua Tung, Shih-Huan Lin, Kai-Po Chang, Ya-Wen Xu, Min-Ling Chuang, Yen-Wei Chu, \"Light Bladder Net: Non-invasive Bladder Cancer Prediction by Weighted Deep Learning Approaches and Graphical Data Transformation,\" 2025 May, Anticancer Research, 45(5):1953-1964, (SCI)"
   ]
 
+  const researchSupport = {
+    title: 'NVIDIA Academic Grant Program',
+    period: '2026/04 - 2026/09',
+    support: '32K A100 GPU-hours on Brev',
+    description: 'Received an NVIDIA Academic Grant Program compute grant (32K A100 GPU-hours on Brev) to support research on physically interpretable protein structure tokenization and geometric deep learning for structural biology.'
+  }
+
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
       {/* Hero Section */}
@@ -189,30 +196,29 @@ const Research: React.FC = () => {
         </div>
       </section>
 
-      {/* Future Research Directions */}
-      <section className="mb-16 bg-white p-8 rounded-lg shadow-md">
-        <h2 className="text-3xl font-bold text-slate-900 mb-8">Future Research Directions</h2>
-        <p className="text-lg text-slate-600 mb-8 text-wrap">
-          Building upon our existing research achievements, we plan to deepen our investigations in the following areas:
-        </p>
+      {/* NSTC Projects */}
+      {/* Research Support */}
+      <section className="mb-16 p-8 rounded-lg shadow-md">
+        <h2 className="text-3xl font-bold text-slate-900 mb-8">Research Support</h2>
 
-        <div className="space-y-6">
-          {futureDirections.map((direction, index) => (
-            <Card key={index} className="hover:shadow-lg transition-shadow">
-              <CardHeader>
-                <CardTitle className="text-xl text-wrap flex items-start gap-3">
-                  <span className="bg-slate-100 text-fju-primary rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold flex-shrink-0 mt-1">
-                    {index + 1}
-                  </span>
-                  {direction.title}
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-fju-primary text-wrap leading-relaxed">{direction.description}</p>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
+        <Card className="border-l-4 border-fju-primary">
+          <CardContent className="p-6">
+            <h4 className="font-semibold text-slate-900 mb-3 text-wrap">{researchSupport.title}</h4>
+            <div className="flex flex-wrap gap-4 text-sm text-slate-600 mb-3">
+              <div className="flex items-center gap-2">
+                <Calendar className="w-4 h-4" />
+                <span>{researchSupport.period}</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Award className="w-4 h-4" />
+                <span>{researchSupport.support}</span>
+              </div>
+            </div>
+            <p className="text-fju-primary leading-relaxed text-wrap">
+              {researchSupport.description}
+            </p>
+          </CardContent>
+        </Card>
       </section>
 
       {/* NSTC Projects */}
@@ -351,9 +357,34 @@ const Research: React.FC = () => {
           </p>
         </div>
       </section>
+
+      {/* Future Research Directions */}
+      <section className="mb-16 bg-white p-8 rounded-lg shadow-md">
+        <h2 className="text-3xl font-bold text-slate-900 mb-8">Future Research Directions</h2>
+        <p className="text-lg text-slate-600 mb-8 text-wrap">
+          Building upon our existing research achievements, we plan to deepen our investigations in the following areas:
+        </p>
+
+        <div className="space-y-6">
+          {futureDirections.map((direction, index) => (
+            <Card key={index} className="hover:shadow-lg transition-shadow">
+              <CardHeader>
+                <CardTitle className="text-xl text-wrap flex items-start gap-3">
+                  <span className="bg-slate-100 text-fju-primary rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold flex-shrink-0 mt-1">
+                    {index + 1}
+                  </span>
+                  {direction.title}
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-fju-primary text-wrap leading-relaxed">{direction.description}</p>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </section>
     </div>
   )
 }
 
 export default Research
-

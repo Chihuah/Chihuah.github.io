@@ -85,6 +85,12 @@ const About: React.FC = () => {
   // Awards data
   const awards = [
     {
+      year: '2026',
+      title: 'NVIDIA Academic Grant Program',
+      subtitle: 'Received an NVIDIA Academic Grant Program compute grant (32K A100 GPU-hours on Brev) to support research on physically interpretable protein structure tokenization and geometric deep learning for structural biology.',
+      type: 'research-support'
+    },
+    {
       year: '2016',
       title: 'WORLD GENIUS CONVENTION',
       subtitle: '第三十屆日本東京創新天才發明展 金牌',
@@ -319,4 +325,3 @@ const About: React.FC = () => {
 }
 
 export default About
-

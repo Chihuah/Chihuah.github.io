@@ -21,6 +21,16 @@ export interface Activity {
 }
 
 export const activitiesData: Activity[] = [
+    // 2026
+    {
+        date: '2026-04',
+        type: 'award',
+        title: '獲得 NVIDIA Academic Grant Program 計算資源補助',
+        titleEn: 'Received NVIDIA Academic Grant Program Compute Grant',
+        description: '獲得 NVIDIA Academic Grant Program 計算資源補助，提供 32K A100 GPU-hours on Brev。',
+        descriptionEn: 'Received an NVIDIA Academic Grant Program compute grant (32K A100 GPU-hours on Brev) to support research on physically interpretable protein structure tokenization and geometric deep learning for structural biology.'
+    },
+
     // 2025
     {
         date: '2025-10',
