@@ -107,6 +107,19 @@ export const projectsData: Project[] = [
 
   // --- moe-teaching ---
   {
+    id: 'moe-teaching-2026-heros-journey-ai',
+    kind: 'moe-teaching',
+    title: '從動機到精熟：英雄旅程式鷹架與AI導師協同的程式設計教學創新',
+    titleEn:
+      "From Motivation to Mastery: Programming Education Innovation through Hero's Journey Scaffolding and AI Mentorship",
+    startDate: '2026-08-01',
+    endDate: '2027-07-31',
+    description:
+      '獲得教育部教學實踐研究計畫，以英雄旅程敘事鷹架結合 AI 導師「梅林」，在大一 Java 程式設計課程建立動機與認知雙層鷹架，檢驗計算思維、學習動機與不同起點學生之學習成效。',
+    descriptionEn:
+      "Awarded Ministry of Education Teaching Practice Research Project integrating Hero's Journey narrative scaffolding with an AI mentor (Merlin) in first-year Java programming, building dual motivational and cognitive scaffolds to evaluate computational thinking, motivation, and learning outcomes across students with different starting points.",
+  },
+  {
     id: 'moe-teaching-2025-gamified-ai',
     kind: 'moe-teaching',
     title: '從學習評分到角色養成：生成式AI支持下的遊戲化教學實踐',
@@ -183,6 +196,19 @@ export const projectsData: Project[] = [
   },
 
   // --- nstc-pi (formerly MOST / mostProjects) ---
+  {
+    id: 'nstc-pi-2026-sa-xl',
+    kind: 'nstc-pi',
+    title: 'SA-XL：基於κ-α幾何約束之可學習蛋白質結構字元集',
+    titleEn:
+      'SA-XL: A Learnable Protein Structural Alphabet with κ-α Geometric Constraints',
+    startDate: '2026-08-01',
+    endDate: '2027-07-31',
+    description:
+      '獲得國科會專題研究計畫，開發 SA-XL：以 Geometry-Aware VQ-VAE 將 (κ, α) 幾何參數作為歸納偏置，結合 SE(3)-等變圖神經網路，建立兼具物理可解釋性與可學習性的蛋白質結構字元集，支援大規模結構搜尋與遠程同源偵測。',
+    descriptionEn:
+      'NSTC research project developing SA-XL, a learnable and physically interpretable protein structural alphabet via a Geometry-Aware VQ-VAE that embeds (κ, α) geometric constraints into an SE(3)-equivariant framework, supporting large-scale structure search and remote homology detection.',
+  },
   {
     id: 'nstc-pi-2016-disease-usa',
     kind: 'nstc-pi',
