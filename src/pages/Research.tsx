@@ -1,9 +1,12 @@
 import React from 'react'
-import { ExternalLink, Microscope, Brain, Database, Dna, FlaskConical, Users, Target, Lightbulb, Award, Calendar, DollarSign } from 'lucide-react'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { Badge } from '@/components/ui/badge'
-import { Button } from '@/components/ui/button'
+import { Users, Award, Calendar, DollarSign } from 'lucide-react'
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { useSEO } from '../hooks/useSEO'
+import {
+  formatPeriod,
+  formatProjectTitle,
+  getProjectsByKind,
+} from '../data/projects'
 
 const Research: React.FC = () => {
   // SEO optimization
@@ -42,57 +45,12 @@ const Research: React.FC = () => {
     }
   ]
 
-  const mostProjects = [
-    {
-      title: "Developing disease-USA network with weighted RWR score for protein pathogenic prediction",
-      period: "2016/08/01 - 2017/07/31",
-      funding: "NTD 423,000"
-    },
-    {
-      title: "Structure-Oriented Distance Motif for Protein Functions Prediction and Annotation",
-      period: "2012/08/01 - 2013/07/31",
-      funding: "NTD 528,000"
-    },
-    {
-      title: "Networks of Protein Structural Units in Pharmaceutical Applications",
-      period: "2012/01/01 - 2012/07/31",
-      funding: "NTD 500,000"
-    }
-  ]
-
-  const industryProjects = [
-    {
-      title: "串接AIoT與健康存摺數據的糖尿病照護AI微服務研發計畫 (AI Microservices for Diabetes Care Integrating AIoT and Health Records)",
-      period: "2025/06/01 - 2026/05/31",
-      funding: "NTD 580,000",
-      partner: "安捷康生醫股份有限公司 (AJK Biomedical Inc.)"
-    },
-    {
-      title: "整合影像辨識分析螞蟻成長過程-螞蟻生態日記服務平台 (Integrated Image Recognition and Analysis of Ant Growth: An Ant Ecological Diary Service Platform)",
-      period: "2019/10/01 - 2020/07/31",
-      funding: "NTD 500,000",
-      partner: "Empire of ants 螞蟻帝國"
-    }
-  ]
-
-  const nstcProjects = [
-    {
-      title: "基於生成式 AI 與檢索增強技術之醫療資訊檢索效能研究(以用藥安全為例) (Medical Information Retrieval Performance Using Generative AI and Retrieval-Augmented Generation Technology: A Case Study on Medication Safety)",
-      period: "2025/07/01 - 2026/02/28",
-      student: "翁甄薇"
-    },
-    {
-      title: "利用大型語言模型提升病歷分類準確性與效率的研究 -- 訓練醫療大型語言模型應用至醫療檢閱平台 (Research on Improving Medical Record Classification Accuracy Using Large Language Models)",
-      period: "2024/07/01 - 2025/02/28",
-      student: "黎芷妤"
-    }
-  ]
-
-  const moeTeachingProject = {
-    title: "從學習評分到角色養成：生成式AI支持下的遊戲化教學實踐 (From Learning Assessment to Character Development: Gamified Teaching Practices Powered by Generative AI)",
-    period: "2025/08/01 - 2026/07/31",
-    funding: "NTD 250,000"
-  }
+  // SSOT: projects filtered by kind (newest first)
+  const nstcProjects = getProjectsByKind('nstc-pi')
+  const nstcStudentProjects = getProjectsByKind('nstc-student')
+  const moeTeachingProjects = getProjectsByKind('moe-teaching')
+  const industryProjects = getProjectsByKind('industry')
+  const researchSupportProjects = getProjectsByKind('compute')
 
   const references = [
     "Chi-Hua Tung, Chi-Wei Chen, Ren-Chao Guo, Hui-Fuang Ng, and Yen-Wei Chu, \"QuaBingo: A Prediction System for Protein Quaternary Structure Attributes Using Block Composition,\" 2016, BioMed Research International, Volume 2016 (2016). (SCI, 82/161, BIOTECHNOLOGY & APPLIED MICROBIOLOGY)",
@@ -104,13 +62,6 @@ const Research: React.FC = () => {
     "Jia-Ru Wu, Pei-Chieh Lu, Aye Aye Khine, Sailent Rizki Sari Simaremare, Chien-Chi Hung, Lin-Ming Yiin, Tsung-Jung Ho, Chi-Hua Tung & Hao-Ping Chen, \"Borneol dehydrogenase from Pseudomonas sp. TCU-HL1 possesses novel quinuclidinone reductase activities,\" 2021 Aug, Biocatalysis and Biotransformation, (SCI)",
     "Chi-Hua Tung, Shih-Huan Lin, Kai-Po Chang, Ya-Wen Xu, Min-Ling Chuang, Yen-Wei Chu, \"Light Bladder Net: Non-invasive Bladder Cancer Prediction by Weighted Deep Learning Approaches and Graphical Data Transformation,\" 2025 May, Anticancer Research, 45(5):1953-1964, (SCI)"
   ]
-
-  const researchSupport = {
-    title: 'NVIDIA Academic Grant Program',
-    period: '2026/04 - 2026/09',
-    support: '32K A100 GPU-hours on Brev',
-    description: 'Received an NVIDIA Academic Grant Program compute grant (32K A100 GPU-hours on Brev) to support research on physically interpretable protein structure tokenization and geometric deep learning for structural biology.'
-  }
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -196,130 +147,171 @@ const Research: React.FC = () => {
         </div>
       </section>
 
-      {/* NSTC Projects */}
-      {/* Research Support */}
-      <section className="mb-16 p-8 rounded-lg shadow-md">
-        <h2 className="text-3xl font-bold text-slate-900 mb-8">Research Support</h2>
+      {/* Research Support (compute) */}
+      {researchSupportProjects.length > 0 && (
+        <section className="mb-16 p-8 rounded-lg shadow-md">
+          <h2 className="text-3xl font-bold text-slate-900 mb-8">Research Support</h2>
 
-        <Card className="border-l-4 border-fju-primary">
-          <CardContent className="p-6">
-            <h4 className="font-semibold text-slate-900 mb-3 text-wrap">{researchSupport.title}</h4>
-            <div className="flex flex-wrap gap-4 text-sm text-slate-600 mb-3">
-              <div className="flex items-center gap-2">
-                <Calendar className="w-4 h-4" />
-                <span>{researchSupport.period}</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Award className="w-4 h-4" />
-                <span>{researchSupport.support}</span>
-              </div>
-            </div>
-            <p className="text-fju-primary leading-relaxed text-wrap">
-              {researchSupport.description}
-            </p>
-          </CardContent>
-        </Card>
-      </section>
-
-      {/* NSTC Projects */}
-      <section className="mb-16 p-8 rounded-lg shadow-md">
-        <h2 className="text-3xl font-bold text-slate-900 mb-8">The National Science and Technology Council (NSTC) Projects</h2>
-
-        <div className="space-y-6">
-          {mostProjects.map((project, index) => (
-            <Card key={index} className="border-l-4 border-fju-secondary">
-              <CardContent className="p-6">
-                <h4 className="font-semibold text-slate-900 mb-3 text-wrap">{project.title}</h4>
-                <div className="flex flex-wrap gap-4 text-sm text-slate-600">
-                  <div className="flex items-center gap-2">
-                    <Calendar className="w-4 h-4" />
-                    <span>{project.period}</span>
+          <div className="space-y-6">
+            {researchSupportProjects.map((project) => (
+              <Card key={project.id} className="border-l-4 border-fju-primary">
+                <CardContent className="p-6">
+                  <h4 className="font-semibold text-slate-900 mb-3 text-wrap">
+                    {formatProjectTitle(project)}
+                  </h4>
+                  <div className="flex flex-wrap gap-4 text-sm text-slate-600 mb-3">
+                    <div className="flex items-center gap-2">
+                      <Calendar className="w-4 h-4" />
+                      <span>{formatPeriod(project.startDate, project.endDate)}</span>
+                    </div>
+                    {project.support && (
+                      <div className="flex items-center gap-2">
+                        <Award className="w-4 h-4" />
+                        <span>{project.support}</span>
+                      </div>
+                    )}
                   </div>
-                  <div className="flex items-center gap-2">
-                    <DollarSign className="w-4 h-4" />
-                    <span>Funding: {project.funding}</span>
+                  {project.descriptionEn && (
+                    <p className="text-fju-primary leading-relaxed text-wrap">
+                      {project.descriptionEn}
+                    </p>
+                  )}
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {/* NSTC PI Projects (formerly mostProjects) */}
+      {nstcProjects.length > 0 && (
+        <section className="mb-16 p-8 rounded-lg shadow-md">
+          <h2 className="text-3xl font-bold text-slate-900 mb-8">The National Science and Technology Council (NSTC) Projects</h2>
+
+          <div className="space-y-6">
+            {nstcProjects.map((project) => (
+              <Card key={project.id} className="border-l-4 border-fju-secondary">
+                <CardContent className="p-6">
+                  <h4 className="font-semibold text-slate-900 mb-3 text-wrap">
+                    {formatProjectTitle(project)}
+                  </h4>
+                  <div className="flex flex-wrap gap-4 text-sm text-slate-600">
+                    <div className="flex items-center gap-2">
+                      <Calendar className="w-4 h-4" />
+                      <span>{formatPeriod(project.startDate, project.endDate)}</span>
+                    </div>
+                    {project.funding && (
+                      <div className="flex items-center gap-2">
+                        <DollarSign className="w-4 h-4" />
+                        <span>Funding: {project.funding}</span>
+                      </div>
+                    )}
                   </div>
-                </div>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-      </section>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </section>
+      )}
 
       {/* MOE Teaching Practice Research Program */}
-      <section className="mb-16 p-8 rounded-lg shadow-md">
-        <h2 className="text-3xl font-bold text-slate-900 mb-8">The Teaching Practice Research Program of The Ministry of Education</h2>
+      {moeTeachingProjects.length > 0 && (
+        <section className="mb-16 p-8 rounded-lg shadow-md">
+          <h2 className="text-3xl font-bold text-slate-900 mb-8">The Teaching Practice Research Program of The Ministry of Education</h2>
 
-        <Card className="border-l-4 border-fju-primary">
-          <CardContent className="p-6">
-            <h4 className="font-semibold text-slate-900 mb-3 text-wrap">{moeTeachingProject.title}</h4>
-            <div className="flex flex-wrap gap-4 text-sm text-slate-600">
-              <div className="flex items-center gap-2">
-                <Calendar className="w-4 h-4" />
-                <span>{moeTeachingProject.period}</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <DollarSign className="w-4 h-4" />
-                <span>Funding: {moeTeachingProject.funding}</span>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
-      </section>
+          <div className="space-y-6">
+            {moeTeachingProjects.map((project) => (
+              <Card key={project.id} className="border-l-4 border-fju-primary">
+                <CardContent className="p-6">
+                  <h4 className="font-semibold text-slate-900 mb-3 text-wrap">
+                    {formatProjectTitle(project)}
+                  </h4>
+                  <div className="flex flex-wrap gap-4 text-sm text-slate-600">
+                    <div className="flex items-center gap-2">
+                      <Calendar className="w-4 h-4" />
+                      <span>{formatPeriod(project.startDate, project.endDate)}</span>
+                    </div>
+                    {project.funding && (
+                      <div className="flex items-center gap-2">
+                        <DollarSign className="w-4 h-4" />
+                        <span>Funding: {project.funding}</span>
+                      </div>
+                    )}
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </section>
+      )}
 
       {/* Industry-Academia Cooperation */}
-      <section className="mb-16 p-8 rounded-lg shadow-md">
-        <h2 className="text-3xl font-bold text-slate-900 mb-8">Industry-academia Cooperation Projects</h2>
+      {industryProjects.length > 0 && (
+        <section className="mb-16 p-8 rounded-lg shadow-md">
+          <h2 className="text-3xl font-bold text-slate-900 mb-8">Industry-academia Cooperation Projects</h2>
 
-        <div className="space-y-6">
-          {industryProjects.map((project, index) => (
-            <Card key={index} className="border-l-4 border-fju-accent">
-              <CardContent className="p-6">
-                <h4 className="font-semibold text-slate-900 mb-3 text-wrap">{project.title}</h4>
-                <div className="flex flex-wrap gap-4 text-sm text-slate-600 mb-3">
-                  <div className="flex items-center gap-2">
-                    <Calendar className="w-4 h-4" />
-                    <span>{project.period}</span>
+          <div className="space-y-6">
+            {industryProjects.map((project) => (
+              <Card key={project.id} className="border-l-4 border-fju-accent">
+                <CardContent className="p-6">
+                  <h4 className="font-semibold text-slate-900 mb-3 text-wrap">
+                    {formatProjectTitle(project)}
+                  </h4>
+                  <div className="flex flex-wrap gap-4 text-sm text-slate-600 mb-3">
+                    <div className="flex items-center gap-2">
+                      <Calendar className="w-4 h-4" />
+                      <span>{formatPeriod(project.startDate, project.endDate)}</span>
+                    </div>
+                    {project.funding && (
+                      <div className="flex items-center gap-2">
+                        <DollarSign className="w-4 h-4" />
+                        <span>Funding: {project.funding}</span>
+                      </div>
+                    )}
                   </div>
-                  <div className="flex items-center gap-2">
-                    <DollarSign className="w-4 h-4" />
-                    <span>Funding: {project.funding}</span>
-                  </div>
-                </div>
-                <div className="flex items-center gap-2 text-sm text-slate-600">
-                  <Users className="w-4 h-4" />
-                  <span>Cooperate with {project.partner}</span>
-                </div>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-      </section>
+                  {project.partner && (
+                    <div className="flex items-center gap-2 text-sm text-slate-600">
+                      <Users className="w-4 h-4" />
+                      <span>Cooperate with {project.partner}</span>
+                    </div>
+                  )}
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </section>
+      )}
 
-      {/* NSTC Projects */}
-      <section className="mb-16 p-8 rounded-lg shadow-md">
-        <h2 className="text-3xl font-bold text-slate-900 mb-8">指導國科會大專生研究計畫</h2>
+      {/* NSTC Undergraduate Student Projects */}
+      {nstcStudentProjects.length > 0 && (
+        <section className="mb-16 p-8 rounded-lg shadow-md">
+          <h2 className="text-3xl font-bold text-slate-900 mb-8">指導國科會大專生研究計畫</h2>
 
-        <div className="space-y-6">
-          {nstcProjects.map((project, index) => (
-            <Card key={index} className="border-l-4 border-amber-500">
-              <CardContent className="p-6">
-                <h4 className="font-semibold text-slate-900 mb-3 text-wrap">{project.title}</h4>
-                <div className="flex flex-wrap gap-4 text-sm text-slate-600">
-                  <div className="flex items-center gap-2">
-                    <Calendar className="w-4 h-4" />
-                    <span>{project.period}</span>
+          <div className="space-y-6">
+            {nstcStudentProjects.map((project) => (
+              <Card key={project.id} className="border-l-4 border-amber-500">
+                <CardContent className="p-6">
+                  <h4 className="font-semibold text-slate-900 mb-3 text-wrap">
+                    {formatProjectTitle(project)}
+                  </h4>
+                  <div className="flex flex-wrap gap-4 text-sm text-slate-600">
+                    <div className="flex items-center gap-2">
+                      <Calendar className="w-4 h-4" />
+                      <span>{formatPeriod(project.startDate, project.endDate)}</span>
+                    </div>
+                    {project.student && (
+                      <div className="flex items-center gap-2">
+                        <Users className="w-4 h-4" />
+                        <span>學生：{project.student}</span>
+                      </div>
+                    )}
                   </div>
-                  <div className="flex items-center gap-2">
-                    <Users className="w-4 h-4" />
-                    <span>學生：{project.student}</span>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-      </section>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </section>
+      )}
 
       {/* Protein Structural Units Networks */}
       <section className="mb-16 bg-white p-8 rounded-lg shadow-md">
