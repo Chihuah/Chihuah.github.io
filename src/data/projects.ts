@@ -114,6 +114,7 @@ export const projectsData: Project[] = [
       "From Motivation to Mastery: Programming Education Innovation through Hero's Journey Scaffolding and AI Mentorship",
     startDate: '2026-08-01',
     endDate: '2027-07-31',
+    funding: 'NTD 220,000',
     description:
       '獲得教育部教學實踐研究計畫，以英雄旅程敘事鷹架結合 AI 導師「梅林」，在大一 Java 程式設計課程建立動機與認知雙層鷹架，檢驗計算思維、學習動機與不同起點學生之學習成效。',
     descriptionEn:
@@ -204,6 +205,7 @@ export const projectsData: Project[] = [
       'SA-XL: A Learnable Protein Structural Alphabet with κ-α Geometric Constraints',
     startDate: '2026-08-01',
     endDate: '2027-07-31',
+    funding: 'NTD 700,000',
     description:
       '獲得國科會專題研究計畫，開發 SA-XL：以 Geometry-Aware VQ-VAE 將 (κ, α) 幾何參數作為歸納偏置，結合 SE(3)-等變圖神經網路，建立兼具物理可解釋性與可學習性的蛋白質結構字元集，支援大規模結構搜尋與遠程同源偵測。',
     descriptionEn:
