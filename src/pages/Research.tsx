@@ -281,7 +281,7 @@ const Research: React.FC = () => {
       {/* NSTC Undergraduate Student Projects */}
       {nstcStudentProjects.length > 0 && (
         <section className="mb-16 p-8 rounded-lg shadow-md">
-          <h2 className="text-3xl font-bold text-slate-900 mb-8">指導國科會大專生研究計畫</h2>
+          <h2 className="text-3xl font-bold text-slate-900 mb-8">Supervising the NSTC Undergraduate Research Program</h2>
 
           <div className="space-y-6">
             {nstcStudentProjects.map((project) => (
