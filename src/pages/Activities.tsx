@@ -4,7 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { useSEO } from '../hooks/useSEO'
-import { activitiesData } from '../data/activities'
+import { getTimelineItems } from '../data/timeline'
 
 const Activities: React.FC = () => {
   // SEO optimization
@@ -20,13 +20,11 @@ const Activities: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>('all')
 
 
-  // 自動排序和處理活動資料
-  const processedActivities = activitiesData
-    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
-    .map((activity, index) => ({
-      ...activity,
-      id: `${activity.date}-${activity.type}-${index}` // 自動生成ID
-    }))
+  // 合併 projects + activities，依日期排序
+  const processedActivities = getTimelineItems().map((activity, index) => ({
+    ...activity,
+    id: `${activity.date}-${activity.type}-${index}`
+  }))
 
   const categories = [
     { id: 'all', label: 'All 全部活動', icon: Calendar, color: 'bg-slate-100 text-slate-700' },

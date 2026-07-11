@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { personalInfo } from '../data/personal'
-import { activitiesData } from '../data/activities'
+import { getTimelineItems } from '../data/timeline'
 import { useSEO } from '../hooks/useSEO'
 
 const Home: React.FC = () => {
@@ -249,10 +249,10 @@ const Home: React.FC = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {activitiesData.slice(0, 3).map((activity, index) => {
+            {getTimelineItems().slice(0, 3).map((activity, index) => {
               const borderColors = ['border-l-fju-secondary', 'border-l-fju-primary', 'border-l-fju-accent']
               return (
-                <Card key={`${activity.date}-${index}`} className={`border-l-4 ${borderColors[index % borderColors.length]}`}>
+                <Card key={`${activity.date}-${activity.type}-${index}`} className={`border-l-4 ${borderColors[index % borderColors.length]}`}>
                   <CardHeader>
                     <CardTitle className="text-slate-900">{activity.titleEn}</CardTitle>
                     <CardDescription className="text-fju-secondary font-medium">
