@@ -5,357 +5,294 @@
 
 > 輔仁大學醫學資訊與創新應用學士學位學程副教授的個人學術網站
 
-🌐 **網站連結**: [https://chihuah.github.io](https://chihuah.github.io) <新版個人學術網頁>
+🌐 **網站**: [https://chihuah.github.io](https://chihuah.github.io)
 
-🌐 **網站連結**: [https://sites.google.com/view/chihuah-fju/home](https://sites.google.com/view/chihuah-fju/home) <舊版個人學術網頁，於2025/06之後停止更新>
-
----
-
-## 📖 專案簡介
-
-這是董其樺副教授的個人學術網站，展示其在智慧生物資訊領域的研究成果、教學經歷、學術發表等內容。網站採用現代化的響應式設計，提供優秀的使用者體驗。
-
-### 🎯 網站特色
-
-- **🏠 個人簡介** - 完整的學術背景和研究領域介紹
-- **📚 研究成果** - 23 篇論文展示，包含 13 篇 SCI 期刊
-- **🎓 教學經歷** - 課程資訊和指導專題
-- **👥 實驗室成員** - 指導學生和研究團隊（包含畢業生）介紹
-- **🏆 獲獎與證照** - 得獎與證照等獎項
-- **📱 響應式設計** - 完美支援桌面、平板、手機等各種設備
-- **🌐 語言國際化** - 主要提供英文介面
+🌐 **舊站**（2025/06 後停止更新）: [Google Sites](https://sites.google.com/view/chihuah-fju/home)
 
 ---
 
-## 🛠️ 技術棧
+## 專案簡介
 
-### 前端框架
+展示智慧生物資訊相關研究、教學、論文與實驗室活動的靜態學術網站。內容以 **`src/data/` 單一資料源（SSOT）** 維護，多數頁面自動連動，無需在多個頁面重複修改。
 
-- **React 18** - 現代化的前端框架
-- **TypeScript** - 型別安全的 JavaScript
-- **Vite** - 快速的建置工具
-- **Tailwind CSS** - 實用優先的 CSS 框架
+### 網站功能
 
-### 開發工具
+| 路由 | 頁面 | 主要資料來源 |
+|------|------|--------------|
+| `/` | Home | `personal.ts`、`timeline.ts`（Latest News）、`publications.ts`（亮點） |
+| `/about` | About | 頁面內經歷／學歷；compute 類獎項來自 `projects.ts` |
+| `/research` | Research | `projects.ts`（計畫分區）、`publications.ts`（overview 引用） |
+| `/publications` | Publications | `publications.ts` |
+| `/teaching` | Teaching | 頁面內課程／專題資料 |
+| `/members` | Lab Members | 頁面內成員資料 |
+| `/activities` | Activities | `timeline.ts`（合併 projects + publications + activities） |
 
-- **pnpm** - 高效能的套件管理器
-- **ESLint** - 程式碼品質檢查
-- **Git** - 版本控制系統
+### 技術棧
 
-### 部署平台
-
-- **GitHub Pages** - 免費的靜態網站託管
-- **GitHub Actions** - 自動化部署流程
+- **React 19** + **TypeScript** + **Vite**
+- **Tailwind CSS v4** + **shadcn/ui**
+- **React Router**、**pnpm**
+- **GitHub Pages** + **GitHub Actions** 自動部署
 
 ---
 
-## 🚀 快速開始
+## 快速開始
 
 ### 環境需求
 
 - Node.js 18+
-- pnpm (推薦) 或 npm
+- pnpm（推薦）或 npm
 
-### 安裝步驟
+### 安裝與開發
 
-1. **克隆專案**
+```bash
+git clone https://github.com/Chihuah/Chihuah.github.io.git
+cd Chihuah.github.io
 
-   ```bash
-   git clone https://github.com/Chihuah/Chihuah.github.io.git
-   cd Chihuah.github.io
-   ```
+pnpm install
+pnpm run dev
+```
 
-2. **安裝依賴**
+瀏覽器開啟 [http://localhost:5173](http://localhost:5173)。
 
-   ```bash
-   # 使用 pnpm (推薦)
-   pnpm install
+### 指令
 
-   # 或使用 npm
-   npm install
-   ```
-
-3. **啟動開發服務器**
-
-   ```bash
-   # 使用 pnpm
-   pnpm run dev
-
-   # 或使用 npm
-   npm run dev
-   ```
-
-4. **開啟瀏覽器**
-
-   前往 [http://localhost:5173](http://localhost:5173) 查看網站
+| 指令 | 說明 |
+|------|------|
+| `pnpm run dev` | 啟動開發伺服器 |
+| `pnpm run build` | 建置生產版本（輸出 `dist/`） |
+| `pnpm run preview` | 本機預覽建置結果 |
+| `pnpm run lint` | ESLint 檢查 |
 
 ---
 
-## 📜 可用指令
+## 內容維護指南（重點）
 
-| 指令               | 說明           | 用途               |
-| ------------------ | -------------- | ------------------ |
-| `pnpm run dev`     | 啟動開發服務器 | 本機開發和即時預覽 |
-| `pnpm run build`   | 建置生產版本   | 產生優化的靜態檔案 |
-| `pnpm run preview` | 預覽建置結果   | 本機測試生產版本   |
-| `pnpm run lint`    | 檢查程式碼品質 | 確保程式碼符合規範 |
+日常更新**幾乎只改 `src/data/`**，不必改頁面元件。
+
+### 要改哪個檔？
+
+| 你要新增／修改的內容 | 編輯檔案 | 通常不用改 |
+|----------------------|----------|------------|
+| 國科會 PI、大專生、教學實踐、產學、GPU 計算資源等**計畫** | [`src/data/projects.ts`](src/data/projects.ts) | `timeline.ts`、Research 頁 |
+| **論文**書目、DOI、首頁亮點、Research 引用 | [`src/data/publications.ts`](src/data/publications.ts) | Publications / Home / Research |
+| 姓名、職稱、聯絡、導覽列 | [`src/data/personal.ts`](src/data/personal.ts) | |
+| 演講、畢業、開課等**非計畫／非論文**活動 | [`src/data/activities.ts`](src/data/activities.ts) | |
+| 時間軸如何合併 | — | **[`timeline.ts`](src/data/timeline.ts) 不用動**（自動合併） |
+
+### 資料流（自動連動）
+
+```
+projects.ts  ──────► Research 各計畫區塊
+     │               About（compute 類 awards）
+     │
+publications.ts ───► Publications 列表
+     │               Home Research Highlights（featured）
+     │               Research overview references
+     │
+activities.ts  ────►（僅非計畫／非論文事件）
+     │
+     └──► timeline.ts 合併排序 ──► Activities 時間軸
+                                   Home Latest News（最新 3 則）
+```
+
+`timeline.ts` 是**合併層**，不是內容主檔。它會：
+
+1. 從 `projects.ts` 取出要上時間軸的計畫（預設會上；`showInTimeline: false` 可排除）
+2. 從 `publications.ts` 取出 `showInTimeline: true` 的論文
+3. 加上 `activities.ts` 全部
+4. 依日期新 → 舊排序
 
 ---
 
-## 📁 專案結構
+### 1. 計畫 — `projects.ts`
 
-```
-Chihuah.github.io/
-├── public/                    # 靜態資源
-│   ├── logo_*.png            # Logo檔案
-│   ├── vite.svg              # Vite圖示
-│   └── 404.html              # 404錯誤頁面
-├── src/                      # 原始碼
-│   ├── assets/               # 資源檔案
-│   │   ├── logo_*.png        # Logo檔案
-│   │   ├── profile.jpg       # 個人照片
-│   │   └── react.svg         # React圖示
-│   ├── components/           # React 組件
-│   │   ├── layout/          # 布局組件
-│   │   │   ├── Footer.tsx   # 頁尾組件
-│   │   │   ├── Header.tsx   # 頁首組件
-│   │   │   └── Layout.tsx   # 主布局組件
-│   │   └── ui/              # UI組件庫（shadcn/ui）
-│   │       └── *.jsx        # 50+ 個UI組件
-│   ├── data/                # 靜態資料
-│   │   ├── activities.ts    # 活動資料（雙語支援）
-│   │   └── personal.ts      # 個人資訊配置
-│   ├── hooks/               # React Hooks
-│   │   ├── use-mobile.ts    # 移動端檢測Hook
-│   │   └── useSEO.ts        # 動態管理網頁的 SEO 元素
-│   ├── lib/                 # 工具函數
-│   │   └── utils.ts         # 通用工具函數
-│   ├── pages/               # 頁面組件
-│   │   ├── About.tsx        # 關於頁面
-│   │   ├── Activities.tsx   # 活動頁面
-│   │   ├── Home.tsx         # 首頁
-│   │   ├── Members.tsx      # 成員頁面
-│   │   ├── Publications.tsx # 論文頁面
-│   │   ├── Research.tsx     # 研究頁面
-│   │   └── Teaching.tsx     # 教學頁面
-│   ├── types/               # TypeScript 型別定義
-│   │   └── index.ts         # 型別定義檔案
-│   ├── App.tsx              # 主應用程式組件
-│   ├── App.css              # Tailwind CSS v4 配置
-│   ├── index.css            # 全域CSS
-│   └── main.tsx             # 應用程式入口點
-├── dist/                    # 建置輸出目錄
-├── .github/                 # GitHub 配置
-│   └── workflows/           # GitHub Actions 工作流程
-├── components.json          # shadcn/ui 組件配置
-├── deploy-github-pages.sh   # 部署腳本
-├── eslint.config.js         # ESLint 配置
-├── index.html               # HTML 入口檔案
-├── jsconfig.json            # JavaScript 配置
-├── package.json             # 專案配置和依賴
-├── tsconfig.json            # TypeScript 配置
-├── tsconfig.node.json       # TypeScript Node 配置
-├── vite.config.js           # Vite 配置
-└── README.md                # 專案說明文件
-```
+`kind` 決定出現在 Research 的哪個區塊：
 
----
+| `kind` | Research 區塊 |
+|--------|----------------|
+| `nstc-pi` | NSTC Projects（國科會／科技部 PI） |
+| `nstc-student` | 指導國科會大專生研究計畫 |
+| `moe-teaching` | 教育部教學實踐研究計畫 |
+| `industry` | 產學合作 |
+| `compute` | Research Support（如 NVIDIA GPU） |
 
-## 🔧 自訂化指南
-
-### 修改個人資訊
-
-編輯 `src/data/personal.ts` 檔案來更新個人資訊：
+範例（國科會 PI）：
 
 ```typescript
-export const personalInfo = {
-  name: "您的姓名",
-  title: "您的職稱",
-  email: "your.email@example.com",
-  // ... 其他資訊
-};
-```
-
-### 更新研究成果
-
-在 `src/pages/Publications.tsx` 中添加或修改論文資料：
-
-```typescript
-const publications: Publication[] = [
-  {
-    title: "論文標題",
-    authors: [作者列表],
-    journal: "期刊名稱",
-    year: 2024,
-    // ... 其他資訊
-  },
-];
-```
-然而，由於資料與輸出未分離， `publications` 現直接寫在組件中，應把資料（例如論文、活動）拆成獨立檔案，更新會更容易。未來會將研究成果資料改至 `src/data/personal.ts` 來紀錄與管理。
-
-### 更新活動資料（Activities）
-
-**✅ 已實現資料與輸出分離！**
-
-活動資料已集中管理在 `src/data/activities.ts` 檔案，支援**中英文雙語**內容。
-
-#### 資料結構
-
-```typescript
-export interface Activity {
-  date: string              // 格式：'YYYY-MM'
-  type: ActivityType        // 'research' | 'teaching' | 'publication' 等
-  title: string             // 中文標題
-  titleEn: string           // 英文標題
-  description: string       // 中文描述
-  descriptionEn: string     // 英文描述
-  details?: string          // 中文詳細說明（選填）
-  detailsEn?: string        // 英文詳細說明（選填）
-  location?: string         // 地點（選填）
-  participants?: string[]   // 參與者（選填）
-  funding?: string          // 經費（選填）
+{
+  id: 'nstc-pi-2026-example',
+  kind: 'nstc-pi',
+  title: '中文計畫名稱',
+  titleEn: 'English Project Title',
+  startDate: '2026-08-01',
+  endDate: '2027-07-31',
+  funding: 'NTD 500,000',
+  description: '中文摘要……',
+  descriptionEn: 'English summary…',
+  // showInTimeline: false  // 若不要出現在 Activities / Latest News
 }
 ```
 
-#### 新增活動範例
+教學實踐與產學同理，分別設 `kind: 'moe-teaching'`、`kind: 'industry'`（產學可加 `partner`；大專生加 `student`）。
 
-在 `src/data/activities.ts` 的 `activitiesData` 陣列開頭新增：
+---
+
+### 2. 論文 — `publications.ts`
+
+完整書目集中在此。常用旗標：
+
+| 欄位 | 作用 |
+|------|------|
+| （基本）title, authors, journal, year, doi, type… | Publications 列表 |
+| `showInTimeline: true` | 出現在 Activities / Latest News（**預設不上時間軸**） |
+| `featured: true` + `featuredOrder` | Home 研究亮點 |
+| `researchOverviewOrder` | Research 頁 overview 引用順序 |
+| `shortName`, `summaryZh` / `summaryEn` | 時間軸／亮點顯示名稱與摘要 |
+
+範例：
 
 ```typescript
-export const activitiesData: Activity[] = [
-  // 新增的活動（放在最前面）
-  {
-    date: '2025-12',
-    type: 'collaboration',
-    title: '新產學合作計畫啟動',
-    titleEn: 'New Industry Collaboration Project',
-    description: '與XX公司合作進行AI醫療應用研究',
-    descriptionEn: 'AI healthcare application research with XX Company',
-    funding: 'NTD 1,000,000'
-  },
-  
-  // ... 現有活動
-]
+{
+  id: 'pub-2026-example',
+  title: 'Full Paper Title…',
+  authors: ['Chi-Hua Tung', '…'],
+  journal: 'Journal Name',
+  year: 2026,
+  month: 3,
+  type: 'SCI',
+  category: 'journal',
+  doi: '10.xxxx/xxxxx',
+  shortName: 'ExampleNet',
+  showInTimeline: true,
+  featured: true,
+  featuredOrder: 1,
+  highlightDescription: 'One-line highlight for Home',
+  summaryZh: '中文簡述……',
+  summaryEn: 'Published in Journal Name…',
+}
 ```
-
-#### 自動更新的頁面
-
-更新 `activities.ts` 後，以下頁面會**自動同步**：
-
-- **Home.tsx** - Latest News 區塊顯示最新 3 則活動（英文）
-- **Activities.tsx** - 完整活動列表（中英文並列）
-
-#### 活動類型說明
-
-| 類型 | 說明 | 顯示顏色 |
-|------|------|---------|
-| `publication` | 論文發表 | 淡青色 |
-| `research` | 研究計畫 | 淡藍色 |
-| `teaching` | 教學活動 | 淡靛藍色 |
-| `collaboration` | 產學合作 | 淡橘色 |
-| `graduation` | 學生畢業 | 淡綠色 |
-| `speech` | 學術演講 | 淡紫色 |
-| `award` | 獲獎 | - |
-
-#### 最佳實踐
-
-1. **按時間倒序排列** - 最新的活動放在陣列最前面
-2. **完整雙語** - 務必提供 `title`/`titleEn` 和 `description`/`descriptionEn`
-3. **統一日期格式** - 使用 `YYYY-MM` 格式（例如：`'2025-12'`）
-4. **選擇正確類型** - 依據活動性質選擇適當的 `type`
-
-### 修改網站樣式
-
-- **顏色主題**: 編輯 `src/App.css` 中的 `@theme inline` 區塊和 CSS 變數
-- **布局樣式**: 修改 `src/components/layout/` 下的組件
-- **頁面內容**: 編輯 `src/pages/` 下的對應頁面
 
 ---
 
-## 🚀 部署說明
+### 3. 一般活動 — `activities.ts`
 
-### 自動部署 (推薦)
+只放**不是計畫、也不是論文**的事件（演講、畢業、開新課等）。
 
-本專案已配置 GitHub Actions 自動部署：
+```typescript
+{
+  date: '2026-03',           // YYYY-MM
+  type: 'speech',            // 見下表
+  title: '中文標題',
+  titleEn: 'English title',
+  description: '中文描述',
+  descriptionEn: 'English description',
+  location: '可選',
+  participants: ['可選'],
+}
+```
 
-1. **推送程式碼到 main 分支**
+| `type` | 用途 |
+|--------|------|
+| `speech` | 學術演講／口頭報告 |
+| `teaching` | 開課、教學活動 |
+| `graduation` | 學生畢業／專題完成 |
+| `collaboration` | 其他合作（非 `projects` 產學主檔時） |
+| `research` / `award` | 其他研究或獲獎敘事（計畫類優先寫 `projects.ts`） |
+| `publication` | **不建議手寫**；請寫 `publications.ts` 並設 `showInTimeline` |
 
-   ```bash
-   git add .
-   git commit -m "Update website content"
-   git push origin main
-   ```
+建議：新活動放在陣列**較前面**或任意位置皆可（時間軸會再依 `date` 排序）；務必補齊中英文欄位。
 
-2. **GitHub Actions 自動執行**
+---
 
-   - 安裝依賴
-   - 建置專案
-   - 部署到 GitHub Pages
+### 4. 個人資訊 — `personal.ts`
 
-3. **網站自動更新**
-   - 通常在 2-5 分鐘內完成
-   - 可在 Actions 頁面查看部署狀態
+姓名、職稱、單位、Email、電話、地址、導覽列 `navItems` 等。
 
-### 手動部署
+---
 
-如果需要手動部署：
+### 5. 仍寫在頁面內的內容
+
+以下尚未抽成 `data/`，需改對應頁面：
+
+| 內容 | 檔案 |
+|------|------|
+| 經歷、學歷、發明展獎、教學榮譽 | `src/pages/About.tsx` |
+| 課程列表、專題、演講場次 | `src/pages/Teaching.tsx` |
+| 實驗室成員 | `src/pages/Members.tsx` |
+| Research 敘事段落、未來方向 | `src/pages/Research.tsx`（計畫列表本身已連動） |
+
+---
+
+## 專案結構
+
+```
+Chihuah.github.io/
+├── public/                 # 靜態資源（logo、CV、404、圖片）
+├── src/
+│   ├── assets/             # 打包用資源（大頭照等）
+│   ├── components/
+│   │   ├── layout/         # Header / Footer / Layout
+│   │   └── ui/             # shadcn/ui
+│   ├── data/               # ★ 內容 SSOT（日常主要改這裡）
+│   │   ├── personal.ts     # 個人資訊、導覽
+│   │   ├── projects.ts     # 計畫／研究支援
+│   │   ├── publications.ts # 論文書目
+│   │   ├── activities.ts   # 其他學術活動
+│   │   └── timeline.ts     # 合併層（一般不改）
+│   ├── hooks/              # useSEO 等
+│   ├── lib/
+│   ├── pages/              # 路由頁面
+│   ├── types/
+│   ├── App.tsx
+│   └── main.tsx
+├── deploy-github-pages.sh
+├── package.json
+├── vite.config.js
+└── README.md
+```
+
+---
+
+## 部署
+
+### 自動部署（推薦）
+
+推送到 `main` 後，GitHub Actions 會建置並部署到 GitHub Pages：
 
 ```bash
-# 建置專案
-pnpm run build
+git add .
+git commit -m "Update website content"
+git push origin main
+```
 
-# 部署到 GitHub Pages
-# (需要額外配置 gh-pages 套件)
+約 2–5 分鐘生效；狀態見 [Actions](https://github.com/Chihuah/Chihuah.github.io/actions)。
+
+### 本機建置檢查
+
+```bash
+pnpm run build
+pnpm run preview
 ```
 
 ---
 
-## 🌐 網站功能
+## 授權
 
-### 主要頁面
-
-- **🏠 首頁** - 個人簡介和研究亮點
-- **👤 關於我** - 詳細的學術背景
-- **📚 研究成果** - 論文發表和研究項目
-- **🎓 教學經歷** - 課程教學與指導專題
-- **👥 實驗室成員** - 曾指導碩士畢業生
-- **📞 聯絡資訊** - 聯絡方式和辦公室資訊
-
-### 技術特色
-
-- **📱 響應式設計** - 支援各種螢幕尺寸
-- **⚡ 快速載入** - 優化的效能表現
-- **🔍 SEO 友善** - 搜尋引擎最佳化
-- **♿ 無障礙支援** - 符合網頁無障礙標準
-- **🌙 現代化 UI** - 簡潔專業的設計風格
+MIT — 詳見 [LICENSE](LICENSE)（若有提供）。
 
 ---
 
-## 📄 授權條款
-
-本專案採用 MIT 授權條款 - 詳見 [LICENSE](LICENSE) 檔案
-
----
-
-## 📞 聯絡資訊
+## 聯絡
 
 **董其樺 (Chi-Hua Tung)**
 
-- 📧 Email: [chihua.tung.fju@gmail.com](mailto:chihua.tung.fju@gmail.com)
-- 🏢 辦公室: 輔仁大學聖言樓 SF212 室
-- 🌐 網站: [https://chihuah.github.io](https://chihuah.github.io)
+- Email: [chihua.tung.fju@gmail.com](mailto:chihua.tung.fju@gmail.com)
+- 辦公室: 輔仁大學聖言樓 SF212
+- 網站: [https://chihuah.github.io](https://chihuah.github.io)
 
 ---
 
-## 🙏 致謝
+## 致謝
 
-感謝以下技術和服務：
-
-- [React](https://reactjs.org/) - 前端框架
-- [TypeScript](https://www.typescriptlang.org/) - 程式語言
-- [Tailwind CSS](https://tailwindcss.com/) - CSS 框架
-- [Vite](https://vitejs.dev/) - 建置工具
-- [GitHub Pages](https://pages.github.com/) - 網站託管
-- [GitHub Actions](https://github.com/features/actions) - 自動化部署
-
----
+[React](https://react.dev/) · [TypeScript](https://www.typescriptlang.org/) · [Vite](https://vitejs.dev/) · [Tailwind CSS](https://tailwindcss.com/) · [shadcn/ui](https://ui.shadcn.com/) · [GitHub Pages](https://pages.github.com/) · [GitHub Actions](https://github.com/features/actions)
