@@ -4,6 +4,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 // @ts-ignore - UI components are JSX files
 import { Badge } from '@/components/ui/badge'
 import { useSEO } from '../hooks/useSEO'
+import { formatPeriod, getProjectsByKind } from '../data/projects'
 
 const About: React.FC = () => {
   // SEO optimization
@@ -82,39 +83,44 @@ const About: React.FC = () => {
     }
   ]
 
-  // Awards data
-  const awards = [
-    {
-      year: '2026',
-      title: 'NVIDIA Academic Grant Program',
-      subtitle: 'Received an NVIDIA Academic Grant Program compute grant (32K A100 GPU-hours on Brev) to support research on physically interpretable protein structure tokenization and geometric deep learning for structural biology.',
-      type: 'research-support'
-    },
+  // Awards: compute support from projects SSOT + static invention awards
+  const computeAwards = getProjectsByKind('compute').map((project) => ({
+    year: project.startDate.split('-')[0],
+    title: project.titleEn || project.title,
+    subtitle:
+      project.descriptionEn ||
+      `${project.support ?? ''} (${formatPeriod(project.startDate, project.endDate)})`.trim(),
+    type: 'research-support' as const,
+  }))
+
+  const inventionAwards = [
     {
       year: '2016',
       title: 'WORLD GENIUS CONVENTION',
       subtitle: '第三十屆日本東京創新天才發明展 金牌',
-      type: 'international'
+      type: 'international' as const,
     },
     {
       year: '2014',
       title: '43rd INTERNATIONAL EXHIBITION of INVENTIONS of GENEVA',
       subtitle: '瑞士日內瓦國際發明展 銅牌',
-      type: 'international'
+      type: 'international' as const,
     },
     {
       year: '2014',
       title: 'X INTERNATIONAL SALON of INVENTIONS and NEW TECHNOLOGIES',
       subtitle: '烏克蘭國際發明展 銀牌',
-      type: 'international'
+      type: 'international' as const,
     },
     {
       year: '2014',
       title: 'XVII Archimedes, the 17th Moscow International Salon of Inventions and Innovative Technologies',
       subtitle: '莫斯科阿基米德國際發明展 銅牌',
-      type: 'international'
-    }
+      type: 'international' as const,
+    },
   ]
+
+  const awards = [...computeAwards, ...inventionAwards]
 
   // Teaching honors
   const teachingHonors = [
