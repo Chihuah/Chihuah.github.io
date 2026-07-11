@@ -6,6 +6,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Badge } from '@/components/ui/badge'
 import { personalInfo } from '../data/personal'
 import { getTimelineItems } from '../data/timeline'
+import { getFeaturedPublications } from '../data/publications'
 import { useSEO } from '../hooks/useSEO'
 
 const Home: React.FC = () => {
@@ -49,27 +50,13 @@ const Home: React.FC = () => {
     { label: 'Awards Received', value: '10+', icon: Award }
   ]
 
-  // Research Highlights
-  const highlights = [
-    {
-      title: 'Light Bladder Net',
-      description: 'Deep learning-based non-invasive bladder cancer prediction system',
-      year: '2025',
-      journal: 'Anticancer Research'
-    },
-    {
-      title: 'NIgPred',
-      description: 'Machine learning-based antibody epitope prediction system',
-      year: '2021',
-      journal: 'Viruses'
-    },
-    {
-      title: 'QUATgo',
-      description: 'Protein quaternary structure attribute prediction system',
-      year: '2020',
-      journal: 'PLoS ONE'
-    }
-  ]
+  // Research Highlights (from publications SSOT)
+  const highlights = getFeaturedPublications().map((pub) => ({
+    title: pub.shortName ?? pub.title,
+    description: pub.highlightDescription ?? pub.summaryEn ?? pub.title,
+    year: String(pub.year),
+    journal: pub.journal,
+  }))
 
   return (
     <div className="space-y-16">

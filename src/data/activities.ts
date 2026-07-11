@@ -1,8 +1,8 @@
 /**
  * Shared Activities Data - Bilingual Support
- * Non-project academic events only (speeches, publications, graduations, courses).
- * Research grants / industry / compute / teaching-practice projects live in projects.ts
- * and are merged into the timeline via timeline.ts.
+ * Non-project academic events only (speeches, graduations, courses, etc.).
+ * Projects live in projects.ts; publications live in publications.ts.
+ * Both are merged into the timeline via timeline.ts.
  */
 
 export type ActivityType =
@@ -46,19 +46,6 @@ export const activitiesData: Activity[] = [
       'Developed predictive model using split strategy approach with ADASYN technique to overcome class imbalances, evaluated seven machine learning algorithms (Random Forest, SVM, kNN, Decision Tree, Gauss Naive Bayes, Gradient Boosting, and XGBoost) with SHAP analysis for model interpretation, identifying key predictors including tumor stage, Helicobacter pylori-related factors, lymph nodes involvement, age and lifestyle factors',
     location: '銘傳大學 (Ming Chuan University)',
   },
-  {
-    date: '2025-05',
-    type: 'publication',
-    title: 'Light Bladder Net論文發表',
-    titleEn: 'Publication: Light Bladder Net ',
-    description: 'Non-invasive Bladder Cancer Prediction論文發表於Anticancer Research期刊',
-    descriptionEn:
-      '"Light Bladder Net: Non-invasive Bladder Cancer Prediction" published in Anticancer Research',
-    details:
-      'Developed Light-Bladder-Net, a lightweight deep learning model that combines data transformation and weighted voting techniques to achieve non-invasive bladder cancer prediction based on conventional urine examination, with 83% accuracy and a free online diagnostic tool.',
-    detailsEn:
-      'Developed Light-Bladder-Net, a lightweight deep learning model that combines data transformation and weighted voting techniques to achieve non-invasive bladder cancer prediction based on conventional urine examination, with 83% accuracy and a free online diagnostic tool.',
-  },
 
   // 2023
   {
@@ -95,48 +82,7 @@ export const activitiesData: Activity[] = [
     participants: ['吳依穎', '葉庭豪', '姚冠宇', '林胤軒'],
   },
 
-  // 2021
-  {
-    date: '2021-08',
-    type: 'publication',
-    title: 'NIgPred論文發表',
-    titleEn: 'Publication:NIgPred ',
-    description:
-      'Class-Specific Antibody Prediction for Linear B-Cell Epitopes論文發表於Viruses期刊',
-    descriptionEn:
-      '"Class-Specific Antibody Prediction for Linear B-Cell Epitopes" published in Viruses journal',
-    details:
-      'Developed NIgPred, a novel machine learning tool that integrates heterogeneous features and 60 classifiers with genetic algorithm-based feature selection to predict class-specific antibodies (IgA, IgE, IgG) for linear B-cell epitopes, achieving superior performance over existing tools and 100% accuracy on coronavirus IgG epitope prediction.',
-    detailsEn:
-      'Developed NIgPred, a novel machine learning tool that integrates heterogeneous features and 60 classifiers with genetic algorithm-based feature selection to predict class-specific antibodies (IgA, IgE, IgG) for linear B-cell epitopes, achieving superior performance over existing tools and 100% accuracy on coronavirus IgG epitope prediction.',
-  },
-  {
-    date: '2021-08',
-    type: 'publication',
-    title: 'Borneol dehydrogenase研究發表',
-    titleEn: 'Publication: Borneol Dehydrogenase Research',
-    description: 'Pseudomonas sp. TCU-HL1的新型quinuclidinone還原酶活性研究',
-    descriptionEn: 'Novel quinuclidinone reductase activities from Pseudomonas sp. TCU-HL1',
-    details:
-      'Discovered that borneol dehydrogenase from Pseudomonas sp. TCU-HL1 possesses novel quinuclidinone reductase activities, demonstrating its ability to convert 3-quinuclidinone to (R)-3-(-)-quinuclidinol and elucidating the structural basis for substrate specificity differences between BDH and QR through 3D molecular docking simulations.',
-    detailsEn:
-      'Discovered that borneol dehydrogenase from Pseudomonas sp. TCU-HL1 possesses novel quinuclidinone reductase activities, demonstrating its ability to convert 3-quinuclidinone to (R)-3-(-)-quinuclidinol and elucidating the structural basis for substrate specificity differences between BDH and QR through 3D molecular docking simulations.',
-  },
-
   // 2020
-  {
-    date: '2020-04',
-    type: 'publication',
-    title: 'QUATgo論文發表',
-    titleEn: 'Publication: QUATgo',
-    description: 'Protein quaternary structural attributes prediction system發表於PLoS ONE',
-    descriptionEn:
-      'Protein quaternary structural attributes prediction system published in PLoS ONE',
-    details:
-      'Developed QUATgo, a two-stage machine learning tool that predicts protein quaternary structural attributes for oligomers with more than 12 subunits using heterogeneous feature encoding including dipeptide composition (first time applied to quaternary structure prediction), protein half-life characteristics, and modified functional domain composition, achieving 49.0% cross-validation accuracy and providing a freely accessible web server.',
-    detailsEn:
-      'Developed QUATgo, a two-stage machine learning tool that predicts protein quaternary structural attributes for oligomers with more than 12 subunits using heterogeneous feature encoding including dipeptide composition (first time applied to quaternary structure prediction), protein half-life characteristics, and modified functional domain composition, achieving 49.0% cross-validation accuracy and providing a freely accessible web server.',
-  },
   {
     date: '2020-06',
     type: 'graduation',
@@ -162,20 +108,6 @@ export const activitiesData: Activity[] = [
   },
 
   // 2018
-  {
-    date: '2018-12',
-    type: 'publication',
-    title: 'SUMOgo論文發表',
-    titleEn: 'Publication: SUMOgo',
-    description:
-      'Prediction of sumoylation sites on lysines by motif screening models發表於Scientific Reports',
-    descriptionEn:
-      'Prediction of sumoylation sites on lysines published in Scientific Reports',
-    details:
-      "Developed SUMOgo, a Random Forest tool that predicts SUMOylation sites by integrating post-translational modification information as novel features, achieving 0.511 Matthew's correlation coefficient and outperforming existing tools.",
-    detailsEn:
-      "Developed SUMOgo, a Random Forest tool that predicts SUMOylation sites by integrating post-translational modification information as novel features, achieving 0.511 Matthew's correlation coefficient and outperforming existing tools.",
-  },
   {
     date: '2018-06',
     type: 'graduation',
@@ -211,17 +143,6 @@ export const activitiesData: Activity[] = [
   // 2017
   {
     date: '2017-06',
-    type: 'publication',
-    title: 'REALoc論文發表',
-    titleEn: 'Publication: REALoc',
-    description: 'Predicting human protein subcellular localization by heterogeneous approaches',
-    descriptionEn:
-      'Predicting human protein subcellular localization by heterogeneous approaches published in PLoS ONE',
-    details: '與Chi-Wei Chen, Han-Hao Sun, Yen-Wei Chu等人合作，發表於PLoS ONE',
-    detailsEn: 'Collaborated with Chi-Wei Chen, Han-Hao Sun, and Yen-Wei Chu, published in PLoS ONE',
-  },
-  {
-    date: '2017-06',
     type: 'graduation',
     title: '智慧系統與教具開發專題',
     titleEn: 'Smart Systems and Educational Tools Projects',
@@ -232,20 +153,6 @@ export const activitiesData: Activity[] = [
   },
 
   // 2016
-  {
-    date: '2016-12',
-    type: 'publication',
-    title: 'QuaBingo論文發表',
-    titleEn: 'Publication: QuaBingo',
-    description:
-      'A Prediction System for Protein Quaternary Structure Attributes Using Block Composition',
-    descriptionEn:
-      'A Prediction System for Protein Quaternary Structure Attributes Using Block Composition published in BioMed Research International',
-    details:
-      '與Chi-Wei Chen, Ren-Chao Guo, Hui-Fuang Ng, Yen-Wei Chu等人合作，發表於BioMed Research International',
-    detailsEn:
-      'Collaborated with Chi-Wei Chen, Ren-Chao Guo, Hui-Fuang Ng, and Yen-Wei Chu, published in BioMed Research International',
-  },
   {
     date: '2016-06',
     type: 'graduation',

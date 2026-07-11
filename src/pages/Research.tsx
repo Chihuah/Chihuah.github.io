@@ -7,6 +7,10 @@ import {
   formatProjectTitle,
   getProjectsByKind,
 } from '../data/projects'
+import {
+  formatResearchCitation,
+  getResearchOverviewPublications,
+} from '../data/publications'
 
 const Research: React.FC = () => {
   // SEO optimization
@@ -52,16 +56,8 @@ const Research: React.FC = () => {
   const industryProjects = getProjectsByKind('industry')
   const researchSupportProjects = getProjectsByKind('compute')
 
-  const references = [
-    "Chi-Hua Tung, Chi-Wei Chen, Ren-Chao Guo, Hui-Fuang Ng, and Yen-Wei Chu, \"QuaBingo: A Prediction System for Protein Quaternary Structure Attributes Using Block Composition,\" 2016, BioMed Research International, Volume 2016 (2016). (SCI, 82/161, BIOTECHNOLOGY & APPLIED MICROBIOLOGY)",
-    "Chi-Hua Tung, Ching-Hsuan Chien, Chi-Wei Chen, Lan-Ying Huang, Yu-Nan Liu, Yen-Wei Chu, \"QUATgo: Protein quaternary structural attributes predicted by two-stage machine learning approaches with heterogeneous feature encoding,\" 2020, PLoS ONE, 15(4): e0232087. (SCI, 24/69, MULTIDISCIPLINARY SCIENCES)",
-    "Chi-Hua Tung, Chi-Wei Chen, Han-Hao Sun, and Yen-Wei Chu, \"Predicting human protein subcellular localization by heterogeneous and comprehensive approaches,\" 2017, PLoS ONE, 12(6): e0178832. (SCI, 11/63, MULTIDISCIPLINARY SCIENCES)",
-    "Chi-Chang Chang, Chi-Hua Tung, Chi-Wei Chen, Chin-Hau Tu, Yen-Wei Chu, \"SUMOgo: Prediction of sumoylation sites on lysines by motif screening models and the effects of various post-translational modifications,\" 2018, SCIENTIFIC REPORTS, 8(2018), 15512. (SCI, 12/64, MULTIDISCIPLINARY SCIENCES)",
-    "Chi-Hua Tung, Yi-Sheng Chang, Kai-Po Chang, Yen-Wei Chu, \"NIgPred: Class-Specific Antibody Prediction for Linear B-Cell Epitopes Based on Heterogeneous Features and Machine-Learning Approaches,\" 2021 Aug, Viruses, 13(8):1531. (SCI)",
-    "Chi-Hua Tung, Yen‐Ta Lu, Wei‐Ting Kao, Jen‐Wei Liu, Yi‐Hsuan Lai, Shinn‐Jong Jiang, Hao‐Ping Chen, Tzenge‐Lien Shih, \"Discovery of a more potent anticancer agent than C4‐benzazole 1,8‐naphthalimide derivatives against murine melanoma,\" 2020, JOURNAL OF THE CHINESE CHEMICAL SOCIETY, 67(7): 1254–1262. (SCI, 128/172, CHEMISTRY, MULTIDISCIPLINARY)",
-    "Jia-Ru Wu, Pei-Chieh Lu, Aye Aye Khine, Sailent Rizki Sari Simaremare, Chien-Chi Hung, Lin-Ming Yiin, Tsung-Jung Ho, Chi-Hua Tung & Hao-Ping Chen, \"Borneol dehydrogenase from Pseudomonas sp. TCU-HL1 possesses novel quinuclidinone reductase activities,\" 2021 Aug, Biocatalysis and Biotransformation, (SCI)",
-    "Chi-Hua Tung, Shih-Huan Lin, Kai-Po Chang, Ya-Wen Xu, Min-Ling Chuang, Yen-Wei Chu, \"Light Bladder Net: Non-invasive Bladder Cancer Prediction by Weighted Deep Learning Approaches and Graphical Data Transformation,\" 2025 May, Anticancer Research, 45(5):1953-1964, (SCI)"
-  ]
+  // Research overview citations from publications SSOT
+  const references = getResearchOverviewPublications().map(formatResearchCitation)
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">

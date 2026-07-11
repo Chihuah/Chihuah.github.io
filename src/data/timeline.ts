@@ -1,7 +1,7 @@
 /**
  * Timeline merge layer
- * Combines project-derived events with non-project activities for
- * Activities page and Home Latest News.
+ * Combines project-derived events, publication events, and non-project
+ * activities for Activities page and Home Latest News.
  */
 
 import {
@@ -10,6 +10,10 @@ import {
   projectsData,
   type Project,
 } from './projects'
+import {
+  publicationsData,
+  type Publication,
+} from './publications'
 import { activitiesData, type Activity } from './activities'
 
 /** Normalize date to YYYY-MM for consistent timeline sorting/display */
@@ -50,15 +54,45 @@ function projectToActivity(project: Project): Activity {
   }
 }
 
+function publicationToActivity(pub: Publication): Activity {
+  const month = pub.month ?? 1
+  const date = `${pub.year}-${String(month).padStart(2, '0')}`
+  const short = pub.shortName ?? pub.title.split(':')[0].trim()
+  const titleZh = pub.shortName ? `${pub.shortName}論文發表` : `${short}論文發表`
+  const titleEn = `Publication: ${short}`
+
+  const description =
+    pub.summaryZh ??
+    `${pub.title} 發表於 ${pub.journal}`
+  const descriptionEn =
+    pub.summaryEn ??
+    `"${pub.title}" published in ${pub.journal}`
+
+  return {
+    date,
+    type: 'publication',
+    title: titleZh,
+    titleEn,
+    description,
+    descriptionEn,
+    details: pub.detailsZh,
+    detailsEn: pub.detailsEn,
+  }
+}
+
 /**
- * Merged timeline: project events + non-project activities, newest first.
+ * Merged timeline: projects + publications + non-project activities, newest first.
  */
 export function getTimelineItems(): Activity[] {
   const fromProjects = projectsData
     .filter((p) => p.showInTimeline !== false)
     .map(projectToActivity)
 
-  return [...fromProjects, ...activitiesData].sort(
+  const fromPublications = publicationsData
+    .filter((p) => p.showInTimeline === true)
+    .map(publicationToActivity)
+
+  return [...fromProjects, ...fromPublications, ...activitiesData].sort(
     (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
   )
 }

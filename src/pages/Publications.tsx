@@ -1,28 +1,18 @@
 import React, { useState } from 'react'
-import { ExternalLink, Search, Filter, Calendar, BookOpen, Award, Download } from 'lucide-react'
+import { ExternalLink, Search, Calendar, BookOpen, Award, Download } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Input } from '@/components/ui/input'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { useSEO } from '../hooks/useSEO'
-
-interface Publication {
-  id: number
-  title: string
-  authors: string[]
-  journal: string
-  year: number
-  volume?: string
-  pages?: string
-  doi?: string
-  type: 'SCI' | 'EI' | 'Conference'
-  category: 'journal' | 'conference' | 'presentation'
-  ranking?: string
-}
+import {
+  formatPublicationLine,
+  getPublicationsSorted,
+  type Publication,
+} from '../data/publications'
 
 const Publications: React.FC = () => {
-  // SEO optimization
   useSEO({
     title: 'Publications - Research Papers & Academic Contributions',
     description: 'Browse Chi-Hua Tung\'s academic publications including 17 research papers in bioinformatics, machine learning, and medical informatics published in top-tier journals.',
@@ -35,12 +25,13 @@ const Publications: React.FC = () => {
   const [filterType, setFilterType] = useState('all')
   const [filterYear, setFilterYear] = useState('all')
 
-  // Function to highlight Chi-Hua Tung's name in author list
+  const publications = getPublicationsSorted()
+
   const highlightAuthorName = (authors: string[]) => {
     return authors.map((author, index) => {
       const isLastAuthor = index === authors.length - 1
       const separator = isLastAuthor ? '' : ', '
-      
+
       if (author === 'Chi-Hua Tung') {
         return (
           <span key={index}>
@@ -49,7 +40,7 @@ const Publications: React.FC = () => {
           </span>
         )
       }
-      
+
       return (
         <span key={index}>
           {author}{separator}
@@ -58,383 +49,31 @@ const Publications: React.FC = () => {
     })
   }
 
-  const publications: Publication[] = [
-    {
-      title:
-        'Light Bladder Net: Non-invasive Bladder Cancer Prediction by Weighted Deep Learning Approaches and Graphical Data Transformation',
-      authors: [
-        'Chi-Hua Tung',
-        'Shih-Huan Lin',
-        'Kai-Po Chang',
-        'Ya-Wen Xu',
-        'Min-Ling Chuang',
-        'Yen-Wei Chu'
-      ],
-      journal: 'Anticancer Research',
-      year: 2025,
-      volume: '45(5)',
-      pages: '1953-1964',
-      doi: '10.21873/anticanres.17572',
-      type: 'SCI',
-      category: 'journal'
-    },
-    {
-      title:
-        'Deleterious genetic changes in AGTPBP1 result in teratozoospermia with sperm head and flagella defects',
-      authors: [
-        'Yu-Hua Lin',
-        'Ya-Yun Wang',
-        'Tsung-Hsuan Lai',
-        'Jih-Lung Teng',
-        'Chi-Wei Lin',
-        'Chih-Chun Ke',
-        'I-Shing Yu',
-        'Hui-Ling Lee',
-        'Chying-Chyuan Chan',
-        'Chi-Hua Tung',
-        'Donald F. Conrad',
-        "Moira K. O'Bryan",
-        'Ying-Hung Lin'
-      ],
-      journal: 'Journal of Cellular and Molecular Medicine',
-      year: 2023,
-      volume: '28:e18031',
-      doi: '10.1111/jcmm.18031',
-      type: 'SCI',
-      category: 'journal'
-    },
-    {
-      title:
-        'Borneol dehydrogenase from Pseudomonas sp. TCU-HL1 possesses novel quinuclidinone reductase activities',
-      authors: [
-        'Jia-Ru Wu',
-        'Pei-Chieh Lu',
-        'Aye Aye Khine',
-        'Sailent Rizki Sari Simaremare',
-        'Chien-Chi Hung',
-        'Lin-Ming Yiin',
-        'Tsung-Jung Ho',
-        'Chi-Hua Tung',
-        'Hao-Ping Chen'
-      ],
-      journal: 'Biocatalysis and Biotransformation',
-      year: 2021,
-      doi: '10.1080/10242422.2021.1955865',
-      type: 'SCI',
-      category: 'journal'
-    },
-    {
-      title:
-        'NIgPred: Class-Specific Antibody Prediction for Linear B-Cell Epitopes Based on Heterogeneous Features and Machine-Learning Approaches',
-      authors: ['Chi-Hua Tung', 'Yi-Sheng Chang', 'Kai-Po Chang', 'Yen-Wei Chu'],
-      journal: 'Viruses',
-      year: 2021,
-      volume: '13(8)',
-      pages: '1531',
-      doi: '10.3390/v13081531',
-      type: 'SCI',
-      category: 'journal'
-    },
-    {
-      title:
-        'Discovery of a more potent anticancer agent than C4‐benzazole 1,8‐naphthalimide derivatives against murine melanoma',
-      authors: [
-        'Chi-Hua Tung',
-        'Yen‐Ta Lu',
-        'Wei‐Ting Kao',
-        'Jen‐Wei Liu',
-        'Yi‐Hsuan Lai',
-        'Shinn‐Jong Jiang',
-        'Hao‐Ping Chen',
-        'Tzenge‐Lien Shih'
-      ],
-      journal: 'Journal of the Chinese Chemical Society',
-      year: 2020,
-      volume: '67(7)',
-      pages: '1254–1262',
-      doi: '10.1002/jccs.202000019',
-      type: 'SCI',
-      category: 'journal',
-      ranking: '128/172, CHEMISTRY, MULTIDISCIPLINARY'
-    },
-    {
-      title:
-        'QUATgo: Protein quaternary structural attributes predicted by two-stage machine learning approaches with heterogeneous feature encoding',
-      authors: [
-        'Chi-Hua Tung',
-        'Ching-Hsuan Chien',
-        'Chi-Wei Chen',
-        'Lan-Ying Huang',
-        'Yu-Nan Liu',
-        'Yen-Wei Chu'
-      ],
-      journal: 'PLoS ONE',
-      year: 2020,
-      volume: '15(4)',
-      pages: 'e0232087',
-      doi: '10.1371/journal.pone.0232087',
-      type: 'SCI',
-      category: 'journal',
-      ranking: '24/69, MULTIDISCIPLINARY SCIENCES'
-    },
-    {
-      title:
-        'Efficacy and Safety of Exenatide versus Insulin in Type 2 Diabetes Mellitus: Systematic Review and Meta-Analysis',
-      authors: ['Bao-Ju Chen', 'Ju Chuko', 'Chi-Hua Tung', 'Kuang-Yu Hu'],
-      journal: 'International Journal of Management, Economics and Social Sciences',
-      year: 2019,
-      volume: '8(3)',
-      pages: '253–265',
-      type: 'EI',
-      category: 'journal'
-    },
-    {
-      title:
-        'SUMOgo: Prediction of sumoylation sites on lysines by motif screening models and the effects of various post-translational modifications',
-      authors: [
-        'Chi-Chang Chang',
-        'Chi-Hua Tung',
-        'Chi-Wei Chen',
-        'Chin-Hau Tu',
-        'Yen-Wei Chu'
-      ],
-      journal: 'Scientific Reports',
-      year: 2018,
-      volume: '8',
-      pages: '15512',
-      type: 'SCI',
-      category: 'journal',
-      ranking: '12/64, MULTIDISCIPLINARY SCIENCES'
-    },
-    {
-      title:
-        'Unveiling disease protein associations by navigating a structural alphabet-encoded protein network',
-      authors: ['Chi-Hua Tung', 'Jih-Hsu Chang', 'Jose C. Nacher'],
-      journal: 'International Journal of Management, Economics and Social Sciences',
-      year: 2017,
-      volume: '6(S1)',
-      pages: '274-292',
-      type: 'EI',
-      category: 'journal'
-    },
-    {
-      title: 'Identifying Post-Translational Modification Crosstalks for Breast Cancer',
-      authors: [
-        'Chi-Hua Tung',
-        'Pei-Wei Shueng',
-        'Yen-Wei Chu',
-        'Chi-Wei Chen',
-        'Chian-Ying Chen'
-      ],
-      journal: 'Journal of Computing Science and Engineering',
-      year: 2017,
-      volume: '11(4)',
-      pages: '111-120',
-      doi: '10.5626/JCSE.2017.11.4.111',
-      type: 'EI',
-      category: 'journal'
-    },
-    {
-      title:
-        'Functional characterization of Acinetobacter baumannii lacking the RNA chaperone Hfq',
-      authors: [
-        'Han-Yueh Kuo',
-        'Hsuan-Hao Chao',
-        'Po-Cheng Liao',
-        'Long Hsu',
-        'Kai-Chih Chang',
-        'Chi-Hua Tung',
-        'Chang-Hua Chen',
-        'Ming-Li Liou'
-      ],
-      journal: 'Frontiers in Microbiology',
-      year: 2017,
-      volume: '8',
-      pages: '2068',
-      doi: '10.3389/fmicb.2017.02068',
-      type: 'SCI',
-      category: 'journal'
-    },
-    {
-      title:
-        'Predicting human protein subcellular localization by heterogeneous and comprehensive approaches',
-      authors: ['Chi-Hua Tung', 'Chi-Wei Chen', 'Han-Hao Sun', 'Yen-Wei Chu'],
-      journal: 'PLoS ONE',
-      year: 2017,
-      volume: '12(6)',
-      pages: 'e0178832',
-      doi: '10.1371/journal.pone.0178832',
-      type: 'SCI',
-      category: 'journal',
-      ranking: '11/63, MULTIDISCIPLINARY SCIENCES'
-    },
-    {
-      title:
-        'A Study of New Algorithm for Detecting Optimal Composition of Protein Discontinuous Fragments Alignment',
-      authors: ['Chi-Hua Tung', 'Tzu-Wei Yen'],
-      journal: '2017 6th IIAI International Congress on Advanced Applied Informatics (IIAI-AAI)',
-      year: 2017,
-      pages: '864-867',
-      doi: ' 10.1109/IIAI-AAI.2017.104',
-      type: 'Conference',
-      category: 'conference',
-    },
-    {
-      title:
-        'QuaBingo: A Prediction System for Protein Quaternary Structure Attributes Using Block Composition',
-      authors: [
-        'Chi-Hua Tung',
-        'Chi-Wei Chen',
-        'Ren-Chao Guo',
-        'Hui-Fuang Ng',
-        'Yen-Wei Chu'
-      ],
-      journal: 'BioMed Research International',
-      year: 2016,
-      volume: '2016',
-      doi: '10.1155/2016/9480276',
-      type: 'SCI',
-      category: 'journal',
-      ranking: '82/161, BIOTECHNOLOGY & APPLIED MICROBIOLOGY'
-    },
-    {
-      title:
-        'A Study on Improving Prediction of the Human Disease Proteins using Local Structural Similarity Network with Neighborhood Level Enhancement',
-      authors: ['Guan-Fu Chen', 'Chi-Hua Tung'],
-      journal: 'Journal of Information Technology and Applications',
-      year: 2016,
-      volume: '10(1)',
-      pages: '9-18',
-      category: 'journal'
-    },
-    {
-      title:
-        'A Study of Residue Contact Number Among the Amino Acid and Structural Alphabet',
-      authors: ['Li-Wei Chuang', 'Chi-Hua Tung'],
-      journal: 'Journal of Information Technology and Applications',
-      year: 2015,
-      volume: '9(2)',
-      pages: '37-46',
-      category: 'journal'
-    },
-    {
-      title:
-        'The Study of Protein Backbone Reconstruction by Applying Structural Alphabet',
-      authors: ['Jung Yeh', 'Chi-Hua Tung'],
-      journal: 'Journal of Information Technology and Applications',
-      year: 2015,
-      volume: '9(1)',
-      pages: '1-7',
-      category: 'journal'
-    },
-    {
-      title:
-        'Determining the similarity of discrete fragments in protein structural motif',
-      authors: ['Kai-Chieh Yang', 'Chi-Hua Tung'],
-      journal: 'Journal of Information Technology and Applications',
-      year: 2014,
-      volume: '8(3)',
-      pages: '56-62',
-      category: 'journal'
-    },
-    {
-      title:
-        'A Complex Network Approach for the Analysis of Protein Units Similarity Using Structural Alphabet',
-      authors: ['Chi-Hua Tung', 'Jose C. Nacher'],
-      journal: 'International Journal of Bioscience, Biochemistry and Bioinformatics',
-      year: 2013,
-      volume: '3(5)',
-      pages: '433-437',
-      category: 'journal'
-    },
-    {
-      title:
-        'A New Scheme to Predict Kinase-Specific Phosphorylation Sites on Protein Three Dimensional Structures',
-      authors: ['Min-Gang Su', 'Kai-Yao Huang', 'Chi-Hua Tung', 'Tzong-Yi Lee'],
-      journal: 'International Journal of Bioscience, Biochemistry and Bioinformatics',
-      year: 2013,
-      volume: '3(5)',
-      pages: '473-478',
-      category: 'journal'
-    },
-    {
-      title:
-        'fastSCOP: a fast web server for recognizing protein structural domains and SCOP superfamilies',
-      authors: ['Chi-Hua Tung', 'Jinn-Moon Yang'],
-      journal: 'Nucleic Acids Research',
-      year: 2007,
-      volume: '35',
-      pages: 'W438-W443',
-      type: 'SCI',
-      category: 'journal',
-      ranking: '5-Year IF: 7.314, Ranking: 30/286'
-    },
-    {
-      title:
-        'Kappa-alpha plot derived structural alphabet and BLOSUM-like substitution matrix for fast protein structure database search',
-      authors: ['Chi-Hua Tung', 'Jhang-Wei Huang', 'Jinn-Moon Yang'],
-      journal: 'Genome Biology',
-      year: 2007,
-      volume: '8',
-      pages: 'R31.1-R31.16',
-      type: 'SCI',
-      category: 'journal',
-      ranking: '5-Year IF: 7.354, Ranking: 11/160, 17/156'
-    },
-    {
-      title: 'Protein structure database search and evolutionary classification',
-      authors: ['Jinn-Moon Yang', 'Chi-Hua Tung'],
-      journal: 'Nucleic Acids Research',
-      year: 2006,
-      volume: '34',
-      pages: '3646-3659',
-      type: 'SCI',
-      category: 'journal',
-      ranking: '5-Year IF: 7.314; Ranking: 30/286'
-    }
-  ]
-
   const filteredPublications = publications
-    .filter(pub => {
-    const matchesSearch = pub.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         pub.authors.some(author => author.toLowerCase().includes(searchTerm.toLowerCase())) ||
-                         pub.journal.toLowerCase().includes(searchTerm.toLowerCase())
-    
-    const matchesType = filterType === 'all' || pub.type === filterType
-    const matchesYear = filterYear === 'all' || pub.year.toString() === filterYear
-    
-    return matchesSearch && matchesType && matchesYear
-  })
-  .map((pub, idx) => ({ ...pub, id: idx + 1 }));
+    .filter((pub) => {
+      const matchesSearch =
+        pub.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        pub.authors.some((author) =>
+          author.toLowerCase().includes(searchTerm.toLowerCase())
+        ) ||
+        pub.journal.toLowerCase().includes(searchTerm.toLowerCase())
 
-  const years = [...new Set(publications.map(pub => pub.year))].sort((a, b) => b - a)
+      const matchesType = filterType === 'all' || pub.type === filterType
+      const matchesYear = filterYear === 'all' || pub.year.toString() === filterYear
+
+      return matchesSearch && matchesType && matchesYear
+    })
+
+  const years = [...new Set(publications.map((pub) => pub.year))].sort((a, b) => b - a)
   const stats = {
     total: publications.length,
-    sci: publications.filter(p => p.type === 'SCI').length,
-    ei: publications.filter(p => p.type === 'EI').length,
-    conference: publications.filter(p => p.type === 'Conference').length
-  }
-
-  const formatPublication = (pub: Publication, index: number) => {
-    const authors = pub.authors.length > 1
-      ? `${pub.authors.slice(0, -1).join(', ')} & ${pub.authors[pub.authors.length - 1]}`
-      : pub.authors[0]
-
-    const volPages = pub.volume
-      ? pub.pages
-        ? `${pub.volume}:${pub.pages}`
-        : pub.volume
-      : pub.pages || ''
-
-    const typePart = `(${pub.type}${pub.ranking ? ', ' + pub.ranking : ''})`
-    const doiPart = pub.doi ? ` https://doi.org/${pub.doi}` : ''
-    const journalPart = `${pub.journal}${volPages ? `, ${volPages}` : ''}`
-
-    return `${index + 1}. ${authors}, "${pub.title}", ${pub.year}, ${journalPart}, ${typePart}${doiPart}`
+    sci: publications.filter((p) => p.type === 'SCI').length,
+    ei: publications.filter((p) => p.type === 'EI').length,
+    conference: publications.filter((p) => p.type === 'Conference').length,
   }
 
   const downloadPublications = () => {
-    const lines = filteredPublications.map((pub, idx) => formatPublication(pub, idx))
+    const lines = filteredPublications.map((pub, idx) => formatPublicationLine(pub, idx))
     const blob = new Blob([lines.join('\n')], { type: 'text/plain' })
     const url = URL.createObjectURL(blob)
     const link = document.createElement('a')
@@ -446,27 +85,29 @@ const Publications: React.FC = () => {
     URL.revokeObjectURL(url)
   }
 
-  const getTypeColor = (type: string) => {
+  const getTypeColor = (type?: string) => {
     switch (type) {
-      case 'SCI': return 'bg-slate-100 text-blue-800'
-      case 'EI': return 'bg-teal-100 text-green-800'
-      case 'Conference': return 'bg-fuchsia-100 text-purple-800'
-      default: return 'bg-gray-100 text-gray-800'
+      case 'SCI':
+        return 'bg-slate-100 text-blue-800'
+      case 'EI':
+        return 'bg-teal-100 text-green-800'
+      case 'Conference':
+        return 'bg-fuchsia-100 text-purple-800'
+      default:
+        return 'bg-gray-100 text-gray-800'
     }
   }
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      {/* Header */}
       <div className="text-center mb-12">
         <h1 className="text-4xl font-bold text-slate-900 mb-4">Publications</h1>
         <p className="text-lg text-slate-600 max-w-3xl mx-auto text-wrap">
-          A comprehensive collection of research publications in bioinformatics, machine learning, 
+          A comprehensive collection of research publications in bioinformatics, machine learning,
           and computational biology spanning over two decades of academic contributions.
         </p>
       </div>
 
-      {/* Statistics */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8">
         <Card>
           <CardContent className="p-6 text-center">
@@ -477,7 +118,7 @@ const Publications: React.FC = () => {
             <div className="text-sm text-slate-600">Total Publications</div>
           </CardContent>
         </Card>
-        
+
         <Card>
           <CardContent className="p-6 text-center">
             <div className="flex items-center justify-center w-12 h-12 bg-slate-100 rounded-full mx-auto mb-3">
@@ -487,7 +128,7 @@ const Publications: React.FC = () => {
             <div className="text-sm text-slate-600">SCI Papers</div>
           </CardContent>
         </Card>
-        
+
         <Card>
           <CardContent className="p-6 text-center">
             <div className="flex items-center justify-center w-12 h-12 bg-teal-100 rounded-full mx-auto mb-3">
@@ -497,7 +138,7 @@ const Publications: React.FC = () => {
             <div className="text-sm text-slate-600">EI Papers</div>
           </CardContent>
         </Card>
-        
+
         <Card>
           <CardContent className="p-6 text-center">
             <div className="flex items-center justify-center w-12 h-12 bg-fuchsia-100 rounded-full mx-auto mb-3">
@@ -509,7 +150,6 @@ const Publications: React.FC = () => {
         </Card>
       </div>
 
-      {/* Search and Filter */}
       <div className="bg-slate-50 rounded-lg p-6 mb-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
           <Button onClick={downloadPublications} variant="outline" className="w-full flex items-center justify-center">
@@ -525,7 +165,7 @@ const Publications: React.FC = () => {
               className="pl-10"
             />
           </div>
-          
+
           <Select value={filterType} onValueChange={setFilterType}>
             <SelectTrigger>
               <SelectValue placeholder="Filter by type" />
@@ -537,24 +177,25 @@ const Publications: React.FC = () => {
               <SelectItem value="Conference">Conference</SelectItem>
             </SelectContent>
           </Select>
-          
+
           <Select value={filterYear} onValueChange={setFilterYear}>
             <SelectTrigger>
               <SelectValue placeholder="Filter by year" />
             </SelectTrigger>
             <SelectContent>
               <SelectItem value="all">All Years</SelectItem>
-              {years.map(year => (
-                <SelectItem key={year} value={year.toString()}>{year}</SelectItem>
+              {years.map((year) => (
+                <SelectItem key={year} value={year.toString()}>
+                  {year}
+                </SelectItem>
               ))}
             </SelectContent>
           </Select>
         </div>
       </div>
 
-      {/* Publications List */}
       <div className="space-y-6">
-        {filteredPublications.map((pub) => (
+        {filteredPublications.map((pub: Publication) => (
           <Card key={pub.id} className="hover:shadow-lg transition-shadow">
             <CardHeader>
               <div className="flex justify-between items-start gap-4">
@@ -567,14 +208,14 @@ const Publications: React.FC = () => {
                   </CardDescription>
                 </div>
                 <div className="flex flex-col items-end gap-2">
-                  <Badge className={getTypeColor(pub.type)}>
-                    {pub.type}
-                  </Badge>
+                  {pub.type && (
+                    <Badge className={getTypeColor(pub.type)}>{pub.type}</Badge>
+                  )}
                   <span className="text-sm font-medium text-slate-900">{pub.year}</span>
                 </div>
               </div>
             </CardHeader>
-            
+
             <CardContent>
               <div className="space-y-2">
                 <div className="text-sm">
@@ -582,29 +223,24 @@ const Publications: React.FC = () => {
                   {pub.volume && <span className="text-slate-600">, {pub.volume}</span>}
                   {pub.pages && <span className="text-slate-600">: {pub.pages}</span>}
                 </div>
-                
+
                 {pub.ranking && (
                   <div className="text-xs text-slate-500 text-wrap">
                     Ranking: {pub.ranking}
                   </div>
                 )}
-                
+
                 {pub.doi && (
                   <div className="flex items-center gap-2">
-                    <Button
-                      variant="outline"
-                      size="sm"
-                      asChild
-                      className="text-xs"
-                    >
+                    <Button variant="outline" size="sm" asChild className="text-xs">
                       <a
-                        href={`https://doi.org/${pub.doi}`}
+                        href={`https://doi.org/${pub.doi.trim()}`}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="flex items-center gap-1"
                       >
                         <ExternalLink className="w-3 h-3" />
-                        DOI: {pub.doi}
+                        DOI: {pub.doi.trim()}
                       </a>
                     </Button>
                   </div>
@@ -632,7 +268,6 @@ const Publications: React.FC = () => {
         </div>
       )}
 
-      {/* Google Scholar Link */}
       <div className="mt-12 text-center">
         <Card className="bg-blue-50 border-blue-200">
           <CardContent className="p-6">
@@ -661,4 +296,3 @@ const Publications: React.FC = () => {
 }
 
 export default Publications
-
