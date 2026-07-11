@@ -49,3 +49,6 @@ Thumbs.db
 # Temporary folders
 tmp/
 temp/
+
+# ref docs
+docs/
