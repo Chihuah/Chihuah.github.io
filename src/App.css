@@ -132,6 +132,15 @@
   * {
     @apply border-border outline-ring/50;
   }
+
+  /*
+   * Keep the site on a light palette. Edge/Chrome "auto dark" and some
+   * accessibility color filters can invert white headers into near-invisible UI.
+   */
+  html {
+    color-scheme: only light;
+  }
+
   body {
     @apply bg-background text-foreground;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -139,6 +148,80 @@
       sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+  }
+
+  /*
+   * Site header — explicit hex colors + fixed positioning.
+   * Avoid depending only on utility tokens (oklch) that some Edge color modes
+   * rewrite poorly. Fixed + translateZ reduces sticky compositing glitches.
+   */
+  .site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+    background-color: #ffffff !important;
+    color: #0f172a !important;
+    border-bottom: 1px solid #e2e8f0;
+    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+    transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    color-scheme: only light;
+    forced-color-adjust: none;
+  }
+
+  .site-header__title {
+    color: #0f172a !important;
+  }
+
+  .site-header__link {
+    color: #124e79 !important;
+  }
+
+  .site-header__link:hover {
+    background-color: #f1f5f9 !important;
+    color: #0f172a !important;
+  }
+
+  .site-header__link.is-active {
+    background-color: #e2e8f0 !important;
+    color: #1d4ed8 !important;
+  }
+
+  .site-header__mobile {
+    background-color: #ffffff !important;
+    border-color: #e2e8f0 !important;
+  }
+
+  /* Pure CSS breakpoints (avoid relying only on Tailwind responsive utilities) */
+  .site-header__nav {
+    display: none !important;
+  }
+
+  .site-header__menu-btn {
+    display: inline-flex !important;
+    color: #ffffff !important;
+  }
+
+  @media (min-width: 900px) {
+    .site-header__nav {
+      display: flex !important;
+    }
+
+    .site-header__menu-btn {
+      display: none !important;
+    }
+
+    .site-header__mobile-panel {
+      display: none !important;
+    }
+  }
+
+  /* Reserve space so content is not hidden under the fixed header */
+  .site-main {
+    padding-top: 4.5rem; /* matches min-h-16 header row + border */
   }
   
   /* Optimize English text rendering */
